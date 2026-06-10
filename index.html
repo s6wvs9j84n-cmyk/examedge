@@ -547,7 +547,7 @@
   </footer>
 
   <script>
-   const API_KEY = "YOUR_API_KEY_HERE";
+   
 
     const QUESTIONS = [
       {
@@ -649,56 +649,23 @@
       document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
 
       try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': API_KEY,
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-direct-browser-access': 'true'
-          },
-          body: JSON.stringify({
-            model: 'claude-opus-4-5',
-            max_tokens: 1024,
-            messages: [{
-              role: 'user',
-              content: `You are an experienced AQA GCSE English Language examiner.
+        
+        const response = await fetch('/api/mark', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    question: selectedQuestion.full,
+    type: selectedQuestion.type,
+    marks: selectedQuestion.marks,
+    ao5: selectedQuestion.ao5,
+    ao6: selectedQuestion.ao6,
+    paper: selectedQuestion.paper,
+    answer: answer
+  })
+});
 
-The question was: ${selectedQuestion.full}
-
-This is a ${selectedQuestion.type === 'creative' ? 'creative writing' : 'transactional writing'} task worth ${selectedQuestion.marks} marks (AO5: ${selectedQuestion.ao5}, AO6: ${selectedQuestion.ao6}).
-
-AQA mark scheme:
-- AO5 Band 4 (19-24): Compelling, convincing. Crafted and controlled.
-- AO5 Band 3 (13-18): Consistent, clear. Vocabulary and structure used for effect.
-- AO5 Band 2 (7-12): Some attempts to match style. Some structural features.
-- AO5 Band 1 (1-6): Simple, limited writing.
-- AO6 Band 4 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-- AO6 Band 3 (9-12): Sophisticated vocabulary. Generally accurate.
-- AO6 Band 2 (5-8): Some varied vocabulary. Some accurate punctuation.
-- AO6 Band 1 (1-4): Simple vocabulary. Frequent errors.
-
-Student's answer:
-${answer}
-
-Respond in exactly this format:
-
-SCORE: [number]/40 (AO5: [number]/24 · AO6: [number]/16)
-
-WHAT YOU DID WELL:
-- [specific point]
-- [specific point]
-
-HOW TO IMPROVE:
-- [specific actionable tip]
-- [specific actionable tip]
-- [specific actionable tip]`
-            }]
-          })
-        });
-
-        const data = await response.json();
-        const text = data.content[0].text;
+const data = await response.json();
+const text = data.result;
         const lines = text.split('\n').filter(l => l.trim());
         let html = '';
         let currentSection = null;
