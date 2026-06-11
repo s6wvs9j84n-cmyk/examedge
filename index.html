@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ExamEdge — AI-Powered GCSE Marking</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -458,7 +459,8 @@
     </a>
     <div class="nav-right">
       <span class="nav-badge">AQA · GCSE</span>
-      <button class="nav-btn">Sign up free</button>
+      <span style="font-size:13px;color:#888" id="user-email"></span>
+<button class="nav-btn" onclick="handleLogout()">Sign out</button>
     </div>
   </nav>
 
@@ -548,7 +550,26 @@
 
   <script>
    
+// Supabase auth check
+const SUPABASE_URL = 'https://zxnicwzzlpfekzqwtrxt.supabase.co';
+const SUPABASE_KEY = 'your_full_publishable_key_here';
+const { createClient } = supabase;
+const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+async function checkAuth() {
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  if (!session) window.location.href = 'auth.html';
+  else {
+    const email = session.user.email;
+    document.getElementById('user-email').textContent = email;
+  }
+}
+checkAuth();
+
+async function handleLogout() {
+  await supabaseClient.auth.signOut();
+  window.location.href = 'auth.html';
+}
     const QUESTIONS = [
       {
         id: 1,
