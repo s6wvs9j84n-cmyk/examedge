@@ -7,15 +7,12 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
       background: #f0f2f5;
       color: #1a1a2e;
       min-height: 100vh;
     }
-
-    /* ── NAV ── */
     nav {
       background: white;
       border-bottom: 1px solid #e8e8f0;
@@ -46,7 +43,6 @@
       color: white;
       font-weight: 900;
       font-size: 16px;
-      letter-spacing: -1px;
     }
     .logo-text {
       font-size: 18px;
@@ -54,9 +50,7 @@
       color: #1a1a2e;
       letter-spacing: -0.5px;
     }
-    .logo-text span {
-      color: #6c5ce7;
-    }
+    .logo-text span { color: #6c5ce7; }
     .nav-right {
       display: flex;
       align-items: center;
@@ -70,6 +64,10 @@
       padding: 4px 10px;
       border-radius: 20px;
     }
+    .nav-user {
+      font-size: 13px;
+      color: #888;
+    }
     .nav-btn {
       background: #6c5ce7;
       color: white;
@@ -81,11 +79,14 @@
       cursor: pointer;
     }
     .nav-btn:hover { background: #5a4bd1; }
-
-    /* ── HERO ── */
+    .nav-btn.outline {
+      background: white;
+      color: #6c5ce7;
+      border: 1.5px solid #6c5ce7;
+    }
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #2d2b55 100%);
-      padding: 56px 32px;
+      padding: 48px 32px;
       text-align: center;
       color: white;
     }
@@ -98,12 +99,12 @@
       font-weight: 600;
       padding: 4px 14px;
       border-radius: 20px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
     .hero h2 {
-      font-size: 36px;
+      font-size: 34px;
       font-weight: 800;
       margin-bottom: 12px;
       letter-spacing: -1px;
@@ -114,7 +115,7 @@
       font-size: 16px;
       color: #b0aecb;
       max-width: 500px;
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
       line-height: 1.7;
     }
     .hero-stats {
@@ -123,28 +124,38 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-    .stat {
-      text-align: center;
+    .stat-number { font-size: 24px; font-weight: 800; color: #a29bfe; }
+    .stat-label { font-size: 12px; color: #b0aecb; margin-top: 2px; }
+    .usage-bar {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 14px 20px;
+      max-width: 400px;
+      margin: 20px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
-    .stat-number {
-      font-size: 24px;
-      font-weight: 800;
-      color: #a29bfe;
+    .usage-text { color: #b0aecb; font-size: 14px; }
+    .usage-text strong { color: white; }
+    .usage-dots {
+      display: flex;
+      gap: 6px;
     }
-    .stat-label {
-      font-size: 12px;
-      color: #b0aecb;
-      margin-top: 2px;
+    .usage-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
     }
-
-    /* ── MAIN ── */
+    .usage-dot.used { background: #a29bfe; }
     .main {
       max-width: 780px;
       margin: 0 auto;
       padding: 36px 20px 60px;
     }
-
-    /* ── SUBJECT BAR ── */
     .subject-bar {
       display: flex;
       gap: 8px;
@@ -160,7 +171,6 @@
       border: 1.5px solid #e0e0f0;
       background: white;
       color: #888;
-      transition: all 0.15s;
     }
     .subject-pill.active {
       background: #6c5ce7;
@@ -171,8 +181,6 @@
       opacity: 0.45;
       cursor: not-allowed;
     }
-
-    /* ── CARD ── */
     .card {
       background: white;
       border-radius: 16px;
@@ -189,13 +197,7 @@
       letter-spacing: 1px;
       margin-bottom: 16px;
     }
-
-    /* ── QUESTION GRID ── */
-    .question-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .question-grid { display: flex; flex-direction: column; gap: 10px; }
     .question-btn {
       background: #fafafa;
       border: 1.5px solid #ebebf5;
@@ -213,7 +215,6 @@
       border-color: #6c5ce7;
       background: #f8f6ff;
       transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(108,92,231,0.1);
     }
     .question-btn.active {
       border-color: #6c5ce7;
@@ -232,45 +233,14 @@
       font-size: 15px;
       flex-shrink: 0;
     }
-    .question-btn.active .q-number {
-      background: #6c5ce7;
-      color: white;
-    }
+    .question-btn.active .q-number { background: #6c5ce7; color: white; }
     .q-content { flex: 1; }
-    .q-meta {
-      font-size: 11px;
-      color: #bbb;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 3px;
-    }
-    .q-title {
-      font-size: 14px;
-      color: #333;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-    .question-btn.active .q-title {
-      color: #6c5ce7;
-      font-weight: 600;
-    }
-    .q-arrow {
-      color: #ddd;
-      font-size: 18px;
-      flex-shrink: 0;
-    }
+    .q-meta { font-size: 11px; color: #bbb; font-weight: 600; text-transform: uppercase; margin-bottom: 3px; }
+    .q-title { font-size: 14px; color: #333; font-weight: 500; }
+    .question-btn.active .q-title { color: #6c5ce7; font-weight: 600; }
+    .q-arrow { color: #ddd; font-size: 18px; }
     .question-btn.active .q-arrow { color: #6c5ce7; }
-
-    /* ── QUESTION DISPLAY ── */
     #question-display { display: none; }
-    .question-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 16px;
-      gap: 12px;
-    }
     .question-paper-tag {
       background: #6c5ce7;
       color: white;
@@ -278,15 +248,8 @@
       font-weight: 700;
       padding: 4px 10px;
       border-radius: 6px;
-      white-space: nowrap;
-      letter-spacing: 0.5px;
     }
-    .marks-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
+    .marks-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
     .badge {
       display: inline-block;
       background: #f5f5f5;
@@ -294,26 +257,9 @@
       padding: 4px 10px;
       font-size: 12px;
       color: #666;
-      font-weight: 500;
     }
-    .badge.purple {
-      background: #f0eeff;
-      color: #6c5ce7;
-      font-weight: 600;
-    }
-    .question-text {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #2a2a3e;
-    }
-
-    /* ── ANSWER ── */
-    .answer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-    }
+    .badge.purple { background: #f0eeff; color: #6c5ce7; font-weight: 600; }
+    .question-text { font-size: 16px; line-height: 1.8; color: #2a2a3e; }
     textarea {
       width: 100%;
       height: 220px;
@@ -325,7 +271,6 @@
       resize: vertical;
       line-height: 1.7;
       color: #222;
-      transition: border-color 0.15s;
     }
     textarea:focus {
       outline: none;
@@ -335,14 +280,7 @@
     .answer-footer {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       margin-top: 8px;
-    }
-    .word-count {
-      font-size: 12px;
-      color: #bbb;
-    }
-    .word-tip {
       font-size: 12px;
       color: #bbb;
     }
@@ -357,22 +295,52 @@
       width: 100%;
       margin-top: 16px;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      box-shadow: 0 4px 14px rgba(108,92,231,0.3);
       transition: all 0.15s;
+    }
+    .submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(108,92,231,0.4); }
+    .submit-btn:disabled { background: #ccc; box-shadow: none; transform: none; cursor: not-allowed; }
+    /* Paywall */
+    .paywall {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .paywall-icon { font-size: 48px; margin-bottom: 16px; }
+    .paywall h3 { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
+    .paywall p { color: #888; font-size: 15px; margin-bottom: 24px; line-height: 1.6; }
+    .paywall-price {
+      background: linear-gradient(135deg, #1a1a2e, #2d2b55);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      color: white;
+    }
+    .price-amount { font-size: 42px; font-weight: 900; color: white; }
+    .price-period { font-size: 16px; color: #b0aecb; }
+    .price-features { margin-top: 16px; text-align: left; }
+    .price-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #b0aecb;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .price-feature span:first-child { color: #a29bfe; }
+    .upgrade-btn {
+      background: linear-gradient(135deg, #6c5ce7, #8b7cf6);
+      color: white;
+      border: none;
+      padding: 16px 28px;
+      border-radius: 10px;
+      font-size: 17px;
+      cursor: pointer;
+      width: 100%;
+      font-weight: 700;
       box-shadow: 0 4px 14px rgba(108,92,231,0.3);
     }
-    .submit-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(108,92,231,0.4);
-    }
-    .submit-btn:disabled {
-      background: #ccc;
-      box-shadow: none;
-      transform: none;
-      cursor: not-allowed;
-    }
-
-    /* ── FEEDBACK ── */
+    /* Feedback */
     #feedback { display: none; }
     .feedback-top {
       display: flex;
@@ -390,42 +358,21 @@
       font-weight: 800;
       box-shadow: 0 4px 14px rgba(108,92,231,0.3);
     }
-    .score-sub {
-      font-size: 13px;
-      color: #888;
-      line-height: 1.8;
-    }
+    .score-sub { font-size: 13px; color: #888; line-height: 1.8; }
     .score-sub strong { color: #444; }
     .feedback-block {
       margin-bottom: 20px;
       padding: 20px;
       border-radius: 12px;
-      background: #fafafa;
-      border: 1px solid #f0f0f0;
     }
-    .feedback-block.well { background: #f0fff4; border-color: #c3f0d0; }
-    .feedback-block.improve { background: #fff8f0; border-color: #fde8c8; }
-    .feedback-heading {
-      font-weight: 700;
-      margin-bottom: 12px;
-      font-size: 15px;
-    }
+    .feedback-block.well { background: #f0fff4; border: 1px solid #c3f0d0; }
+    .feedback-block.improve { background: #fff8f0; border: 1px solid #fde8c8; }
+    .feedback-heading { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
     .feedback-block.well .feedback-heading { color: #2d8a4e; }
     .feedback-block.improve .feedback-heading { color: #c07020; }
-    .feedback-point {
-      display: flex;
-      gap: 10px;
-      margin: 8px 0;
-      line-height: 1.7;
-      font-size: 15px;
-      color: #444;
-    }
+    .feedback-point { display: flex; gap: 10px; margin: 8px 0; line-height: 1.7; font-size: 15px; color: #444; }
     .feedback-point span:first-child { flex-shrink: 0; }
-    .loading-state {
-      text-align: center;
-      padding: 30px 0;
-      color: #888;
-    }
+    .loading-state { text-align: center; padding: 30px 0; color: #888; }
     .loading-spinner {
       width: 36px;
       height: 36px;
@@ -436,8 +383,6 @@
       margin: 0 auto 14px;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 30px;
@@ -451,7 +396,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">
       <div class="logo-icon">EE</div>
@@ -459,156 +403,170 @@
     </a>
     <div class="nav-right">
       <span class="nav-badge">AQA · GCSE</span>
-      <span style="font-size:13px;color:#888" id="user-email"></span>
-<button class="nav-btn" onclick="handleLogout()">Sign out</button>
+      <span class="nav-user" id="user-email"></span>
+      <button class="nav-btn outline" onclick="handleLogout()">Sign out</button>
     </div>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="hero-tag">✦ AI-Powered Marking</div>
     <h2>Get instant feedback on<br><span>your GCSE answers</span></h2>
     <p>Submit your practice answers and receive detailed AQA-standard marking with personalised tips to boost your grade.</p>
     <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-number">40+</div>
-        <div class="stat-label">Past paper questions</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">6</div>
-        <div class="stat-label">GCSE subjects</div>
-      </div>
-      <div class="stat">
-        <div class="stat-number">10s</div>
-        <div class="stat-label">To get marked</div>
+      <div class="stat"><div class="stat-number">40+</div><div class="stat-label">Past paper questions</div></div>
+      <div class="stat"><div class="stat-number">6</div><div class="stat-label">GCSE subjects</div></div>
+      <div class="stat"><div class="stat-number">10s</div><div class="stat-label">To get marked</div></div>
+    </div>
+    <div class="usage-bar" id="usage-bar">
+      <div class="usage-text">Free markings used: <strong id="usage-count">0</strong> / 3</div>
+      <div class="usage-dots" id="usage-dots">
+        <div class="usage-dot" id="dot-1"></div>
+        <div class="usage-dot" id="dot-2"></div>
+        <div class="usage-dot" id="dot-3"></div>
       </div>
     </div>
   </div>
 
-  <!-- MAIN -->
   <div class="main">
-
-    <!-- Subject selector -->
     <div class="subject-bar">
       <div class="subject-pill active">English Language</div>
-      <div class="subject-pill coming-soon" title="Coming soon">English Literature</div>
-      <div class="subject-pill coming-soon" title="Coming soon">Biology</div>
-      <div class="subject-pill coming-soon" title="Coming soon">Chemistry</div>
-      <div class="subject-pill coming-soon" title="Coming soon">Physics</div>
-      <div class="subject-pill coming-soon" title="Coming soon">Geography</div>
-      <div class="subject-pill coming-soon" title="Coming soon">Business</div>
+      <div class="subject-pill coming-soon">English Literature</div>
+      <div class="subject-pill coming-soon">Biology</div>
+      <div class="subject-pill coming-soon">Chemistry</div>
+      <div class="subject-pill coming-soon">Physics</div>
+      <div class="subject-pill coming-soon">Geography</div>
+      <div class="subject-pill coming-soon">Business</div>
     </div>
 
-    <!-- Question picker -->
     <div class="card">
       <div class="card-title">Choose a question</div>
       <div class="question-grid" id="question-grid"></div>
     </div>
 
-    <!-- Selected question -->
     <div id="question-display">
       <div class="card">
-        <div class="question-header">
-          <div class="question-paper-tag" id="q-label">Paper 1</div>
-        </div>
-        <p class="question-text" id="q-text"></p>
+        <div class="question-paper-tag" id="q-label">Paper 1</div>
+        <p class="question-text" id="q-text" style="margin-top:14px"></p>
         <div class="marks-row" id="q-marks"></div>
       </div>
 
       <div class="card">
-        <div class="answer-header">
-          <div class="card-title" style="margin-bottom:0">Your answer</div>
-        </div>
+        <div class="card-title">Your answer</div>
         <textarea id="answer" placeholder="Start writing your answer here..." oninput="updateWordCount()"></textarea>
         <div class="answer-footer">
-          <span class="word-count" id="word-count">0 words</span>
-          <span class="word-tip">Aim for 450–600 words for full marks</span>
+          <span id="word-count">0 words</span>
+          <span>Aim for 450–600 words for full marks</span>
         </div>
-        <button class="submit-btn" id="submitBtn" onclick="submitAnswer()">
-          ✦ Submit for AI marking
-        </button>
+        <button class="submit-btn" id="submitBtn" onclick="submitAnswer()">✦ Submit for AI marking</button>
+
+        <!-- Paywall (hidden until 3 uses) -->
+        <div class="paywall" id="paywall">
+          <div class="paywall-icon">🔒</div>
+          <h3>You've used your 3 free markings</h3>
+          <p>Upgrade to ExamEdge Premium for unlimited AI marking across all subjects and papers.</p>
+          <div class="paywall-price">
+            <div class="price-amount">£4.99<span class="price-period">/month</span></div>
+            <div class="price-features">
+              <div class="price-feature"><span>✓</span><span>Unlimited AI markings</span></div>
+              <div class="price-feature"><span>✓</span><span>All GCSE subjects</span></div>
+              <div class="price-feature"><span>✓</span><span>AQA, Edexcel & more</span></div>
+              <div class="price-feature"><span>✓</span><span>Progress tracking</span></div>
+            </div>
+          </div>
+          <button class="upgrade-btn" onclick="handleUpgrade()">Upgrade to Premium — £4.99/month</button>
+        </div>
       </div>
     </div>
 
-    <!-- Feedback -->
     <div class="card" id="feedback">
       <div class="card-title">AI Feedback</div>
       <div id="feedback-content">
         <div class="loading-state">
           <div class="loading-spinner"></div>
-          <div>Marking your work — this takes about 10 seconds...</div>
+          <div>Marking your work...</div>
         </div>
       </div>
     </div>
-
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <strong>ExamEdge</strong> · AI-powered GCSE revision · AQA mark schemes · Built for students
   </footer>
 
   <script>
-   
-// Supabase auth check
-const SUPABASE_URL = 'https://zxnicwzzlpfekzqwtrxt.supabase.co';
-const SUPABASE_KEY = 'your_full_publishable_key_here';
-const { createClient } = supabase;
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const SUPABASE_URL = 'https://zxnicwzzlpfekzqwtrxt.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_y4RFImXWiWEZZ6HpXST9_w_LRvjOras';
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-async function checkAuth() {
-  const { data: { session } } = await supabaseClient.auth.getSession();
-  if (!session) window.location.href = 'auth.html';
-  else {
-    const email = session.user.email;
-    document.getElementById('user-email').textContent = email;
-  }
-}
-checkAuth();
+    const FREE_LIMIT = 3;
+    let currentUser = null;
+    let userProfile = null;
 
-async function handleLogout() {
-  await supabaseClient.auth.signOut();
-  window.location.href = 'auth.html';
-}
     const QUESTIONS = [
-      {
-        id: 1,
-        paper: "Paper 1 · Q5",
-        title: 'Write a story with the theme of "change"',
-        full: 'A student is writing a story for a creative writing competition. The theme is "change".\n\nWrite the opening part of a story that explores this theme. You should think about the effect you want to have on your reader.',
-        marks: 40, time: "45 mins", ao5: 24, ao6: 16, type: "creative"
-      },
-      {
-        id: 2,
-        paper: "Paper 1 · Q5",
-        title: 'Describe a place that feels lonely or abandoned',
-        full: 'Write a description suggested by this idea: a place that feels lonely or abandoned.\n\nYou could describe a real or imagined place.',
-        marks: 40, time: "45 mins", ao5: 24, ao6: 16, type: "creative"
-      },
-      {
-        id: 3,
-        paper: "Paper 2 · Q5",
-        title: 'Speech: "Social media does more harm than good"',
-        full: 'A student magazine is asking for contributions on the topic of social media.\n\nWrite a speech to be delivered to your year group arguing that "Social media does more harm than good."',
-        marks: 40, time: "45 mins", ao5: 24, ao6: 16, type: "transactional"
-      },
-      {
-        id: 4,
-        paper: "Paper 2 · Q5",
-        title: 'Letter: persuade your school to make a change',
-        full: 'Write a letter to your headteacher persuading them to make one change that would improve school life for students.',
-        marks: 40, time: "45 mins", ao5: 24, ao6: 16, type: "transactional"
-      },
-      {
-        id: 5,
-        paper: "Paper 1 · Q5",
-        title: 'Write a story that begins with a journey',
-        full: 'Write a story that begins with a character setting out on a journey.\n\nYou should think about how you engage your reader from the very first line.',
-        marks: 40, time: "45 mins", ao5: 24, ao6: 16, type: "creative"
-      }
+      { id:1, paper:"Paper 1 · Q5", title:'Write a story with the theme of "change"', full:'A student is writing a story for a creative writing competition. The theme is "change".\n\nWrite the opening part of a story that explores this theme. You should think about the effect you want to have on your reader.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" },
+      { id:2, paper:"Paper 1 · Q5", title:'Describe a place that feels lonely or abandoned', full:'Write a description suggested by this idea: a place that feels lonely or abandoned.\n\nYou could describe a real or imagined place.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" },
+      { id:3, paper:"Paper 2 · Q5", title:'Speech: "Social media does more harm than good"', full:'A student magazine is asking for contributions on the topic of social media.\n\nWrite a speech to be delivered to your year group arguing that "Social media does more harm than good."', marks:40, time:"45 mins", ao5:24, ao6:16, type:"transactional" },
+      { id:4, paper:"Paper 2 · Q5", title:'Letter: persuade your school to make a change', full:'Write a letter to your headteacher persuading them to make one change that would improve school life for students.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"transactional" },
+      { id:5, paper:"Paper 1 · Q5", title:'Write a story that begins with a journey', full:'Write a story that begins with a character setting out on a journey.\n\nYou should think about how you engage your reader from the very first line.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" }
     ];
 
     let selectedQuestion = null;
+
+    async function init() {
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (!session) { window.location.href = 'auth.html'; return; }
+      currentUser = session.user;
+      document.getElementById('user-email').textContent = currentUser.email;
+      await loadProfile();
+      buildQuestionGrid();
+    }
+
+    async function loadProfile() {
+      const { data, error } = await supabaseClient
+        .from('profiles')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .single();
+
+      if (error || !data) {
+        // Create profile for new user
+        const { data: newProfile } = await supabaseClient
+          .from('profiles')
+          .insert({ user_id: currentUser.id, markings_used: 0, is_premium: false })
+          .select()
+          .single();
+        userProfile = newProfile || { markings_used: 0, is_premium: false };
+      } else {
+        userProfile = data;
+      }
+      updateUsageDisplay();
+    }
+
+    function updateUsageDisplay() {
+      if (!userProfile) return;
+      const used = userProfile.markings_used || 0;
+      const isPremium = userProfile.is_premium;
+
+      if (isPremium) {
+        document.getElementById('usage-bar').innerHTML = '<div class="usage-text">⭐ <strong>Premium</strong> — Unlimited markings</div>';
+        return;
+      }
+
+      document.getElementById('usage-count').textContent = Math.min(used, FREE_LIMIT);
+      for (let i = 1; i <= 3; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (dot) dot.classList.toggle('used', i <= used);
+      }
+
+      if (used >= FREE_LIMIT) {
+        document.getElementById('submitBtn').style.display = 'none';
+        document.getElementById('paywall').style.display = 'block';
+      } else {
+        document.getElementById('submitBtn').style.display = 'block';
+        document.getElementById('paywall').style.display = 'none';
+      }
+    }
 
     function buildQuestionGrid() {
       const grid = document.getElementById('question-grid');
@@ -622,8 +580,7 @@ async function handleLogout() {
             <div class="q-meta">${q.paper} · ${q.marks} marks · ${q.time}</div>
             <div class="q-title">${q.title}</div>
           </div>
-          <div class="q-arrow">›</div>
-        `;
+          <div class="q-arrow">›</div>`;
         btn.onclick = () => selectQuestion(q);
         grid.appendChild(btn);
       });
@@ -638,12 +595,12 @@ async function handleLogout() {
       document.getElementById('q-marks').innerHTML = `
         <span class="badge purple">${q.marks} marks</span>
         <span class="badge">${q.time} recommended</span>
-        <span class="badge">AO5: ${q.ao5} · AO6: ${q.ao6}</span>
-      `;
+        <span class="badge">AO5: ${q.ao5} · AO6: ${q.ao6}</span>`;
       document.getElementById('question-display').style.display = 'block';
       document.getElementById('answer').value = '';
       document.getElementById('word-count').textContent = '0 words';
       document.getElementById('feedback').style.display = 'none';
+      updateUsageDisplay();
       document.getElementById('question-display').scrollIntoView({ behavior: 'smooth' });
     }
 
@@ -658,6 +615,10 @@ async function handleLogout() {
       const answer = document.getElementById('answer').value;
       if (answer.trim().length < 20) { alert('Please write a longer answer before submitting.'); return; }
 
+      const used = userProfile?.markings_used || 0;
+      const isPremium = userProfile?.is_premium;
+      if (!isPremium && used >= FREE_LIMIT) { updateUsageDisplay(); return; }
+
       const btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Marking your work...';
@@ -670,23 +631,22 @@ async function handleLogout() {
       document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
 
       try {
-        
         const response = await fetch('/api/mark', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    question: selectedQuestion.full,
-    type: selectedQuestion.type,
-    marks: selectedQuestion.marks,
-    ao5: selectedQuestion.ao5,
-    ao6: selectedQuestion.ao6,
-    paper: selectedQuestion.paper,
-    answer: answer
-  })
-});
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            question: selectedQuestion.full,
+            type: selectedQuestion.type,
+            marks: selectedQuestion.marks,
+            ao5: selectedQuestion.ao5,
+            ao6: selectedQuestion.ao6,
+            paper: selectedQuestion.paper,
+            answer: answer
+          })
+        });
 
-const data = await response.json();
-const text = data.result;
+        const data = await response.json();
+        const text = data.result;
         const lines = text.split('\n').filter(l => l.trim());
         let html = '';
         let currentSection = null;
@@ -695,14 +655,10 @@ const text = data.result;
           if (line.startsWith('SCORE:')) {
             const score = line.replace('SCORE:', '').trim();
             const parts = score.split('(');
-            html += `
-              <div class="feedback-top">
-                <div class="score-badge">${parts[0].trim()}</div>
-                <div class="score-sub">
-                  <strong>${parts[1] ? parts[1].replace(')', '') : ''}</strong><br>
-                  AQA English Language · ${selectedQuestion.paper}
-                </div>
-              </div>`;
+            html += `<div class="feedback-top">
+              <div class="score-badge">${parts[0].trim()}</div>
+              <div class="score-sub"><strong>${parts[1] ? parts[1].replace(')', '') : ''}</strong><br>AQA English Language · ${selectedQuestion.paper}</div>
+            </div>`;
           } else if (line.startsWith('WHAT YOU DID WELL')) {
             currentSection = 'well';
             html += `<div class="feedback-block well"><div class="feedback-heading">✅ What you did well</div>`;
@@ -719,16 +675,35 @@ const text = data.result;
         if (currentSection) html += '</div>';
         document.getElementById('feedback-content').innerHTML = html;
 
+        // Increment usage count
+        if (!isPremium) {
+          const newCount = used + 1;
+          await supabaseClient
+            .from('profiles')
+            .update({ markings_used: newCount })
+            .eq('user_id', currentUser.id);
+          userProfile.markings_used = newCount;
+          updateUsageDisplay();
+        }
+
       } catch (error) {
-        document.getElementById('feedback-content').innerHTML = `
-          <p style="color:red">Something went wrong: ${error.message}</p>`;
+        document.getElementById('feedback-content').innerHTML = `<p style="color:red">Something went wrong: ${error.message}</p>`;
       }
 
       btn.disabled = false;
       btn.textContent = '✦ Submit for AI marking';
     }
 
-    buildQuestionGrid();
+    function handleUpgrade() {
+      alert('Stripe payments coming soon! For now email hello@examedge.com to upgrade.');
+    }
+
+    async function handleLogout() {
+      await supabaseClient.auth.signOut();
+      window.location.href = 'auth.html';
+    }
+
+    init();
   </script>
 
 </body>
