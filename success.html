@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExamEdge — Welcome to Premium!</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2b55 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .icon { font-size: 64px; margin-bottom: 20px; }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #888;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .features {
+      background: #f8f6ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #444;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    .feature:last-child { margin-bottom: 0; }
+    .feature span:first-child { color: #6c5ce7; font-weight: bold; }
+    .btn {
+      background: linear-gradient(135deg, #6c5ce7, #8b7cf6);
+      color: white;
+      border: none;
+      padding: 15px 28px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(108,92,231,0.3);
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🎉</div>
+    <h1>Welcome to Premium!</h1>
+    <p>Your payment was successful. You now have unlimited access to AI marking across all GCSE subjects.</p>
+    <div class="features">
+      <div class="feature"><span>✓</span><span>Unlimited AI markings</span></div>
+      <div class="feature"><span>✓</span><span>All GCSE subjects</span></div>
+      <div class="feature"><span>✓</span><span>AQA, Edexcel & more</span></div>
+      <div class="feature"><span>✓</span><span>Progress tracking</span></div>
+    </div>
+    <button class="btn" onclick="window.location.href='index.html'">
+      Start revising →
+    </button>
+  </div>
+</body>
+</html>
