@@ -745,23 +745,36 @@ Band 1 (1-4 AO6): Simple vocabulary. Frequent errors.`
       });
     }
 
-    function selectQuestion(q) {
-      selectedQuestion = q;
-      document.querySelectorAll('.question-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(`qbtn-${q.id}`).classList.add('active');
-      document.getElementById('q-label').textContent = q.paper;
-      document.getElementById('q-text').innerHTML = q.full.replace(/\n/g, '<br>');
-      document.getElementById('q-marks').innerHTML = `
-        <span class="badge purple">${q.marks} marks</span>
-        <span class="badge">${q.time} recommended</span>
-        <span class="badge">AO5: ${q.ao5} · AO6: ${q.ao6}</span>`;
-      document.getElementById('question-display').style.display = 'block';
-      document.getElementById('answer').value = '';
-      document.getElementById('word-count').textContent = '0 words';
-      document.getElementById('feedback').style.display = 'none';
-      updateUsageDisplay();
-      document.getElementById('question-display').scrollIntoView({ behavior: 'smooth' });
-    }
+   function selectQuestion(q) {
+  selectedQuestion = q;
+  document.querySelectorAll('.question-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`qbtn-${q.id}`).classList.add('active');
+  document.getElementById('q-label').textContent = q.paper;
+  document.getElementById('q-text').innerHTML = q.full.replace(/\n/g, '<br>');
+
+  // Show marks
+  let marksHtml = `<span class="badge purple">${q.marks} marks</span>
+    <span class="badge">${q.time} recommended</span>`;
+  if (q.ao) marksHtml += `<span class="badge">${q.ao}</span>`;
+  if (q.ao5) marksHtml += `<span class="badge">AO5: ${q.ao5} · AO6: ${q.ao6}</span>`;
+  document.getElementById('q-marks').innerHTML = marksHtml;
+
+  // Show or hide extract
+  const extractDiv = document.getElementById('extract-box');
+  if (q.hasExtract) {
+    extractDiv.style.display = 'block';
+    document.getElementById('extract-text').innerText = EXTRACT;
+  } else {
+    extractDiv.style.display = 'none';
+  }
+
+  document.getElementById('question-display').style.display = 'block';
+  document.getElementById('answer').value = '';
+  document.getElementById('word-count').textContent = '0 words';
+  document.getElementById('feedback').style.display = 'none';
+  updateUsageDisplay();
+  document.getElementById('question-display').scrollIntoView({ behavior: 'smooth' });
+}
 
     function updateWordCount() {
       const val = document.getElementById('answer').value.trim();
