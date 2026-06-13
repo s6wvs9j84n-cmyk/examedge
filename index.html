@@ -444,6 +444,13 @@
     </div>
 
     <div id="question-display">
+
+      <!-- Extract box (shown for reading questions) -->
+      <div class="card" id="extract-box" style="display:none">
+        <div class="card-title">📄 Read the extract carefully</div>
+        <div id="extract-text" style="font-size:15px;line-height:1.9;color:#2a2a3e;white-space:pre-wrap;font-family:Georgia,serif;border-left:3px solid #6c5ce7;padding-left:20px;margin-top:8px"></div>
+      </div>
+
       <div class="card">
         <div class="question-paper-tag" id="q-label">Paper 1</div>
         <p class="question-text" id="q-text" style="margin-top:14px"></p>
@@ -503,13 +510,165 @@
     let currentUser = null;
     let userProfile = null;
 
-    const QUESTIONS = [
-      { id:1, paper:"Paper 1 · Q5", title:'Write a story with the theme of "change"', full:'A student is writing a story for a creative writing competition. The theme is "change".\n\nWrite the opening part of a story that explores this theme. You should think about the effect you want to have on your reader.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" },
-      { id:2, paper:"Paper 1 · Q5", title:'Describe a place that feels lonely or abandoned', full:'Write a description suggested by this idea: a place that feels lonely or abandoned.\n\nYou could describe a real or imagined place.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" },
-      { id:3, paper:"Paper 2 · Q5", title:'Speech: "Social media does more harm than good"', full:'A student magazine is asking for contributions on the topic of social media.\n\nWrite a speech to be delivered to your year group arguing that "Social media does more harm than good."', marks:40, time:"45 mins", ao5:24, ao6:16, type:"transactional" },
-      { id:4, paper:"Paper 2 · Q5", title:'Letter: persuade your school to make a change', full:'Write a letter to your headteacher persuading them to make one change that would improve school life for students.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"transactional" },
-      { id:5, paper:"Paper 1 · Q5", title:'Write a story that begins with a journey', full:'Write a story that begins with a character setting out on a journey.\n\nYou should think about how you engage your reader from the very first line.', marks:40, time:"45 mins", ao5:24, ao6:16, type:"creative" }
-    ];
+    const EXTRACT = `The house had been waiting for her.
+
+That was how Miriam thought of it as the taxi pulled away, leaving her alone on the gravel path with nothing but a single suitcase and the sharp October wind. The building rose before her — three storeys of grey stone, its windows dark and watching like the eyes of something that had not yet decided whether she was welcome.
+
+She had inherited it from an aunt she barely remembered. A woman who had sent Christmas cards with no personal message, just a signature in faded blue ink: Aunt Clara. And now Clara was gone, and this house — Ashworth House, the solicitor had called it, as though the name alone should mean something — was hers.
+
+The gate creaked as she pushed it open. The garden had once been formal, she could tell: the ghost of a pathway still visible beneath the weeds, stone urns on either side of the front steps, cracked now and spilling dead plants onto the gravel. A cedar tree dominated the left side of the lawn, its branches so wide and heavy they seemed to be pressing the sky downward.
+
+Miriam told herself she was not afraid. She was practical. She was thirty-four years old and had dealt with difficult things before — a divorce, a redundancy, a move across the country with two bin bags and no plan. A house was just a house. Stone and timber and glass.
+
+But as she climbed the front steps and slid the key into the lock, she heard something from the upper floor. A soft sound, regular and deliberate, like the slow ticking of a clock — or like footsteps crossing a room that was supposed to be empty.
+
+She turned the key. The door swung inward. The darkness inside smelled of old paper and something else beneath it, something she couldn't name, something that reminded her of the moment just before a storm breaks — that particular stillness, electric and waiting.
+
+Miriam picked up her suitcase. She stepped inside. Behind her, the door swung shut on its own.
+
+She did not look back.`;
+
+const QUESTIONS = [
+  {
+    id: 1,
+    paper: "Paper 1 · Q1",
+    title: 'List four things about Ashworth House from the extract',
+    full: 'Read the extract carefully.\n\nList four things about Ashworth House from the extract.',
+    marks: 4,
+    time: "5 mins",
+    ao: "AO1",
+    type: "reading",
+    hasExtract: true,
+    markScheme: `AO1 — Identify and interpret explicit information (4 marks)
+Award one mark for each valid point up to a maximum of 4.
+Accept any four of the following or similar:
+- It is three storeys high / tall building
+- It is made of grey stone
+- It has dark windows
+- It has a gravel path/driveway
+- It has a formal garden (now overgrown/with weeds)
+- It has stone urns on either side of the front steps (cracked)
+- It has a cedar tree in the garden
+- It is called Ashworth House
+- It belonged to Aunt Clara
+- It has an upper floor
+- The inside smells of old paper
+- The door swings shut on its own
+Do NOT accept vague answers like "it is old" without textual support.`
+  },
+  {
+    id: 2,
+    paper: "Paper 1 · Q2",
+    title: 'How does the writer use language to describe Ashworth House?',
+    full: 'Look in detail at the extract.\n\nHow does the writer use language to describe Ashworth House and create atmosphere?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
+    marks: 8,
+    time: "10 mins",
+    ao: "AO2",
+    type: "reading",
+    hasExtract: true,
+    markScheme: `AO2 — Explain, comment on and analyse how writers use language (8 marks)
+
+Band 4 (7-8 marks): Perceptive, detailed analysis. Analyses effects of language. Selects a range of judicious textual references. Uses subject terminology accurately.
+
+Band 3 (5-6 marks): Clear explanation of language effects. Selects relevant textual references. Uses subject terminology mostly accurately.
+
+Band 2 (3-4 marks): Some comment on language. Identifies some relevant references. Some use of subject terminology.
+
+Band 1 (1-2 marks): Simple comment on language/content. Limited textual reference.
+
+Key language features to reward:
+- Personification of the house ("had been waiting for her", "eyes of something")
+- Pathetic fallacy ("sharp October wind")
+- Listing/accumulation of detail to build atmosphere
+- Short sentences for tension ("She did not look back")
+- Sensory language (smell, sound, sight)
+- Gothic imagery (darkness, cracked urns, dead plants)
+- The simile comparing windows to eyes
+- The extended metaphor of the house as a living entity`
+  },
+  {
+    id: 3,
+    paper: "Paper 1 · Q3",
+    title: 'How has the writer structured the text to interest readers?',
+    full: 'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.',
+    marks: 8,
+    time: "10 mins",
+    ao: "AO2",
+    type: "reading",
+    hasExtract: true,
+    markScheme: `AO2 — Structural features (8 marks)
+
+Band 4 (7-8 marks): Perceptive analysis of structural features across the whole text. Analyses effects on the reader. Judicious references.
+
+Band 3 (5-6 marks): Clear explanation of structural choices. Relevant references to different parts of the text.
+
+Band 2 (3-4 marks): Some comment on structure. References to different parts of text.
+
+Band 1 (1-2 marks): Simple comment on structure or content.
+
+Key structural features to reward:
+- Opening with Miriam's perspective/thought — immediately creates intrigue
+- Zoom out to establish setting before zooming in to details
+- Flashback to the backstory of the aunt — provides context
+- Building tension through progression toward the house/door
+- Shift from exterior to interior — threshold crossing as structural turning point
+- Short final sentences create dramatic effect and sense of finality
+- Withholding information (the sound, what she smells) — creates mystery
+- Circular structure — house "waiting" at start, door shuts at end`
+  },
+  {
+    id: 4,
+    paper: "Paper 1 · Q4",
+    title: 'Evaluate how successfully the writer creates a sense of unease',
+    full: 'Focus on the whole extract.\n\nA student, having read this extract, said: "The writer makes you feel genuinely uneasy. You can\'t help but feel something terrible is about to happen to Miriam."\n\nTo what extent do you agree with this view?\n\nWrite about:\n• your own impressions of how the writer creates unease\n• how the writer has created these impressions.',
+    marks: 20,
+    time: "20 mins",
+    ao: "AO4",
+    type: "reading",
+    hasExtract: true,
+    markScheme: `AO4 — Evaluate critically and with detail (20 marks)
+
+Band 4 (16-20 marks): Perceptive, detailed evaluation. Considers the effect on the reader critically. Selects judicious references. Evaluates convincingly and with insight.
+
+Band 3 (11-15 marks): Clear and consistent evaluation. Relevant references. Explains the effect on the reader.
+
+Band 2 (6-10 marks): Some evaluation. Some relevant references. Some comment on effect.
+
+Band 1 (1-5 marks): Simple comment. Limited references.
+
+Key points to reward:
+- Analysis of how personification creates a threatening atmosphere
+- Comment on Miriam's internal voice and how it creates dramatic irony
+- Evaluation of Gothic conventions and their effect
+- Analysis of the sound on the upper floor as a classic horror device
+- Comment on the ending and how it leaves the reader in suspense
+- Evaluation of sensory details and their cumulative effect
+- Critical response — does the student agree/disagree with the statement and why?`
+  },
+  {
+    id: 5,
+    paper: "Paper 1 · Q5",
+    title: 'Creative writing: describe a place that holds a secret',
+    full: 'You are going to enter a creative writing competition.\n\nEither: Write a description suggested by this image of an old, abandoned place.\n\nOr: Write the opening part of a story in which a character discovers something unexpected.\n\nYou should think carefully about the effect you want to have on your reader.',
+    marks: 40,
+    time: "45 mins",
+    ao5: 24,
+    ao6: 16,
+    type: "creative",
+    hasExtract: false,
+    markScheme: `AQA English Language Paper 1 Question 5 — Creative Writing (40 marks)
+AO5 (24 marks): Communication and organisation
+AO6 (16 marks): Technical accuracy
+Band 4 (19-24 AO5): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary and structure.
+Band 3 (13-18 AO5): Consistent, clear. Vocabulary and structure used for effect.
+Band 2 (7-12 AO5): Some attempts to match style. Some structural features.
+Band 1 (1-6 AO5): Simple, limited writing.
+Band 4 (13-16 AO6): Extensive vocabulary. Varied sentences. Few errors.
+Band 3 (9-12 AO6): Sophisticated vocabulary. Generally accurate.
+Band 2 (5-8 AO6): Some varied vocabulary. Some accurate punctuation.
+Band 1 (1-4 AO6): Simple vocabulary. Frequent errors.`
+  }
+];
 
     let selectedQuestion = null;
 
@@ -638,9 +797,11 @@
             question: selectedQuestion.full,
             type: selectedQuestion.type,
             marks: selectedQuestion.marks,
-            ao5: selectedQuestion.ao5,
-            ao6: selectedQuestion.ao6,
+            ao5: selectedQuestion.ao5 || null,
+            ao6: selectedQuestion.ao6 || null,
+            ao: selectedQuestion.ao || null,
             paper: selectedQuestion.paper,
+            markScheme: selectedQuestion.markScheme,
             answer: answer
           })
         });
