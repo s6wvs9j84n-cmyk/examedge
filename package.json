@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/s6wvs9j84n-cmyk/examedge#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.108.1",
     "stripe": "^22.2.0"
   }
 }
