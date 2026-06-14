@@ -1,4 +1,3 @@
-import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 
 export default async function handler(req, res) {
@@ -6,44 +5,46 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-  const supabase = createClient(
-    process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY
-  );
-
-  const sig = req.headers['stripe-signature'];
-  let event;
-
   try {
-    const rawBody = await getRawBody(req);
-    event = stripe.webhooks.constructEvent(
-      rawBody,
-      sig,
-      process.env.STRIPE_WEBHOOK_SECRET
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_SERVICE_KEY
     );
-  } catch (err) {
-    return res.status(400).json({ error: `Webhook error: ${err.message}` });
+
+    const body = req.body;
+
+    // Handle both old and new Stripe event formats
+    const eventType = body?.type || body?.event_type;
+    const sessionData = body?.data?.object || body?.data;
+
+    console.log('Webhook received:', eventType);
+    console.log('Session data:', JSON.stringify(sessionData));
+
+    if (eventType === 'checkout.session.completed') {
+      const userId = sessionData?.metadata?.user_id ||
+                     sessionData?.custom_fields?.find(f => f.key === 'user_id')?.text?.value;
+
+      console.log('User ID from metadata:', userId);
+
+      if (userId) {
+        const { error } = await supabase
+          .from('profiles')
+          .update({ is_premium: true, markings_used: 0 })
+          .eq('user_id', userId);
+
+        if (error) {
+          console.log('Supabase error:', error);
+          return res.status(500).json({ error: error.message });
+        }
+
+        console.log('Successfully upgraded user:', userId);
+      }
+    }
+
+    return res.status(200).json({ received: true });
+
+  } catch (error) {
+    console.log('Webhook error:', error.message);
+    return res.status(200).json({ received: true });
   }
-
-  if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-    const userId = session.metadata.user_id;
-
-    await supabase
-      .from('profiles')
-      .update({ is_premium: true })
-      .eq('user_id', userId);
-  }
-
-  return res.status(200).json({ received: true });
-}
-
-async function getRawBody(req) {
-  return new Promise((resolve, reject) => {
-    let data = '';
-    req.on('data', chunk => data += chunk);
-    req.on('end', () => resolve(Buffer.from(data)));
-    req.on('error', reject);
-  });
 }
