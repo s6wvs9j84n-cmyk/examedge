@@ -331,6 +331,20 @@
     .final-q-score { color: #6c5ce7; font-weight: 700; }
     .restart-btn { background: linear-gradient(135deg, #6c5ce7, #8b7cf6); color: white; border: none; padding: 14px 28px; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: 700; }
 
+    /* Filter tabs */
+    .filter-tab {
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid #e0e0f0;
+      background: white;
+      color: #888;
+      transition: all 0.15s;
+    }
+    .filter-tab:hover { border-color: #6c5ce7; color: #6c5ce7; }
+    .filter-tab.active { background: #6c5ce7; color: white; border-color: #6c5ce7; }
     footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; border-top: 1px solid #e8e8f0; background: white; }
     footer strong { color: #6c5ce7; }
   </style>
@@ -385,6 +399,36 @@
     <div id="paper-selector">
       <div class="card">
         <div class="card-title">Choose a past paper</div>
+
+        <!-- Paper filter tabs -->
+        <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+          <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">
+            All papers
+          </button>
+          <button class="filter-tab" id="tab-paper1" onclick="setFilter('paper1')">
+            📚 Paper 1 — Fiction & Creative Writing
+          </button>
+          <button class="filter-tab" id="tab-paper2" onclick="setFilter('paper2')">
+            📰 Paper 2 — Non-Fiction & Transactional Writing
+          </button>
+        </div>
+
+        <!-- Paper 1 explainer (shown when Paper 1 tab active) -->
+        <div id="paper1-info" style="display:none;background:#f8f6ff;border:1px solid #e0d8ff;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:#555;line-height:1.7">
+          <strong style="color:#6c5ce7">Paper 1 — Explorations in Creative Reading and Writing</strong><br>
+          Section A: Read a fiction extract and answer Q1–Q4 (40 marks)<br>
+          Section B: Creative writing task — Q5 (40 marks)<br>
+          <span style="color:#999;font-size:12px">1 hour 45 minutes · 80 marks total</span>
+        </div>
+
+        <!-- Paper 2 explainer (shown when Paper 2 tab active) -->
+        <div id="paper2-info" style="display:none;background:#fff8f0;border:1px solid #fde8c8;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:#555;line-height:1.7">
+          <strong style="color:#c07020">Paper 2 — Writers' Viewpoints and Perspectives</strong><br>
+          Section A: Read a non-fiction extract and answer Q1–Q4 (40 marks)<br>
+          Section B: Transactional writing task — Q5 (40 marks)<br>
+          <span style="color:#999;font-size:12px">1 hour 45 minutes · 80 marks total</span>
+        </div>
+
         <div class="paper-grid" id="paper-grid"></div>
       </div>
     </div>
@@ -1569,29 +1613,32 @@ For letter writing reward:
 
     // ── PAPER GRID ──────────────────────────────────────────────
 
-    function buildPaperGrid() {
-      const grid = document.getElementById('paper-grid');
-      grid.innerHTML = '';
-      PAPERS.forEach(paper => {
-        const btn = document.createElement('button');
-        btn.className = 'paper-btn';
-        btn.innerHTML = `
-          <div class="paper-icon">${paper.icon}</div>
-          <div class="paper-content">
-            <div class="paper-meta">AQA English Language · ${paper.questions.length} questions</div>
-            <div class="paper-title">${paper.title}</div>
-            <div class="paper-desc">${paper.sub}</div>
-            <div class="paper-stats">
-              <span class="paper-stat">${paper.totalMarks} marks total</span>
-              <span class="paper-stat">~90 mins</span>
-            </div>
-          </div>
-          <div style="color:#ddd;font-size:20px">›</div>`;
-        btn.onclick = () => selectPaper(paper);
-        grid.appendChild(btn);
-      });
-    }
+   function buildPaperGrid(filter = 'all') {
+  const grid = document.getElementById('paper-grid');
+  grid.innerHTML = '';
 
+  const filtered = filter === 'all' ? PAPERS :
+    PAPERS.filter(p => filter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
+
+  filtered.forEach(paper => {
+    const btn = document.createElement('button');
+    btn.className = 'paper-btn';
+    btn.innerHTML = `
+      <div class="paper-icon">${paper.icon}</div>
+      <div class="paper-content">
+        <div class="paper-meta">AQA English Language · ${paper.questions.length} questions</div>
+        <div class="paper-title">${paper.title}</div>
+        <div class="paper-desc">${paper.sub}</div>
+        <div class="paper-stats">
+          <span class="paper-stat">${paper.totalMarks} marks total</span>
+          <span class="paper-stat">~90 mins</span>
+        </div>
+      </div>
+      <div style="color:#ddd;font-size:20px">›</div>`;
+    btn.onclick = () => selectPaper(paper);
+    grid.appendChild(btn);
+  });
+}
     function selectPaper(paper) {
       currentPaper = paper;
       currentQIndex = 0;
@@ -1852,6 +1899,13 @@ For letter writing reward:
       document.getElementById('final-score-card').scrollIntoView({ behavior: 'smooth' });
     }
 
+    function setFilter(filter) {
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(`tab-${filter}`).classList.add('active');
+      document.getElementById('paper1-info').style.display = filter === 'paper1' ? 'block' : 'none';
+      document.getElementById('paper2-info').style.display = filter === 'paper2' ? 'block' : 'none';
+      buildPaperGrid(filter);
+    }
     init();
   </script>
 
