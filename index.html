@@ -1065,14 +1065,15 @@ AO5 Band 1 (1-3): Simple vocabulary. Frequent errors.`
     }
 
     function setFilter(filter) {
-      currentFilter = filter;
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      const tabEl = document.getElementById(`tab-${filter}`);
-      if (tabEl) tabEl.classList.add('active');
-      document.getElementById('paper1-info').style.display = filter === 'paper1' ? 'block' : 'none';
-      document.getElementById('paper2-info').style.display = filter === 'paper2' ? 'block' : 'none';
-      buildPaperGrid();
-    }
+  currentFilter = filter;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  const tabEl = document.getElementById(`tab-${filter}`);
+  if (tabEl) tabEl.classList.add('active');
+  const showInfo = currentBoard === 'aqa';
+  document.getElementById('paper1-info').style.display = (filter === 'paper1' && showInfo) ? 'block' : 'none';
+  document.getElementById('paper2-info').style.display = (filter === 'paper2' && showInfo) ? 'block' : 'none';
+  buildPaperGrid();
+}
 
     // ── PAPER GRID ───────────────────────────────────────────────
 
