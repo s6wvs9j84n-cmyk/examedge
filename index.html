@@ -1957,18 +1957,17 @@ For letter writing reward:
 
     let currentBoard = 'aqa';
 
-    function setBoard(board) {
+   function setBoard(board) {
+      if (board === 'cambridge') {
+        alert('Cambridge IGCSE coming soon! Check back shortly.');
+        return;
+      }
+
       currentBoard = board;
       document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
       document.getElementById(`board-${board}`).classList.add('active');
-
-      if (board === 'cambridge') {
-        alert('Cambridge IGCSE coming soon! Check back shortly.');
-        document.getElementById('board-aqa').classList.add('active');
-        document.getElementById('board-cambridge').classList.remove('active');
-        currentBoard = 'aqa';
-        return;
-      }
+      setFilter('all');
+    }
 
      function setFilter(filter = 'all') {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
