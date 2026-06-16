@@ -26,23 +26,13 @@
       z-index: 100;
       box-shadow: 0 1px 8px rgba(0,0,0,0.06);
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .logo-icon {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       background: linear-gradient(135deg, #6c5ce7, #a29bfe);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 900;
-      font-size: 16px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 900; font-size: 16px;
     }
     .logo-text { font-size: 18px; font-weight: 800; color: #1a1a2e; letter-spacing: -0.5px; }
     .logo-text span { color: #6c5ce7; }
@@ -53,25 +43,17 @@
     .nav-btn:hover { background: #5a4bd1; }
     .nav-btn.outline { background: white; color: #6c5ce7; border: 1.5px solid #6c5ce7; }
 
-    /* Hero */
     .hero {
       background: linear-gradient(135deg, #1a1a2e 0%, #2d2b55 100%);
-      padding: 48px 32px;
-      text-align: center;
-      color: white;
+      padding: 48px 32px; text-align: center; color: white;
     }
     .hero-tag {
       display: inline-block;
       background: rgba(108,92,231,0.3);
       border: 1px solid rgba(108,92,231,0.5);
-      color: #a29bfe;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      color: #a29bfe; font-size: 12px; font-weight: 600;
+      padding: 4px 14px; border-radius: 20px; margin-bottom: 16px;
+      letter-spacing: 1px; text-transform: uppercase;
     }
     .hero h2 { font-size: 34px; font-weight: 800; margin-bottom: 12px; letter-spacing: -1px; line-height: 1.2; }
     .hero h2 span { color: #a29bfe; }
@@ -80,16 +62,9 @@
     .stat-number { font-size: 24px; font-weight: 800; color: #a29bfe; }
     .stat-label { font-size: 12px; color: #b0aecb; margin-top: 2px; }
     .usage-bar {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 12px;
-      padding: 14px 20px;
-      max-width: 400px;
-      margin: 20px auto 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px; padding: 14px 20px; max-width: 400px;
+      margin: 20px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
     .usage-text { color: #b0aecb; font-size: 14px; }
     .usage-text strong { color: white; }
@@ -97,8 +72,22 @@
     .usage-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.2); }
     .usage-dot.used { background: #a29bfe; }
 
-    /* Main */
     .main { max-width: 820px; margin: 0 auto; padding: 36px 20px 60px; }
+
+    /* Exam board selector */
+    .board-section { margin-bottom: 24px; }
+    .board-section-label { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .board-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+    .board-btn {
+      padding: 12px 20px; border-radius: 12px;
+      border: 1.5px solid #e0e0f0; background: white;
+      cursor: pointer; text-align: left; transition: all 0.15s; min-width: 120px;
+    }
+    .board-btn:hover { border-color: #6c5ce7; transform: translateY(-1px); }
+    .board-btn.active { border-color: #6c5ce7; background: #f0eeff; }
+    .board-btn-name { font-size: 15px; font-weight: 800; color: #1a1a2e; }
+    .board-btn.active .board-btn-name { color: #6c5ce7; }
+    .board-btn-sub { font-size: 11px; color: #aaa; margin-top: 2px; }
 
     /* Subject bar */
     .subject-bar { display: flex; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -106,39 +95,27 @@
     .subject-pill.active { background: #6c5ce7; color: white; border-color: #6c5ce7; }
     .subject-pill.coming-soon { opacity: 0.45; cursor: not-allowed; }
 
-    /* Card */
+    /* Filter tabs */
+    .filter-tab {
+      padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600;
+      cursor: pointer; border: 1.5px solid #e0e0f0; background: white; color: #888; transition: all 0.15s;
+    }
+    .filter-tab:hover { border-color: #6c5ce7; color: #6c5ce7; }
+    .filter-tab.active { background: #6c5ce7; color: white; border-color: #6c5ce7; }
+
     .card { background: white; border-radius: 16px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.06); margin-bottom: 20px; border: 1px solid #ebebf5; }
     .card-title { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
 
-    /* Paper selector */
+    /* Paper grid */
     .paper-grid { display: flex; flex-direction: column; gap: 12px; }
     .paper-btn {
-      background: #fafafa;
-      border: 1.5px solid #ebebf5;
-      border-radius: 12px;
-      padding: 20px 22px;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.15s;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      background: #fafafa; border: 1.5px solid #ebebf5; border-radius: 12px;
+      padding: 20px 22px; text-align: left; cursor: pointer; transition: all 0.15s;
+      width: 100%; display: flex; align-items: center; gap: 16px;
     }
     .paper-btn:hover { border-color: #6c5ce7; background: #f8f6ff; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(108,92,231,0.1); }
     .paper-btn.active { border-color: #6c5ce7; background: #f0eeff; }
-    .paper-icon {
-      width: 44px;
-      height: 44px;
-      background: #f0eeff;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
-    }
-    .paper-btn.active .paper-icon { background: #6c5ce7; }
+    .paper-icon { width: 44px; height: 44px; background: #f0eeff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
     .paper-content { flex: 1; }
     .paper-meta { font-size: 11px; color: #bbb; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; }
     .paper-title { font-size: 15px; color: #333; font-weight: 600; margin-bottom: 4px; }
@@ -149,44 +126,21 @@
 
     /* Paper view */
     #paper-view { display: none; }
-
-    /* Paper header */
     .paper-header {
       background: linear-gradient(135deg, #1a1a2e, #2d2b55);
-      border-radius: 16px;
-      padding: 24px 28px;
-      margin-bottom: 20px;
-      color: white;
+      border-radius: 16px; padding: 24px 28px; margin-bottom: 20px; color: white;
     }
     .paper-header-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
     .paper-header-title { font-size: 20px; font-weight: 800; }
     .paper-header-sub { font-size: 13px; color: #b0aecb; margin-top: 4px; }
-    .back-btn {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      cursor: pointer;
-      font-weight: 600;
-    }
+    .back-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer; font-weight: 600; }
     .back-btn:hover { background: rgba(255,255,255,0.2); }
-
-    /* Progress tracker */
     .progress-track { display: flex; gap: 8px; flex-wrap: wrap; }
     .progress-q {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      transition: all 0.15s;
-      font-size: 13px;
-      color: #b0aecb;
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 8px 12px; cursor: pointer; transition: all 0.15s;
+      font-size: 13px; color: #b0aecb;
     }
     .progress-q:hover { background: rgba(255,255,255,0.2); }
     .progress-q.active { background: #6c5ce7; border-color: #6c5ce7; color: white; }
@@ -194,88 +148,37 @@
     .progress-q .q-score { font-weight: 700; }
 
     /* Extract */
-    .extract-card {
-      background: white;
-      border-radius: 16px;
-      border: 1px solid #ebebf5;
-      margin-bottom: 20px;
-      overflow: hidden;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-    }
-    .extract-header {
-      background: #f8f6ff;
-      border-bottom: 1px solid #ebebf5;
-      padding: 16px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+    .extract-card { background: white; border-radius: 16px; border: 1px solid #ebebf5; margin-bottom: 20px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+    .extract-header { background: #f8f6ff; border-bottom: 1px solid #ebebf5; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; }
     .extract-header-title { font-size: 13px; font-weight: 700; color: #6c5ce7; text-transform: uppercase; letter-spacing: 1px; }
     .extract-toggle { background: none; border: 1px solid #ddd; border-radius: 6px; padding: 4px 12px; font-size: 12px; color: #888; cursor: pointer; }
     .extract-body { padding: 28px; }
-    .extract-text {
-      font-size: 15px;
-      line-height: 2;
-      color: #2a2a3e;
-      font-family: Georgia, serif;
-      border-left: 3px solid #6c5ce7;
-      padding-left: 20px;
-      white-space: pre-wrap;
-    }
+    .extract-text { font-size: 15px; line-height: 2; color: #2a2a3e; font-family: Georgia, serif; border-left: 3px solid #6c5ce7; padding-left: 20px; white-space: pre-wrap; }
 
-    /* Question card */
+    /* Question */
     .question-paper-tag { background: #6c5ce7; color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; display: inline-block; margin-bottom: 14px; }
     .marks-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
     .badge { display: inline-block; background: #f5f5f5; border-radius: 6px; padding: 4px 10px; font-size: 12px; color: #666; }
     .badge.purple { background: #f0eeff; color: #6c5ce7; font-weight: 600; }
     .question-text { font-size: 16px; line-height: 1.8; color: #2a2a3e; }
 
-    /* Answer */
     textarea {
-      width: 100%;
-      height: 220px;
-      border: 1.5px solid #e0e0f0;
-      border-radius: 10px;
-      padding: 16px;
-      font-size: 15px;
-      font-family: inherit;
-      resize: vertical;
-      line-height: 1.7;
-      color: #222;
+      width: 100%; height: 220px; border: 1.5px solid #e0e0f0; border-radius: 10px;
+      padding: 16px; font-size: 15px; font-family: inherit; resize: vertical; line-height: 1.7; color: #222;
     }
     textarea:focus { outline: none; border-color: #6c5ce7; box-shadow: 0 0 0 3px rgba(108,92,231,0.08); }
     .answer-footer { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: #bbb; }
     .submit-btn {
-      background: linear-gradient(135deg, #6c5ce7, #8b7cf6);
-      color: white;
-      border: none;
-      padding: 15px 28px;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 16px;
-      font-weight: 700;
-      box-shadow: 0 4px 14px rgba(108,92,231,0.3);
-      transition: all 0.15s;
+      background: linear-gradient(135deg, #6c5ce7, #8b7cf6); color: white; border: none;
+      padding: 15px 28px; border-radius: 10px; font-size: 16px; cursor: pointer;
+      width: 100%; margin-top: 16px; font-weight: 700;
+      box-shadow: 0 4px 14px rgba(108,92,231,0.3); transition: all 0.15s;
     }
     .submit-btn:hover { transform: translateY(-1px); }
     .submit-btn:disabled { background: #ccc; box-shadow: none; transform: none; cursor: not-allowed; }
 
-    /* Nav between questions */
     .q-nav { display: flex; gap: 12px; margin-top: 16px; }
-    .q-nav-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1.5px solid #e0e0f0;
-      background: white;
-      color: #666;
-      transition: all 0.15s;
-    }
+    .q-nav-btn { flex: 1; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; border: 1.5px solid #e0e0f0; background: white; color: #666; transition: all 0.15s; }
     .q-nav-btn:hover { border-color: #6c5ce7; color: #6c5ce7; }
     .q-nav-btn.next { background: #6c5ce7; color: white; border-color: #6c5ce7; }
     .q-nav-btn.next:hover { background: #5a4bd1; }
@@ -312,18 +215,8 @@
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* Final score */
-    .final-score-card {
-      text-align: center;
-      padding: 40px;
-    }
-    .final-score-number {
-      font-size: 64px;
-      font-weight: 900;
-      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
-    }
+    .final-score-card { text-align: center; padding: 40px; }
+    .final-score-number { font-size: 64px; font-weight: 900; background: linear-gradient(135deg, #6c5ce7, #a29bfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
     .final-score-label { font-size: 16px; color: #888; margin-bottom: 24px; }
     .final-q-scores { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
     .final-q-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #f8f8ff; border-radius: 10px; font-size: 14px; }
@@ -331,35 +224,6 @@
     .final-q-score { color: #6c5ce7; font-weight: 700; }
     .restart-btn { background: linear-gradient(135deg, #6c5ce7, #8b7cf6); color: white; border: none; padding: 14px 28px; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: 700; }
 
-   /* Exam board buttons */
-    .board-btn {
-      padding: 12px 20px;
-      border-radius: 12px;
-      border: 1.5px solid #e0e0f0;
-      background: white;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.15s;
-      min-width: 120px;
-    }
-    .board-btn:hover { border-color: #6c5ce7; transform: translateY(-1px); }
-    .board-btn.active { border-color: #6c5ce7; background: #f0eeff; }
-    .board-btn-name { font-size: 15px; font-weight: 800; color: #1a1a2e; }
-    .board-btn.active .board-btn-name { color: #6c5ce7; }
-    .board-btn-sub { font-size: 11px; color: #aaa; margin-top: 2px; } /* Filter tabs */
-    .filter-tab {
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      border: 1.5px solid #e0e0f0;
-      background: white;
-      color: #888;
-      transition: all 0.15s;
-    }
-    .filter-tab:hover { border-color: #6c5ce7; color: #6c5ce7; }
-    .filter-tab.active { background: #6c5ce7; color: white; border-color: #6c5ce7; }
     footer { text-align: center; padding: 30px; color: #bbb; font-size: 13px; border-top: 1px solid #e8e8f0; background: white; }
     footer strong { color: #6c5ce7; }
   </style>
@@ -372,7 +236,7 @@
       <div class="logo-text">Exam<span>Edge</span></div>
     </a>
     <div class="nav-right">
-      <span class="nav-badge">AQA · GCSE</span>
+      <span class="nav-badge">GCSE · AI Marking</span>
       <span class="nav-user" id="user-email"></span>
       <button class="nav-btn outline" onclick="handleLogout()">Sign out</button>
     </div>
@@ -381,15 +245,15 @@
   <div class="hero">
     <div class="hero-tag">✦ AI-Powered Marking</div>
     <h2>Get instant feedback on<br><span>your GCSE answers</span></h2>
-    <p>Work through full past papers and receive detailed AQA-standard marking with personalised tips to boost your grade.</p>
+    <p>Work through full past papers and receive detailed marking with personalised tips to boost your grade.</p>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-number">2+</div><div class="stat-label">Full past papers</div></div>
-      <div class="stat"><div class="stat-number">6</div><div class="stat-label">GCSE subjects</div></div>
+      <div class="stat"><div class="stat-number">9+</div><div class="stat-label">Full past papers</div></div>
+      <div class="stat"><div class="stat-number">3</div><div class="stat-label">Exam boards</div></div>
       <div class="stat"><div class="stat-number">10s</div><div class="stat-label">To get marked</div></div>
     </div>
     <div class="usage-bar" id="usage-bar">
       <div class="usage-text">Free markings used: <strong id="usage-count">0</strong> / 3</div>
-      <div class="usage-dots" id="usage-dots">
+      <div class="usage-dots">
         <div class="usage-dot" id="dot-1"></div>
         <div class="usage-dot" id="dot-2"></div>
         <div class="usage-dot" id="dot-3"></div>
@@ -400,9 +264,9 @@
   <div class="main">
 
     <!-- Exam board selector -->
-    <div style="margin-bottom:24px">
-      <div style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Select your exam board</div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <div class="board-section">
+      <div class="board-section-label">Select your exam board</div>
+      <div class="board-btns">
         <button class="board-btn active" id="board-aqa" onclick="setBoard('aqa')">
           <div class="board-btn-name">AQA</div>
           <div class="board-btn-sub">GCSE · UK</div>
@@ -433,56 +297,40 @@
     <div id="paper-selector">
       <div class="card">
         <div class="card-title">Choose a past paper</div>
-
-        <!-- Paper filter tabs -->
-        <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
-          <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">
-            All papers
-          </button>
-          <button class="filter-tab" id="tab-paper1" onclick="setFilter('paper1')">
-            📚 Paper 1 — Fiction & Creative Writing
-          </button>
-          <button class="filter-tab" id="tab-paper2" onclick="setFilter('paper2')">
-            📰 Paper 2 — Non-Fiction & Transactional Writing
-          </button>
+        <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap" id="filter-tabs">
+          <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">All papers</button>
+          <button class="filter-tab" id="tab-paper1" onclick="setFilter('paper1')">📚 Paper 1 — Fiction & Creative Writing</button>
+          <button class="filter-tab" id="tab-paper2" onclick="setFilter('paper2')">📰 Paper 2 — Non-Fiction & Transactional Writing</button>
         </div>
-
-        <!-- Paper 1 explainer (shown when Paper 1 tab active) -->
         <div id="paper1-info" style="display:none;background:#f8f6ff;border:1px solid #e0d8ff;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:#555;line-height:1.7">
           <strong style="color:#6c5ce7">Paper 1 — Explorations in Creative Reading and Writing</strong><br>
           Section A: Read a fiction extract and answer Q1–Q4 (40 marks)<br>
           Section B: Creative writing task — Q5 (40 marks)<br>
           <span style="color:#999;font-size:12px">1 hour 45 minutes · 80 marks total</span>
         </div>
-
-        <!-- Paper 2 explainer (shown when Paper 2 tab active) -->
         <div id="paper2-info" style="display:none;background:#fff8f0;border:1px solid #fde8c8;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:14px;color:#555;line-height:1.7">
           <strong style="color:#c07020">Paper 2 — Writers' Viewpoints and Perspectives</strong><br>
           Section A: Read a non-fiction extract and answer Q1–Q4 (40 marks)<br>
           Section B: Transactional writing task — Q5 (40 marks)<br>
           <span style="color:#999;font-size:12px">1 hour 45 minutes · 80 marks total</span>
         </div>
-
         <div class="paper-grid" id="paper-grid"></div>
       </div>
     </div>
 
     <!-- Paper view -->
     <div id="paper-view">
-
-      <!-- Paper header with progress -->
       <div class="paper-header">
         <div class="paper-header-top">
           <div>
-            <div class="paper-header-title" id="paper-title">Paper 1</div>
-            <div class="paper-header-sub" id="paper-sub">AQA English Language</div>
+            <div class="paper-header-title" id="paper-title">Paper</div>
+            <div class="paper-header-sub" id="paper-sub"></div>
           </div>
           <button class="back-btn" onclick="backToPapers()">← All papers</button>
         </div>
         <div class="progress-track" id="progress-track"></div>
       </div>
 
-      <!-- Extract -->
       <div class="extract-card" id="extract-card" style="display:none">
         <div class="extract-header">
           <div class="extract-header-title">📄 Read the extract carefully</div>
@@ -493,14 +341,12 @@
         </div>
       </div>
 
-      <!-- Current question -->
       <div class="card" id="question-card">
         <div class="question-paper-tag" id="q-label">Q1</div>
         <p class="question-text" id="q-text"></p>
         <div class="marks-row" id="q-marks"></div>
       </div>
 
-      <!-- Answer -->
       <div class="card" id="answer-card">
         <div class="card-title">Your answer</div>
         <textarea id="answer" placeholder="Write your answer here..." oninput="updateWordCount()"></textarea>
@@ -509,8 +355,6 @@
           <span id="word-tip">Aim for 450–600 words for full marks</span>
         </div>
         <button class="submit-btn" id="submitBtn" onclick="submitAnswer()">✦ Submit for AI marking</button>
-
-        <!-- Paywall -->
         <div class="paywall" id="paywall">
           <div class="paywall-icon">🔒</div>
           <h3>You've used your 3 free markings</h3>
@@ -526,21 +370,17 @@
           </div>
           <button class="upgrade-btn" onclick="handleUpgrade()">Upgrade to Premium — £4.99/month</button>
         </div>
-
-        <!-- Question navigation -->
         <div class="q-nav" id="q-nav" style="display:none">
           <button class="q-nav-btn" id="prev-btn" onclick="prevQuestion()">← Previous</button>
           <button class="q-nav-btn next" id="next-btn" onclick="nextQuestion()">Next question →</button>
         </div>
       </div>
 
-      <!-- Feedback -->
-      <div class="card" id="feedback">
+      <div class="card" id="feedback" style="display:none">
         <div class="card-title">AI Feedback</div>
         <div id="feedback-content"></div>
       </div>
 
-      <!-- Final score (shown after all questions done) -->
       <div class="card" id="final-score-card" style="display:none">
         <div class="final-score-card">
           <div class="final-score-number" id="final-number">0/80</div>
@@ -549,13 +389,12 @@
           <button class="restart-btn" onclick="backToPapers()">Try another paper</button>
         </div>
       </div>
-
     </div>
 
   </div>
 
   <footer>
-    <strong>ExamEdge</strong> · AI-powered GCSE revision · AQA mark schemes · Built for students
+    <strong>ExamEdge</strong> · AI-powered GCSE revision · AQA · Edexcel · Built for students
   </footer>
 
   <script>
@@ -571,10 +410,12 @@
     let currentQIndex = 0;
     let questionScores = {};
     let extractVisible = true;
+    let currentBoard = 'aqa';
+    let currentFilter = 'all';
 
-    // ── PAPER DATA ──────────────────────────────────────────────
+    // ── AQA PAPERS ──────────────────────────────────────────────
 
-    const PAPERS = [
+    const AQA_PAPERS = [
       {
         id: 'paper1-ashworth',
         title: 'Paper 1 — "Ashworth House"',
@@ -599,122 +440,15 @@ Miriam picked up her suitcase. She stepped inside. Behind her, the door swung sh
 
 She did not look back.`,
         questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about Ashworth House',
-            full: 'Read the extract carefully.\n\nList four things about Ashworth House from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- Three storeys high / made of grey stone
-- Windows are dark
-- Has a gravel path
-- Has an overgrown formal garden
-- Has stone urns on steps (cracked)
-- Has a cedar tree
-- Called Ashworth House
-- Belonged to Aunt Clara
-- Has an upper floor
-- Inside smells of old paper
-- The door swings shut on its own`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to describe Ashworth House?',
-            full: 'Look in detail at the extract.\n\nHow does the writer use language to describe Ashworth House and create atmosphere?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Explain, comment on and analyse how writers use language (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects of language. Judicious textual references. Accurate terminology.
-Band 3 (5-6): Clear explanation of language effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some relevant references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Personification of house ("had been waiting for her", "eyes of something")
-- Pathetic fallacy ("sharp October wind")
-- Short sentences for tension ("She did not look back")
-- Sensory language (smell, sound, sight)
-- Gothic imagery (darkness, cracked urns, dead plants)
-- Simile comparing windows to eyes`
-          },
-          {
-            label: 'Q3',
-            title: 'How has the writer structured the text?',
-            full: 'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Structural features (8 marks)
-Band 4 (7-8): Perceptive analysis of structural features across the whole text. Analyses effects on reader. Judicious references.
-Band 3 (5-6): Clear explanation of structural choices. References to different parts of text.
-Band 2 (3-4): Some comment on structure. Some references.
-Band 1 (1-2): Simple comment on structure or content.
-Key features to reward:
-- Opening with Miriam's thought — creates intrigue immediately
-- Zoom out to establish setting then zoom in to details
-- Flashback to backstory of aunt — provides context mid-text
-- Building tension through progression toward the door
-- Shift from exterior to interior — threshold crossing as structural turning point
-- Short final sentences create dramatic effect
-- Withholding information creates mystery
-- House "waiting" at start, door shuts at end — circular structure`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how successfully the writer creates unease',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer makes you feel genuinely uneasy. You can\'t help but feel something terrible is about to happen to Miriam."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates unease\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically and with detail (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Considers effect on reader critically. Judicious references. Convincing evaluation.
-Band 3 (11-15): Clear and consistent evaluation. Relevant references. Explains effect on reader.
-Band 2 (6-10): Some evaluation. Some relevant references. Some comment on effect.
-Band 1 (1-5): Simple comment. Limited references.
-Key points to reward:
-- Analysis of personification creating threatening atmosphere
-- Comment on Miriam's internal voice and dramatic irony
-- Evaluation of Gothic conventions and their effect
-- Analysis of the sound on the upper floor as horror device
-- Comment on ending and how it leaves reader in suspense
-- Evaluation of sensory details and cumulative effect
-- Critical response — does student agree/disagree and why?`
-          },
-          {
-            label: 'Q5',
-            title: 'Creative writing: describe a place that holds a secret',
-            full: 'You are going to enter a creative writing competition.\n\nEither: Write a description of a place that feels abandoned or forgotten.\n\nOr: Write the opening part of a story in which a character discovers something unexpected.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'creative',
-            markScheme: `AQA English Language Paper 1 Question 5 — Creative Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary and structure.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect.
-Band 2 AO5 (7-12): Some attempts to match style. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some accurate punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.`
-          }
+          { label:'Q1', title:'List four things about Ashworth House', full:'Read the extract carefully.\n\nList four things about Ashworth House from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 — Identify and interpret explicit information (4 marks)\nAward one mark for each valid point up to a maximum of 4.\nAccept any four of:\n- Three storeys high / made of grey stone\n- Windows are dark\n- Has a gravel path\n- Has an overgrown formal garden\n- Has stone urns on steps (cracked)\n- Has a cedar tree\n- Called Ashworth House\n- Belonged to Aunt Clara\n- Has an upper floor\n- Inside smells of old paper\n- The door swings shut on its own` },
+          { label:'Q2', title:'How does the writer use language to describe Ashworth House?', full:'Look in detail at the extract.\n\nHow does the writer use language to describe Ashworth House and create atmosphere?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 — Language analysis (8 marks)\nBand 4 (7-8): Perceptive, detailed analysis. Judicious references. Accurate terminology.\nBand 3 (5-6): Clear explanation. Relevant references. Mostly accurate terminology.\nBand 2 (3-4): Some comment. Some references. Some terminology.\nBand 1 (1-2): Simple comment. Limited reference.\nKey features:\n- Personification ("had been waiting for her", "eyes of something")\n- Pathetic fallacy ("sharp October wind")\n- Short sentences for tension ("She did not look back")\n- Sensory language\n- Gothic imagery` },
+          { label:'Q3', title:'How has the writer structured the text?', full:'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 — Structural features (8 marks)\nBand 4 (7-8): Perceptive analysis across whole text.\nBand 3 (5-6): Clear explanation. References to different parts.\nBand 2 (3-4): Some comment. Some references.\nBand 1 (1-2): Simple comment.\nKey features:\n- Opens with Miriam's thought — creates intrigue\n- Zoom out to establish setting then zoom in\n- Flashback to aunt provides context\n- Building tension through progression to door\n- Threshold crossing as structural turning point\n- Short final sentences create dramatic effect\n- Circular structure — house "waiting" at start, door shuts at end` },
+          { label:'Q4', title:'Evaluate how successfully the writer creates unease', full:'Focus on the whole extract.\n\nA student said: "The writer makes you feel genuinely uneasy. You can\'t help but feel something terrible is about to happen to Miriam."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates unease\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 — Evaluate critically (20 marks)\nBand 4 (16-20): Perceptive, detailed evaluation. Judicious references.\nBand 3 (11-15): Clear evaluation. Relevant references.\nBand 2 (6-10): Some evaluation. Some references.\nBand 1 (1-5): Simple comment.\nKey points:\n- Personification creating threatening atmosphere\n- Miriam's internal voice and dramatic irony\n- Gothic conventions and their effect\n- Sound on upper floor as horror device\n- Ending and suspense\n- Sensory details cumulative effect` },
+          { label:'Q5', title:'Creative writing: describe a place that holds a secret', full:'You are going to enter a creative writing competition.\n\nEither: Write a description of a place that feels abandoned or forgotten.\n\nOr: Write the opening part of a story in which a character discovers something unexpected.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'creative', markScheme:`AQA Creative Writing (40 marks)\nAO5 (24 marks): Communication and organisation\nAO6 (16 marks): Technical accuracy\nBand 4 AO5 (19-24): Compelling, convincing. Crafted and controlled.\nBand 3 AO5 (13-18): Consistent, clear. Vocabulary used for effect.\nBand 2 AO5 (7-12): Some attempts to match style.\nBand 1 AO5 (1-6): Simple, limited writing.\nBand 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.\nBand 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.\nBand 2 AO6 (5-8): Some varied vocabulary.\nBand 1 AO6 (1-4): Simple vocabulary. Frequent errors.` }
         ]
       },
-
       {
-        id: 'paper2-lighthouse',
+        id: 'paper1-lighthouse',
         title: 'Paper 1 — "The Lighthouse Keeper"',
         sub: 'AQA English Language · Fiction & Imaginative Writing',
         icon: '🏗️',
@@ -741,406 +475,13 @@ The beam swept. The waves came. The pencil marks on the wall waited.
 
 Daniel put the kettle on, because it was the only thing he could think of to do, and because some gestures, however small, were a way of insisting that life continued.`,
         questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about Daniel\'s life at the lighthouse',
-            full: 'Read the extract carefully.\n\nList four things about Daniel and his life at the lighthouse from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- The last supply boat came three weeks ago
-- He marks days in pencil on the kitchen wall
-- He came to the lighthouse at twenty-six
-- He thought solitude and peace were the same thing (but now knows they are not)
-- The lighthouse beam sweeps every four seconds
-- Everything is a matter of three steps (small space)
-- He has a daughter who is now eight
-- He missed his daughter's birthday again
-- A storm is coming with winds of sixty knots
-- He puts the kettle on at the end`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to describe the sea and storm?',
-            full: 'Look in detail at the extract.\n\nHow does the writer use language to describe the sea and the approaching storm?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Personification of the sea ("performing") and storm ("organising its forces")
-- The word "performing" — theatricality, spectacle, suggestion of agency
-- "Inevitable collapse" — sense of doom/inevitability
-- Personification of storm as having "patience and intelligence" that feels "almost personal"
-- Short declarative sentences to convey isolation ("It was not a question")
-- Rule of three ("swept... as it had done for a hundred and twelve years")
-- Tactile/sensory detail ("salt-glazed glass")`
-          },
-          {
-            label: 'Q3',
-            title: 'How has the writer structured the text?',
-            full: 'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Structural features (8 marks)
-Band 4 (7-8): Perceptive analysis across the whole text. Analyses effects on reader.
-Band 3 (5-6): Clear explanation of structural choices. References to different parts.
-Band 2 (3-4): Some comment on structure. Some references.
-Band 1 (1-2): Simple comment.
-Key features to reward:
-- Opens with a statement of isolation — immediately establishes tone
-- Moves from physical setting to internal reflection
-- Radio interruption — shift in focus, intrusion of outside world
-- Revelation of daughter — emotional pivot point, recontextualises his isolation
-- Closing image of kettle — zooms back to small domestic gesture after emotional moment
-- Repetition of routine details (beam sweeps, waves come) creates sense of entrapment
-- Past and present interwoven — backstory of coming at 26`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how successfully the writer creates a sense of isolation',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer makes you feel the full weight of Daniel\'s loneliness. By the end you feel almost trapped alongside him."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates isolation\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement with the statement. Judicious references.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect on reader.
-Band 2 (6-10): Some evaluation. Some references. Some comment on effect.
-Band 1 (1-5): Simple comment. Limited references.
-Key points to reward:
-- Analysis of physical isolation (supply boat, weather, three steps)
-- Emotional isolation — daughter, missed birthday, romantic notions vs reality
-- Analysis of the counting motif and what it reveals
-- Comment on the radio exchange and its coldness ("It was not a question")
-- Evaluation of the storm as mirror for internal state
-- The closing kettle image and what it says about human resilience
-- Critical response to the quote — does the student agree and why?`
-          },
-          {
-            label: 'Q5',
-            title: 'Creative writing: write about being truly alone',
-            full: 'You are going to enter a creative writing competition.\n\nEither: Write a description of a place where someone might feel completely alone.\n\nOr: Write a story about a character who must face something difficult on their own.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'creative',
-            markScheme: `AQA English Language Paper 1 Question 5 — Creative Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary and structure.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect.
-Band 2 AO5 (7-12): Some attempts to match style. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some accurate punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.`
-          }
-        ]
-      },,
-      {
-        id: 'paper2-amazon',
-        title: 'Paper 2 — "The Last Village"',
-        sub: 'AQA English Language · Non-Fiction & Transactional Writing',
-        icon: '🌿',
-        totalMarks: 80,
-        extract: `I had been travelling for eleven hours when the boat finally stopped.
-
-There was no jetty, no sign, no indication that this particular bend in the river was any different from the thousand others we had passed. The boatman simply cut the engine, pointed at the bank, and looked at me with an expression that suggested the conversation was over.
-
-The village of San Isidro does not appear on most maps. It has a population of around two hundred people, no electricity, no running water, and no road connecting it to the outside world. I had come here to write about what happens to communities like this one — places that globalisation has not yet reached, or has chosen to pass by.
-
-What I had not expected was how loud it would be.
-
-I had imagined silence. Instead, as I stepped off the boat and sank ankle-deep into the riverbank mud, I was met with the noise of children, the clatter of cooking, the complaint of a tethered goat, and music — thin and bright — coming from somewhere I could not see. A woman was washing clothes in the river twenty metres away. She looked up, assessed me with calm, unhurried eyes, and looked back down again.
-
-A man named Rodrigo, who spoke careful, considered English he had learned from a missionary thirty years ago, showed me around. The houses were built on stilts above the flood line. The school had sixty pupils and one teacher. The clinic was staffed by a nurse who visited every three months, travelling the same river route I had just taken.
-
-"People always come here to see what we do not have," Rodrigo said, as we sat outside his house that evening, watching the river go dark. "They never come to see what we do."
-
-I thought about that for a long time afterwards. I still do.`,
-        questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about the village of San Isidro',
-            full: 'Read the extract carefully.\n\nList four things about the village of San Isidro from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- Population of around two hundred people
-- No electricity
-- No running water
-- No road connecting it to the outside world
-- Does not appear on most maps
-- Houses built on stilts above the flood line
-- The school has sixty pupils and one teacher
-- The clinic is staffed by a nurse who visits every three months
-- There is no jetty or sign marking the village
-- Music could be heard in the village
-- A woman was washing clothes in the river`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to describe arriving at the village?',
-            full: 'Look in detail at the first four paragraphs of the extract (from "I had been travelling" to "chosen to pass by").\n\nHow does the writer use language to describe their arrival at San Isidro?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects of language. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Listing of absences ("no electricity, no running water, no road") — accumulation creates sense of isolation
-- Subverted expectation — "What I had not expected was how loud it would be" — single sentence paragraph for impact
-- Contrast between imagined silence and actual noise
-- The boatman's gesture — non-verbal communication conveys isolation
-- "sank ankle-deep into the riverbank mud" — sensory, physical detail grounds the reader
-- The woman's reaction — "calm, unhurried eyes" — suggests writer is the unusual one, not the village
-- Short declarative sentences for impact
-- Journalistic, detached tone shifts to personal reflection by end`
-          },
-          {
-            label: 'Q3',
-            title: 'How does the writer present their feelings about San Isidro?',
-            full: 'Look at the whole extract.\n\nHow does the writer present their feelings about San Isidro and its people?\n\nYou could write about:\n• what the writer thinks and feels\n• how the writer conveys those thoughts and feelings\n• how those feelings change or develop across the extract.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Writers' methods and perspective (8 marks)
-Band 4 (7-8): Perceptive analysis of how writer presents perspective. Analyses effects. Judicious references.
-Band 3 (5-6): Clear explanation of writer's perspective. Relevant references.
-Band 2 (3-4): Some comment on perspective. Some references.
-Band 1 (1-2): Simple comment.
-Key points to reward:
-- Initial expectation vs reality — writer expected silence, found noise/life
-- Writer presents themselves as outsider — "assessed me with calm, unhurried eyes"
-- Growing respect for the village — shift in perspective
-- Rodrigo's quote as turning point — writer's assumptions challenged
-- Final reflection — "I thought about that for a long time afterwards. I still do." — lasting impact
-- Writer acknowledges own bias/assumptions about poverty
-- Tone moves from journalistic detachment to personal reflection`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how the writer creates a sense of a world apart',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer makes San Isidro feel like a completely different world, but also makes you question your own assumptions about what matters in life."\n\nTo what extent do you agree with this view?\n\nWrite about:\n• your own impressions of how the writer presents San Isidro\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement. Judicious references. Convincing evaluation.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect on reader.
-Band 2 (6-10): Some evaluation. Some references. Some comment on effect.
-Band 1 (1-5): Simple comment. Limited references.
-Key points to reward:
-- Analysis of how writer builds sense of isolation (no map, no road, no electricity)
-- Subverted expectations — noise vs silence — challenges reader's assumptions
-- The woman washing clothes — village life continues undisturbed, writer is the anomaly
-- Rodrigo's quote as philosophical challenge to the reader
-- Evaluation of journalistic vs personal voice and how they interact
-- Comment on final two sentences and their lasting effect
-- Critical response — does student agree that assumptions are challenged?`
-          },
-          {
-            label: 'Q5',
-            title: 'Transactional writing: argue for or against modern technology',
-            full: 'A national newspaper is asking readers to contribute articles on the following topic:\n\n"Modern technology connects us to the world, but disconnects us from each other."\n\nWrite an article for the newspaper in which you argue for or against this view.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'transactional',
-            markScheme: `AQA English Language Paper 2 Question 5 — Transactional Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary, tone and register. Form and structure used effectively.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect. Appropriate tone and register.
-Band 2 AO5 (7-12): Some attempts to match form and purpose. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing. Basic awareness of purpose.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some accurate punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.
-For transactional writing reward:
-- Clear awareness of audience and purpose
-- Persuasive techniques: rhetorical questions, statistics, anecdote, counter-argument
-- Appropriate article format: headline, subheadings, paragraphs
-- Consistent tone (formal, journalistic)`
-          }
+          { label:'Q1', title:"List four things about Daniel's life at the lighthouse", full:"Read the extract carefully.\n\nList four things about Daniel and his life at the lighthouse from the extract.", marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- Last supply boat came three weeks ago\n- Marks days in pencil on kitchen wall\n- Came to lighthouse at twenty-six\n- Thought solitude and peace were the same\n- Lighthouse beam sweeps every four seconds\n- Everything is three steps (small space)\n- Has a daughter who is now eight\n- Missed daughter's birthday\n- Storm coming with sixty knot winds\n- Puts the kettle on at the end` },
+          { label:'Q2', title:'How does the writer use language to describe the sea and storm?', full:'Look in detail at the extract.\n\nHow does the writer use language to describe the sea and the approaching storm?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nBand 4 (7-8): Perceptive, detailed analysis.\nBand 3 (5-6): Clear explanation.\nBand 2 (3-4): Some comment.\nBand 1 (1-2): Simple comment.\nKey features:\n- Personification of sea ("performing") and storm ("organising its forces")\n- "inevitable collapse" — sense of doom\n- Storm has "patience and intelligence" that feels "almost personal"\n- Short declarative sentences ("It was not a question")\n- "salt-glazed glass" — tactile detail` },
+          { label:'Q3', title:'How has the writer structured the text?', full:'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Opens with statement of isolation\n- Physical setting to internal reflection\n- Radio interruption — shift in focus\n- Revelation of daughter — emotional pivot\n- Closing kettle image — small domestic gesture after emotion\n- Repetition of routine details creates entrapment\n- Past and present interwoven` },
+          { label:'Q4', title:'Evaluate how successfully the writer creates a sense of isolation', full:"Focus on the whole extract.\n\nA student said: \"The writer makes you feel the full weight of Daniel's loneliness. By the end you feel almost trapped alongside him.\"\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates isolation\n• how the writer has created these impressions.", marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nBand 4 (16-20): Perceptive evaluation.\nBand 3 (11-15): Clear evaluation.\nBand 2 (6-10): Some evaluation.\nBand 1 (1-5): Simple comment.\nKey points:\n- Physical isolation (supply boat, weather, three steps)\n- Emotional isolation — daughter, missed birthday\n- Counting motif\n- Radio exchange coldness\n- Storm as mirror for internal state\n- Kettle image and human resilience` },
+          { label:'Q5', title:'Creative writing: write about being truly alone', full:'You are going to enter a creative writing competition.\n\nEither: Write a description of a place where someone might feel completely alone.\n\nOr: Write a story about a character who must face something difficult on their own.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'creative', markScheme:`AQA Creative Writing (40 marks)\nAO5 (24 marks): Communication and organisation\nAO6 (16 marks): Technical accuracy\nBand 4 AO5 (19-24): Compelling, convincing.\nBand 3 AO5 (13-18): Consistent, clear.\nBand 2 AO5 (7-12): Some attempts.\nBand 1 AO5 (1-6): Simple, limited.\nBand 4 AO6 (13-16): Extensive vocabulary. Few errors.\nBand 3 AO6 (9-12): Generally accurate.\nBand 2 AO6 (5-8): Some accuracy.\nBand 1 AO6 (1-4): Frequent errors.` }
         ]
       },
-
-      {
-        id: 'paper2-everest',
-        title: 'Paper 2 — "Above the Clouds"',
-        sub: 'AQA English Language · Non-Fiction & Transactional Writing',
-        icon: '🏔️',
-        totalMarks: 80,
-        extract: `The summit of Everest is the size of a dining room table.
-
-I know this because I have stood on it — briefly, gasping, my mind working at perhaps a third of its usual capacity — and looked around at a view that should have felt like triumph but felt, in that moment, mostly like terror.
-
-It takes most climbers between six and nine hours to get from Camp Four to the summit. I took eight. My climbing partner, a Sherpa named Dawa who had made this journey eleven times and treated the mountain with a familiarity I found both reassuring and slightly unnerving, moved ahead of me for the last two hours, stopping regularly to look back with an expression of patient concern.
-
-The Death Zone begins at 8,000 metres. Above this altitude, the human body cannot acclimatise — it can only deteriorate. Every hour you spend above 8,000 metres, your body is consuming itself. Cells die. Judgement fails. Climbers have been known to sit down for a rest and never stand up again.
-
-And yet people come. Every year, hundreds of climbers attempt Everest. The mountain has become, in some ways, a victim of its own fame — the routes crowded with climbers of varying experience, the slopes littered with the detritus of decades of expeditions. I passed three abandoned tents and the frozen remains of equipment that would cost thousands of pounds to replace. I did not look too closely at everything I passed.
-
-On the way down — always the most dangerous part — Dawa said something I have thought about often since.
-
-"The mountain does not care if you reach the top," he said. "The mountain does not care about anything. That is what people forget."
-
-I asked him why he kept coming back.
-
-He smiled. "Because I do not forget."`,
-        questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about climbing Everest from the extract',
-            full: 'Read the extract carefully.\n\nList four things about climbing Everest from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- The summit is the size of a dining room table
-- It takes most climbers six to nine hours from Camp Four to summit
-- The writer took eight hours
-- Dawa had made the journey eleven times
-- The Death Zone begins at 8,000 metres
-- Above 8,000 metres the body cannot acclimatise, only deteriorate
-- Every hour above 8,000 metres the body consumes itself
-- Climbers have sat down and never stood up again
-- Hundreds of climbers attempt Everest every year
-- The slopes are littered with abandoned equipment
-- The writer passed three abandoned tents
-- The descent is the most dangerous part`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to describe the experience of climbing?',
-            full: 'Look in detail at the first four paragraphs of the extract (from "The summit of Everest" to "never stand up again").\n\nHow does the writer use language to describe the experience of climbing Everest?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Opening simile ("size of a dining room table") — bathetic, deflating expectation
-- Subverted emotion — "should have felt like triumph but felt...mostly like terror"
-- Scientific/factual language about the Death Zone — creates authority and dread
-- "the body is consuming itself" — visceral, disturbing personification
-- Short, punchy sentences for dramatic effect ("Cells die. Judgement fails.")
-- Contrast between writer's struggle and Dawa's familiarity
-- "patient concern" — understated, reveals the danger through understatement
-- "I did not look too closely at everything I passed" — implies deaths without stating`
-          },
-          {
-            label: 'Q3',
-            title: 'How does the writer present their attitude toward Everest?',
-            full: 'Look at the whole extract.\n\nHow does the writer present their attitude toward Everest and the experience of climbing it?\n\nYou could write about:\n• what the writer thinks and feels\n• how the writer conveys those thoughts and feelings\n• how those feelings change or develop across the extract.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Writers' methods and perspective (8 marks)
-Band 4 (7-8): Perceptive analysis of attitude and how it is conveyed. Judicious references.
-Band 3 (5-6): Clear explanation of attitude. Relevant references.
-Band 2 (3-4): Some comment on attitude. Some references.
-Band 1 (1-2): Simple comment.
-Key points to reward:
-- Ambivalence — neither pure triumph nor regret, but something more complex
-- Terror alongside achievement — honest, non-romantic portrayal
-- Awareness of the mountain's indifference — developed through Dawa's quote
-- Contrast between writer's one-time experience and Dawa's eleven climbs
-- Critical perspective on commercialisation of Everest (crowds, litter)
-- Shift from personal experience to wider reflection
-- Final exchange with Dawa — writer ends on mystery/admiration rather than conclusion`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how the writer creates a complex portrait of Everest',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer refuses to make Everest seem heroic or romantic. Instead they show it as something far more complicated and uncomfortable."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer presents Everest\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement. Judicious references.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect on reader.
-Band 2 (6-10): Some evaluation. Some references.
-Band 1 (1-5): Simple comment.
-Key points to reward:
-- Opening bathetic simile subverts romantic expectation immediately
-- Terror rather than triumph — honest emotional portrayal
-- Death Zone section — factual language makes danger concrete
-- Commercialisation critique — "victim of its own fame"
-- "I did not look too closely" — implication of deaths, anti-heroic
-- Dawa as philosophical counterpoint — mountain's indifference
-- Final enigmatic exchange — no neat conclusion, leaves reader reflecting
-- Critical response to the quote — does student agree?`
-          },
-          {
-            label: 'Q5',
-            title: 'Transactional writing: should dangerous sports be banned?',
-            full: 'A magazine aimed at young people is running a debate on the following question:\n\n"Extreme sports and dangerous pursuits do more harm than good. They should be discouraged."\n\nWrite a speech to be delivered at a school debate in which you argue for or against this view.\n\nYou should think carefully about the effect you want to have on your audience.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'transactional',
-            markScheme: `AQA English Language Paper 2 Question 5 — Transactional Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary, tone and register. Form used effectively.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect. Appropriate tone.
-Band 2 AO5 (7-12): Some attempts to match form. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.
-For speech writing reward:
-- Direct address to audience ("Ladies and gentlemen", "Consider this")
-- Rhetorical devices: repetition, rule of three, rhetorical questions
-- Clear argument structure with counter-argument acknowledged
-- Appropriate formal but engaging tone
-- Strong opening and memorable closing`
-          }
-        ]
-      },,
       {
         id: 'paper1-victorian',
         title: 'Paper 1 — "The Clockmaker\'s Daughter"',
@@ -1167,122 +508,13 @@ The clock looked back at her. The wheels did not move.
 
 "I know," she said, though there was no one to hear. "I know."`,
         questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about the house on Greystone Lane',
-            full: 'Read the extract carefully.\n\nList four things about Eleanor and the house on Greystone Lane from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- The house has forty-seven clocks
-- The house is on Greystone Lane
-- It has four floors
-- Eleanor has lived there for nineteen years
-- Her father had been dead for six days
-- There is a longcase clock at the top of the stairs (thirty years old)
-- There is a bracket clock in the dining room
-- There is a carriage clock in the parlour
-- There is a skeleton clock in the library (built by her father)
-- All clocks stopped at twenty-three minutes past two
-- The house was perfectly still with no draught`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to create atmosphere?',
-            full: 'Look in detail at the first four paragraphs of the extract (from "It was not the ticking" to "she had not thought silence could possess").\n\nHow does the writer use language to create a tense and unsettling atmosphere?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Paradox of opening — woken by silence not sound, immediately creates intrigue
-- Personification of silence ("a living thing, pressing against the walls")
-- Precise number detail ("forty-seven") — creates authenticity and obsessive quality
-- Short, isolated sentence ("Her father had been dead for six days") — devastating impact through brevity
-- Simile ("as though a hand had been pressed to her shoulder") — suggests supernatural presence
-- Listing of clocks builds to the revelation that all have stopped
-- Victorian register — formal, measured prose creates period authenticity`
-          },
-          {
-            label: 'Q3',
-            title: 'How has the writer structured the text?',
-            full: 'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Structural features (8 marks)
-Band 4 (7-8): Perceptive analysis across whole text. Analyses effects on reader.
-Band 3 (5-6): Clear explanation of structural choices. References to different parts.
-Band 2 (3-4): Some comment on structure. Some references.
-Band 1 (1-2): Simple comment.
-Key features to reward:
-- Opens with paradox — immediately hooks reader with unusual idea
-- Revelation delayed — father's death held back until paragraph four for impact
-- Eleanor's journey through the house — physical movement mirrors emotional journey
-- Accumulation of stopped clocks — builds tension through repetition
-- Flashback to father building the clock — shifts from present mystery to past warmth
-- Closes on ambiguous dialogue — "I know" raises more questions than it answers
-- Movement from sound to silence to memory — structural arc
-- Single short paragraph ("Her father had been dead for six days") as pivot point`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how successfully the writer creates a sense of grief and mystery',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer manages to make this extract about both grief and mystery at the same time. The two feelings are impossible to separate."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates grief and mystery\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement. Judicious references.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect.
-Band 2 (6-10): Some evaluation. Some references.
-Band 1 (1-5): Simple comment.
-Key points to reward:
-- The clocks as symbols of both time and the father — grief embodied in objects
-- Mystery of why all stopped simultaneously — supernatural suggestion
-- Short sentence about father's death — grief conveyed through understatement
-- Eleanor's calm, methodical response — suggests someone managing grief practically
-- Flashback to father's hands — tenderness and loss intertwined
-- Final "I know" — mysterious, ambiguous, could address father or clock
-- Evaluate whether student agrees the two feelings are inseparable
-- Comment on Victorian Gothic tradition and its use of grief/mystery`
-          },
-          {
-            label: 'Q5',
-            title: 'Creative writing: write about an unexpected discovery',
-            full: 'You are going to enter a creative writing competition.\n\nEither: Write a description of a place that holds memories of someone who is no longer there.\n\nOr: Write a story that begins with an unexpected discovery.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'creative',
-            markScheme: `AQA English Language Paper 1 Question 5 — Creative Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary and structure.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect.
-Band 2 AO5 (7-12): Some attempts to match style. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some accurate punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.`
-          }
+          { label:'Q1', title:'List four things about the house on Greystone Lane', full:'Read the extract carefully.\n\nList four things about Eleanor and the house on Greystone Lane from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- House has forty-seven clocks\n- House is on Greystone Lane\n- It has four floors\n- Eleanor has lived there nineteen years\n- Father had been dead for six days\n- Longcase clock at top of stairs (thirty years old)\n- Bracket clock in dining room\n- Carriage clock in parlour\n- Skeleton clock in library (built by father)\n- All clocks stopped at twenty-three minutes past two` },
+          { label:'Q2', title:'How does the writer use language to create atmosphere?', full:'Look in detail at the first four paragraphs.\n\nHow does the writer use language to create a tense and unsettling atmosphere?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Paradox of opening — woken by silence not sound\n- Personification of silence ("a living thing, pressing against the walls")\n- Precise number detail ("forty-seven") — obsessive quality\n- Short isolated sentence ("Her father had been dead for six days") — devastating impact\n- Simile ("as though a hand had been pressed to her shoulder") — supernatural suggestion\n- Victorian register — formal, measured prose` },
+          { label:'Q3', title:'How has the writer structured the text?', full:'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Opens with paradox — hooks reader immediately\n- Revelation delayed — father's death held back for impact\n- Eleanor's journey through house mirrors emotional journey\n- Accumulation of stopped clocks builds tension\n- Flashback to father building clock — shifts from mystery to warmth\n- Closes on ambiguous dialogue\n- Single short paragraph as pivot point` },
+          { label:'Q4', title:'Evaluate how successfully the writer creates grief and mystery', full:'Focus on the whole extract.\n\nA student said: "The writer manages to make this extract about both grief and mystery at the same time. The two feelings are impossible to separate."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer creates grief and mystery\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nKey points:\n- Clocks as symbols of both time and father — grief in objects\n- Mystery of why all stopped simultaneously\n- Short sentence about father's death — understatement\n- Eleanor's calm methodical response — managing grief practically\n- Flashback to father's hands — tenderness and loss\n- Final "I know" — mysterious, ambiguous\n- Victorian Gothic tradition` },
+          { label:'Q5', title:'Creative writing: write about an unexpected discovery', full:'You are going to enter a creative writing competition.\n\nEither: Write a description of a place that holds memories of someone who is no longer there.\n\nOr: Write a story that begins with an unexpected discovery.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'creative', markScheme:`AQA Creative Writing (40 marks)\nAO5 (24 marks) / AO6 (16 marks)\nBand 4 AO5 (19-24): Compelling, convincing.\nBand 3 AO5 (13-18): Consistent, clear.\nBand 2 AO5 (7-12): Some attempts.\nBand 1 AO5 (1-6): Simple, limited.\nBand 4 AO6 (13-16): Extensive vocabulary. Few errors.\nBand 3 AO6 (9-12): Generally accurate.\nBand 2 AO6 (5-8): Some accuracy.\nBand 1 AO6 (1-4): Frequent errors.` }
         ]
       },
-
       {
         id: 'paper1-modern',
         title: 'Paper 1 — "Saturday Morning"',
@@ -1313,123 +545,73 @@ Cara sat down across from him. The table between them was exactly the right size
 
 The wood pigeon continued. The tea steamed. The grass in the garden waited, patient as everything else, for someone to attend to it.`,
         questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about Cara and Jake from the extract',
-            full: 'Read the extract carefully.\n\nList four things about Cara and Jake and their situation from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- They had an argument three hours ago
-- Cara is standing at the kitchen window with forgotten tea
-- The grass needs cutting / Marcus was going to cut it
-- Jake appears in yesterday's clothes
-- Cara has known Jake for thirteen years
-- Jake likes tea with two sugars and milk first
-- Cara thinks milk first is wrong but has stopped saying so
-- Jake apologises for the night before
-- Cara also apologises
-- There is a wood pigeon in the apple tree outside
-- The fourth step on the stairs has a loose carpet`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to show the tension between Cara and Jake?',
-            full: 'Look in detail at the extract from "He appeared in the doorway" to the end.\n\nHow does the writer use language to show the tension and tenderness between Cara and Jake?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- "The kitchen held its breath" — personification creates tension
-- Short exchanges of dialogue — minimal words convey emotional weight
-- "their fingers touched briefly on the handle" — small gesture carries enormous significance
-- "neither of them said anything about that either" — implies much unsaid
-- "exactly the right size — close enough to reach across, far enough to feel like a decision" — metaphor for relationship
-- Wood pigeon as motif — nature's indifference to human drama
-- "the way he liked it" — small act of love despite argument
-- Understatement throughout — what is NOT said is as important as what is`
-          },
-          {
-            label: 'Q3',
-            title: 'How has the writer structured the text?',
-            full: 'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Structural features (8 marks)
-Band 4 (7-8): Perceptive analysis across whole text. Analyses effects on reader.
-Band 3 (5-6): Clear explanation of structural choices. References to different parts.
-Band 2 (3-4): Some comment on structure. Some references.
-Band 1 (1-2): Simple comment.
-Key features to reward:
-- Opens with aftermath of argument — reader placed in medias res
-- Cara's internal thoughts establish backstory without exposition
-- Jake's arrival — shift from internal monologue to shared space
-- Dialogue as structural turning point — brief exchanges carry weight
-- Wood pigeon as structural motif — appears twice, bookends the reconciliation
-- Closing image returns to the garden — circular structure, life continuing
-- Movement from tension to tentative reconciliation — emotional arc
-- Short paragraphs and sentences used at moments of highest tension`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how successfully the writer portrays a relationship under strain',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer captures something true about relationships — the way people who love each other can hurt each other and still find their way back, without needing to explain everything."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer portrays the relationship\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement. Judicious references.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect.
-Band 2 (6-10): Some evaluation. Some references.
-Band 1 (1-5): Simple comment.
-Key points to reward:
-- Small gestures as language of love — tea, finger touch
-- Understatement as emotional realism — what couples don't say
-- The table metaphor — "far enough to feel like a decision"
-- Cara's knowledge of Jake's footsteps — intimacy conveyed through detail
-- The word "also" in "Me too" — mutual acknowledgement without blame
-- Garden as symbol — neglected but still there, like the relationship
-- Evaluate whether student agrees that the writer captures something universal
-- Comment on what the extract does NOT explain and why that's effective`
-          },
-          {
-            label: 'Q5',
-            title: 'Creative writing: write about a difficult conversation',
-            full: 'You are going to enter a creative writing competition.\n\nEither: Write a description of a moment when everything changes between two people.\n\nOr: Write a story in which two characters must have a conversation they have been avoiding.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'creative',
-            markScheme: `AQA English Language Paper 1 Question 5 — Creative Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary and structure.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect.
-Band 2 AO5 (7-12): Some attempts to match style. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some accurate punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.`
-          }
+          { label:'Q1', title:'List four things about Cara and Jake from the extract', full:'Read the extract carefully.\n\nList four things about Cara and Jake and their situation from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- They had an argument three hours ago\n- Cara standing at kitchen window with forgotten tea\n- The grass needs cutting\n- Jake appears in yesterday's clothes\n- Cara has known Jake thirteen years\n- Jake likes tea with two sugars and milk first\n- Cara thinks milk first is wrong but stopped saying so\n- Jake apologises for the night before\n- Cara also apologises\n- Wood pigeon in apple tree outside\n- Fourth step has loose carpet` },
+          { label:'Q2', title:'How does the writer use language to show tension between Cara and Jake?', full:'Look in detail at the extract from "He appeared in the doorway" to the end.\n\nHow does the writer use language to show the tension and tenderness between Cara and Jake?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- "The kitchen held its breath" — personification creates tension\n- Short dialogue — minimal words carry emotional weight\n- "fingers touched briefly" — small gesture carries significance\n- "neither of them said anything about that either" — implies much unsaid\n- Table metaphor — "far enough to feel like a decision"\n- Wood pigeon as motif — nature's indifference\n- "the way he liked it" — small act of love despite argument` },
+          { label:'Q3', title:'How has the writer structured the text?', full:'Look at the extract as a whole.\n\nHow has the writer structured the text to interest you as a reader?\n\nYou could write about:\n• what the writer focuses your attention on at the beginning\n• how and why the writer changes the focus as the extract develops\n• any other structural features that interest you.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Opens with aftermath — reader placed in medias res\n- Cara's thoughts establish backstory\n- Jake's arrival — shift from internal monologue to shared space\n- Brief dialogue as structural turning point\n- Wood pigeon appears twice — bookends reconciliation\n- Closing image returns to garden — circular structure\n- Short paragraphs at moments of highest tension` },
+          { label:'Q4', title:'Evaluate how successfully the writer portrays a relationship under strain', full:'Focus on the whole extract.\n\nA student said: "The writer captures something true about relationships — the way people who love each other can hurt each other and still find their way back, without needing to explain everything."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer portrays the relationship\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nKey points:\n- Small gestures as language of love\n- Understatement as emotional realism\n- Table metaphor\n- Cara's knowledge of Jake's footsteps — intimacy through detail\n- "Me too" — mutual acknowledgement without blame\n- Garden as symbol — neglected but still there\n- What the extract does NOT explain and why that's effective` },
+          { label:'Q5', title:'Creative writing: write about a difficult conversation', full:'You are going to enter a creative writing competition.\n\nEither: Write a description of a moment when everything changes between two people.\n\nOr: Write a story in which two characters must have a conversation they have been avoiding.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'creative', markScheme:`AQA Creative Writing (40 marks)\nAO5 (24 marks) / AO6 (16 marks)\nBand 4 AO5 (19-24): Compelling, convincing.\nBand 3 AO5 (13-18): Consistent, clear.\nBand 2 AO5 (7-12): Some attempts.\nBand 1 AO5 (1-6): Simple, limited.\nBand 4 AO6 (13-16): Extensive vocabulary. Few errors.\nBand 3 AO6 (9-12): Generally accurate.\nBand 2 AO6 (5-8): Some accuracy.\nBand 1 AO6 (1-4): Frequent errors.` }
         ]
       },
+      {
+        id: 'paper2-amazon',
+        title: 'Paper 2 — "The Last Village"',
+        sub: 'AQA English Language · Non-Fiction & Transactional Writing',
+        icon: '🌿',
+        totalMarks: 80,
+        extract: `I had been travelling for eleven hours when the boat finally stopped.
 
+There was no jetty, no sign, no indication that this particular bend in the river was any different from the thousand others we had passed. The boatman simply cut the engine, pointed at the bank, and looked at me with an expression that suggested the conversation was over.
+
+The village of San Isidro does not appear on most maps. It has a population of around two hundred people, no electricity, no running water, and no road connecting it to the outside world. I had come here to write about what happens to communities like this one — places that globalisation has not yet reached, or has chosen to pass by.
+
+What I had not expected was how loud it would be.
+
+I had imagined silence. Instead, as I stepped off the boat and sank ankle-deep into the riverbank mud, I was met with the noise of children, the clatter of cooking, the complaint of a tethered goat, and music — thin and bright — coming from somewhere I could not see. A woman was washing clothes in the river twenty metres away. She looked up, assessed me with calm, unhurried eyes, and looked back down again.
+
+A man named Rodrigo, who spoke careful, considered English he had learned from a missionary thirty years ago, showed me around. The houses were built on stilts above the flood line. The school had sixty pupils and one teacher. The clinic was staffed by a nurse who visited every three months, travelling the same river route I had just taken.
+
+"People always come here to see what we do not have," Rodrigo said, as we sat outside his house that evening, watching the river go dark. "They never come to see what we do."
+
+I thought about that for a long time afterwards. I still do.`,
+        questions: [
+          { label:'Q1', title:'List four things about the village of San Isidro', full:'Read the extract carefully.\n\nList four things about the village of San Isidro from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- Population of around two hundred\n- No electricity\n- No running water\n- No road connecting it to outside world\n- Does not appear on most maps\n- Houses built on stilts\n- School has sixty pupils and one teacher\n- Clinic nurse visits every three months\n- No jetty or sign\n- Music could be heard\n- Woman washing clothes in river` },
+          { label:'Q2', title:'How does the writer use language to describe arriving at the village?', full:'Look in detail at the first four paragraphs.\n\nHow does the writer use language to describe their arrival at San Isidro?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Listing of absences ("no electricity, no running water, no road")\n- Subverted expectation — "What I had not expected was how loud"\n- Contrast between imagined silence and actual noise\n- Boatman's gesture — non-verbal communication\n- "sank ankle-deep into the riverbank mud" — sensory grounding\n- Woman's reaction — "calm, unhurried eyes" — writer is the unusual one` },
+          { label:'Q3', title:"How does the writer present their feelings about San Isidro?", full:'Look at the whole extract.\n\nHow does the writer present their feelings about San Isidro and its people?\n\nYou could write about:\n• what the writer thinks and feels\n• how the writer conveys those thoughts and feelings\n• how those feelings change across the extract.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey points:\n- Initial disorientation — darkness is overwhelming\n- Curiosity and wonder\n- Sense of awe at scale\n- Growing respect for the village\n- Rodrigo's quote as turning point\n- Final reflection lasting impact` },
+          { label:'Q4', title:'Evaluate how the writer creates a sense of a world apart', full:'Focus on the whole extract.\n\nA student said: "The writer makes San Isidro feel like a completely different world, but also makes you question your own assumptions about what matters in life."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer presents San Isidro\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nKey points:\n- How writer builds isolation (no map, no road, no electricity)\n- Subverted expectations challenge reader's assumptions\n- Woman washing clothes — village undisturbed, writer is anomaly\n- Rodrigo's philosophical challenge\n- Journalistic vs personal voice\n- Final two sentences and lasting effect` },
+          { label:'Q5', title:'Transactional writing: argue for or against modern technology', full:'A national newspaper is asking readers to contribute articles on the following topic:\n\n"Modern technology connects us to the world, but disconnects us from each other."\n\nWrite an article for the newspaper in which you argue for or against this view.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'transactional', markScheme:`AQA Transactional Writing (40 marks)\nAO5 (24 marks): Communication and organisation\nAO6 (16 marks): Technical accuracy\nBand 4 AO5 (19-24): Compelling. Sophisticated control of form and register.\nBand 3 AO5 (13-18): Consistent. Clear awareness of audience.\nBand 2 AO5 (7-12): Some awareness of form.\nBand 1 AO5 (1-6): Simple, limited.\nReward: headline, engaging opening, persuasive techniques, appropriate tone` }
+        ]
+      },
+      {
+        id: 'paper2-everest',
+        title: 'Paper 2 — "Above the Clouds"',
+        sub: 'AQA English Language · Non-Fiction & Transactional Writing',
+        icon: '🏔️',
+        totalMarks: 80,
+        extract: `The summit of Everest is the size of a dining room table.
+
+I know this because I have stood on it — briefly, gasping, my mind working at perhaps a third of its usual capacity — and looked around at a view that should have felt like triumph but felt, in that moment, mostly like terror.
+
+It takes most climbers between six and nine hours to get from Camp Four to the summit. I took eight. My climbing partner, a Sherpa named Dawa who had made this journey eleven times and treated the mountain with a familiarity I found both reassuring and slightly unnerving, moved ahead of me for the last two hours, stopping regularly to look back with an expression of patient concern.
+
+The Death Zone begins at 8,000 metres. Above this altitude, the human body cannot acclimatise — it can only deteriorate. Every hour you spend above 8,000 metres, your body is consuming itself. Cells die. Judgement fails. Climbers have been known to sit down for a rest and never stand up again.
+
+And yet people come. Every year, hundreds of climbers attempt Everest. The mountain has become, in some ways, a victim of its own fame — the routes crowded with climbers of varying experience, the slopes littered with the detritus of decades of expeditions. I passed three abandoned tents and the frozen remains of equipment that would cost thousands of pounds to replace. I did not look too closely at everything I passed.
+
+On the way down — always the most dangerous part — Dawa said something I have thought about often since.
+
+"The mountain does not care if you reach the top," he said. "The mountain does not care about anything. That is what people forget."
+
+I asked him why he kept coming back.
+
+He smiled. "Because I do not forget."`,
+        questions: [
+          { label:'Q1', title:'List four things about climbing Everest', full:'Read the extract carefully.\n\nList four things about climbing Everest from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- Summit is size of dining room table\n- Takes most climbers six to nine hours from Camp Four\n- Writer took eight hours\n- Dawa had made journey eleven times\n- Death Zone begins at 8,000 metres\n- Above 8,000m body cannot acclimatise\n- Climbers have sat down and never stood up\n- Hundreds attempt Everest every year\n- Slopes littered with abandoned equipment\n- Writer passed three abandoned tents\n- Descent is most dangerous part` },
+          { label:'Q2', title:'How does the writer use language to describe the experience of climbing?', full:'Look in detail at the first four paragraphs.\n\nHow does the writer use language to describe the experience of climbing Everest?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Opening simile ("size of a dining room table") — bathetic\n- Subverted emotion — "should have felt like triumph but felt...terror"\n- Scientific language about Death Zone — authority and dread\n- "body is consuming itself" — visceral personification\n- Short punchy sentences ("Cells die. Judgement fails.")\n- Contrast between writer's struggle and Dawa's familiarity\n- "I did not look too closely" — implies deaths through understatement` },
+          { label:'Q3', title:"How does the writer present their attitude toward Everest?", full:'Look at the whole extract.\n\nHow does the writer present their attitude toward Everest and the experience of climbing it?\n\nYou could write about:\n• what the writer thinks and feels\n• how the writer conveys those thoughts and feelings\n• how those feelings change across the extract.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey points:\n- Ambivalence — neither triumph nor regret\n- Terror alongside achievement — honest portrayal\n- Awareness of mountain's indifference\n- Contrast between writer and Dawa\n- Critical perspective on commercialisation\n- Shift from personal to wider reflection\n- Final exchange — mystery and admiration` },
+          { label:'Q4', title:'Evaluate how the writer creates a complex portrait of Everest', full:'Focus on the whole extract.\n\nA student said: "The writer refuses to make Everest seem heroic or romantic. Instead they show it as something far more complicated and uncomfortable."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer presents Everest\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nKey points:\n- Bathetic simile subverts romantic expectation\n- Terror rather than triumph\n- Death Zone — factual language makes danger concrete\n- Commercialisation critique\n- "I did not look too closely" — anti-heroic\n- Dawa as philosophical counterpoint\n- Final enigmatic exchange — no neat conclusion` },
+          { label:'Q5', title:'Transactional writing: should dangerous sports be banned?', full:'A magazine aimed at young people is running a debate.\n\n"Extreme sports and dangerous pursuits do more harm than good. They should be discouraged."\n\nWrite a speech to be delivered at a school debate in which you argue for or against this view.\n\nYou should think carefully about the effect you want to have on your audience.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'transactional', markScheme:`AQA Transactional Writing (40 marks)\nAO5 (24 marks) / AO6 (16 marks)\nReward for speech: direct address, rhetorical devices, clear argument, strong opening and closing\nBand 4 AO5 (19-24): Compelling. Sophisticated control.\nBand 3 AO5 (13-18): Consistent. Clear awareness.\nBand 2 AO5 (7-12): Some awareness of form.\nBand 1 AO5 (1-6): Simple, limited.` }
+        ]
+      },
       {
         id: 'paper2-school',
         title: 'Paper 2 — "The Exam Factory"',
@@ -1456,130 +638,111 @@ She looked at the whiteboard for a moment. Then she looked back at me.
 
 "But I worry more," she said, "about the children who don't get the grades. Because nobody writes articles about what happens to them."`,
         questions: [
-          {
-            label: 'Q1',
-            title: 'List four things about Riverside Academy from the extract',
-            full: 'Read the extract carefully.\n\nList four things about Riverside Academy and Dr Okafor from the extract.',
-            marks: 4,
-            time: '5 mins',
-            ao: 'AO1',
-            hasExtract: true,
-            markScheme: `AO1 — Identify and interpret explicit information (4 marks)
-Award one mark for each valid point up to a maximum of 4.
-Accept any four of:
-- The school has over a thousand pupils
-- Students walk on the left and must not run or shout
-- Dr Okafor has been headteacher for seven years
-- The school was in special measures before Dr Okafor
-- Results place the school in top fifteen percent nationally
-- 83% of pupils achieved grade 5 or above in English and Maths
-- Dr Okafor has a whiteboard covered in data in her office
-- Her office is on the third floor
-- A former pupil said their worth felt measured entirely in grades
-- Dr Okafor says she worries about the criticism`
-          },
-          {
-            label: 'Q2',
-            title: 'How does the writer use language to present Riverside Academy?',
-            full: 'Look in detail at the first three paragraphs (from "The first thing you notice" to "The numbers are extraordinary. The method is controversial.").\n\nHow does the writer use language to present Riverside Academy and create a particular impression of the school?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Language analysis (8 marks)
-Band 4 (7-8): Perceptive, detailed analysis. Analyses effects. Judicious references. Accurate terminology.
-Band 3 (5-6): Clear explanation of effects. Relevant references. Mostly accurate terminology.
-Band 2 (3-4): Some comment on language. Some references. Some terminology.
-Band 1 (1-2): Simple comment. Limited reference.
-Key features to reward:
-- Opening paradox — silence in a building of a thousand pupils
-- Listing of rules ("do not run, do not shout") — accumulation creates oppressive tone
-- "the colour of calm" — synesthesia, suggests manufactured environment
-- "polite but unambiguous" — oxymoronic quality, implies control beneath courtesy
-- Statistics used to create authority ("eighty-three percent")
-- Short punchy paragraph ("The numbers are extraordinary. The method is controversial.") — juxtaposition, creates tension
-- Journalistic, objective tone which becomes subtly critical
-- "deliberately, systematically removed" — adverbs suggest calculated control`
-          },
-          {
-            label: 'Q3',
-            title: 'How does the writer present different perspectives on the school?',
-            full: 'Look at the whole extract.\n\nHow does the writer present different perspectives on Riverside Academy and its methods?\n\nYou could write about:\n• the different views presented in the extract\n• how the writer uses these different voices\n• what impression the writer creates overall.',
-            marks: 8,
-            time: '10 mins',
-            ao: 'AO2',
-            hasExtract: true,
-            markScheme: `AO2 — Writers' methods and perspective (8 marks)
-Band 4 (7-8): Perceptive analysis of multiple perspectives and how writer presents them. Judicious references.
-Band 3 (5-6): Clear explanation of different perspectives. Relevant references.
-Band 2 (3-4): Some comment on perspectives. Some references.
-Band 1 (1-2): Simple comment.
-Key points to reward:
-- Writer presents three voices: Dr Okafor, former pupil, writer's own observations
-- Dr Okafor's voice — confident, principled, defensive but self-aware
-- Former pupil — anonymous, humanises the criticism, personal cost
-- Writer's voice — appears objective but word choices suggest subtle unease
-- The whiteboard of data — visual symbol of the school's philosophy
-- Dr Okafor's final speech — complexity, she acknowledges criticism and reframes it
-- Overall impression — writer does not take sides but leans toward complexity
-- Balance of statistics and human experience`
-          },
-          {
-            label: 'Q4',
-            title: 'Evaluate how effectively the writer presents a complex argument',
-            full: 'Focus on the whole extract.\n\nA student said: "The writer never tells you what to think about Dr Okafor or her school. But by the end you feel the full weight of a genuinely difficult question."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer presents the argument\n• how the writer has created these impressions.',
-            marks: 20,
-            time: '20 mins',
-            ao: 'AO4',
-            hasExtract: true,
-            markScheme: `AO4 — Evaluate critically (20 marks)
-Band 4 (16-20): Perceptive, detailed evaluation. Critical engagement. Judicious references.
-Band 3 (11-15): Clear evaluation. Relevant references. Explains effect.
-Band 2 (6-10): Some evaluation. Some references.
-Band 1 (1-5): Simple comment.
-Key points to reward:
-- Writer's apparent objectivity vs subtle word choices that imply unease
-- Dr Okafor as complex figure — not villain or hero
-- Former pupil's testimony — emotional counterweight to statistics
-- Dr Okafor's final reframe — "I worry more about the children who don't get the grades"
-- This ending challenges reader to question their own assumptions
-- Statistics vs human cost — writer holds both without resolving tension
-- Evaluate whether student agrees the writer avoids taking sides
-- Comment on journalistic technique and its effect on reader`
-          },
-          {
-            label: 'Q5',
-            title: 'Transactional writing: schools should focus on wellbeing not grades',
-            full: 'A national newspaper is running a series on education in Britain today.\n\nWrite a letter to the Secretary of State for Education in which you argue that schools should place more emphasis on student wellbeing and less on examination results.\n\nYou should think carefully about the effect you want to have on your reader.',
-            marks: 40,
-            time: '45 mins',
-            ao5: 24,
-            ao6: 16,
-            hasExtract: false,
-            type: 'transactional',
-            markScheme: `AQA English Language Paper 2 Question 5 — Transactional Writing (40 marks)
-AO5 (24 marks): Communication and organisation
-AO6 (16 marks): Technical accuracy
-Band 4 AO5 (19-24): Compelling, convincing. Crafted and controlled. Sophisticated vocabulary, tone and register. Form used effectively.
-Band 3 AO5 (13-18): Consistent, clear. Vocabulary and structure used for effect. Appropriate tone.
-Band 2 AO5 (7-12): Some attempts to match form. Some structural features.
-Band 1 AO5 (1-6): Simple, limited writing.
-Band 4 AO6 (13-16): Extensive vocabulary. Varied sentences. Few errors.
-Band 3 AO6 (9-12): Sophisticated vocabulary. Generally accurate.
-Band 2 AO6 (5-8): Some varied vocabulary. Some punctuation.
-Band 1 AO6 (1-4): Simple vocabulary. Frequent errors.
-For letter writing reward:
-- Correct formal letter format (address, date, Dear Secretary of State, Yours faithfully)
-- Formal but persuasive register
-- Clear argument with evidence and counter-argument
-- Rhetorical devices appropriate to persuasive letter
-- Strong opening and memorable closing paragraph`
-          }
+          { label:'Q1', title:'List four things about Riverside Academy', full:'Read the extract carefully.\n\nList four things about Riverside Academy and Dr Okafor from the extract.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, markScheme:`AO1 (4 marks)\nAccept any four of:\n- School has over a thousand pupils\n- Students walk on left, must not run or shout\n- Dr Okafor headteacher for seven years\n- School was in special measures before Dr Okafor\n- Top fifteen percent nationally\n- 83% achieved grade 5 or above\n- Whiteboard covered in data in her office\n- Office on third floor\n- Former pupil said worth felt measured in grades\n- Dr Okafor says she worries about the criticism` },
+          { label:'Q2', title:'How does the writer use language to present Riverside Academy?', full:'Look in detail at the first three paragraphs.\n\nHow does the writer use language to present Riverside Academy and create a particular impression of the school?\n\nYou could include the writer\'s choice of:\n• words and phrases\n• language features and techniques\n• sentence forms.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey features:\n- Opening paradox — silence in building of thousand pupils\n- Listing of rules — accumulation creates oppressive tone\n- "colour of calm" — synesthesia\n- "polite but unambiguous" — control beneath courtesy\n- Statistics create authority\n- Short paragraph juxtaposition — "extraordinary...controversial"\n- "deliberately, systematically removed" — calculated control` },
+          { label:'Q3', title:'How does the writer present different perspectives?', full:'Look at the whole extract.\n\nHow does the writer present different perspectives on Riverside Academy and its methods?\n\nYou could write about:\n• the different views presented\n• how the writer uses different voices\n• what impression the writer creates overall.', marks:8, time:'10 mins', ao:'AO2', hasExtract:true, markScheme:`AO2 (8 marks)\nKey points:\n- Three voices: Dr Okafor, former pupil, writer's observations\n- Dr Okafor — confident, principled, self-aware\n- Former pupil — humanises criticism, personal cost\n- Writer — appears objective but word choices suggest unease\n- Whiteboard as visual symbol\n- Dr Okafor's final speech — complexity\n- Balance of statistics and human experience` },
+          { label:'Q4', title:'Evaluate how effectively the writer presents a complex argument', full:'Focus on the whole extract.\n\nA student said: "The writer never tells you what to think about Dr Okafor or her school. But by the end you feel the full weight of a genuinely difficult question."\n\nTo what extent do you agree?\n\nWrite about:\n• your own impressions of how the writer presents the argument\n• how the writer has created these impressions.', marks:20, time:'20 mins', ao:'AO4', hasExtract:true, markScheme:`AO4 (20 marks)\nKey points:\n- Writer's apparent objectivity vs subtle critical word choices\n- Dr Okafor as complex figure\n- Former pupil's testimony as counterweight\n- Dr Okafor's final reframe challenges reader\n- Statistics vs human cost — tension unresolved\n- Journalistic technique and its effect` },
+          { label:'Q5', title:'Transactional writing: schools should focus on wellbeing not grades', full:'A national newspaper is running a series on education.\n\nWrite a letter to the Secretary of State for Education in which you argue that schools should place more emphasis on student wellbeing and less on examination results.\n\nYou should think carefully about the effect you want to have on your reader.', marks:40, time:'45 mins', ao5:24, ao6:16, hasExtract:false, type:'transactional', markScheme:`AQA Transactional Writing (40 marks)\nAO5 (24 marks) / AO6 (16 marks)\nReward for letter: correct formal format, formal register, clear argument, rhetorical devices, strong opening and closing\nBand 4 AO5 (19-24): Compelling. Sophisticated control.\nBand 3 AO5 (13-18): Consistent. Clear awareness.\nBand 2 AO5 (7-12): Some awareness.\nBand 1 AO5 (1-6): Simple, limited.` }
         ]
       }
     ];
 
-    // ── AUTH ────────────────────────────────────────────────────
+    // ── EDEXCEL PAPERS ───────────────────────────────────────────
+
+    const EDEXCEL_PAPERS = [
+      {
+        id: 'edexcel-exploration',
+        title: 'Paper 1 — "Into the Dark"',
+        sub: 'Edexcel International GCSE · Non-Fiction & Transactional Writing',
+        icon: '🕳️',
+        totalMarks: 90,
+        textA: `I had been underground for six hours before I understood what darkness actually meant.
+
+Above ground, even on the darkest night, there is always something — a star, a streetlight, the faint luminescence of a cloudy sky. Underground, in the cave system beneath the Mendip Hills in Somerset, there is nothing. When our guide turned off his torch to demonstrate, the darkness was so complete that I instinctively raised my hand in front of my face and felt a curious shock at not being able to see it. My hand. Six inches from my eyes.
+
+"People panic at this point," said our guide, Dan, with the cheerful detachment of someone who had watched this happen many times. "The brain doesn't know what to do with total absence. It starts inventing things."
+
+He was right. Within thirty seconds, I was seeing shapes — not clearly, but at the edge of perception, the way you sometimes see movement from the corner of your eye. My brain, starved of visual input, was generating its own.
+
+The cave system extends for eleven kilometres beneath the hills, though only two kilometres are open to visitors. The rest remains unexplored, or rather, explored only by those with specialist training and equipment, people who think nothing of squeezing through passages the width of a human shoulder for hours at a time in pursuit of whatever lies beyond the next chamber.
+
+I am not one of those people. I had come on the tourist route — helmeted, suited, accompanied — and I was already finding it extraordinary. The rock formations alone were worth the journey: stalactites that had been growing for forty thousand years at a rate of one cubic centimetre per century, columns of calcite that glowed amber and rust under our torches, pools of water so still and clear they looked solid.
+
+"How long before someone explored all of it?" I asked Dan, as we paused in a chamber the size of a cathedral.
+
+He looked at the passage that led away into unmapped darkness.
+
+"Nobody knows," he said. "That's rather the point."`,
+
+        textB: `From the Journal of William Pengelly, Geologist, 1858
+
+The descent into the cavern at Brixham occupied the better part of a morning, and was not undertaken without some apprehension on my part, though I am reluctant to commit that apprehension to paper in terms too strong, lest it reflect poorly upon my resolution as a man of science.
+
+The cavern proved to be of considerable extent. My companion, a local man named Trewin who has explored these passages since boyhood, moved through the narrow sections with an ease that I confess I could not match, my lantern catching his boots ahead of me as I followed on hands and knees through passages that seemed designed to discourage investigation.
+
+The purpose of our descent was to examine the bone deposits that Trewin had discovered some months previously. Science had long maintained that man and the great extinct beasts could not have coexisted. What we found in that cave suggested otherwise.
+
+The bones lay in a stratum of ancient clay, undisturbed for what I estimated to be a very great period of time. Among them — a flint tool, worked by human hand.
+
+I sat for some time in that cold, silent chamber, holding the tool and considering what it meant. Above us, the world continued its business. Down here, time had stopped — or rather, had collapsed, so that the creature who made this object and I who held it seemed, for a moment, not so very far apart.
+
+I do not exaggerate when I say it was the most important moment of my scientific life.`,
+
+        questions: [
+          { label:'Q1', title:'Select two words or phrases that show the cave has a powerful effect', full:'Read lines 1-10 of Text A again.\n\nSelect two words or phrases from these lines that show the cave has a powerful effect on the writer.', marks:2, time:'3 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (2 marks)\nAward 1 mark each, up to maximum 2.\nAccept any two of:\n- "darkness was so complete"\n- "curious shock"\n- "total absence"\n- "starved of visual input"\n- "generating its own"\n- "instinctively raised my hand"\nDo NOT award for full sentences or paraphrase.` },
+          { label:'Q2', title:"Describe what happens when the guide turns off his torch", full:"Read lines 1-15 of Text A.\n\nDescribe in your own words what happens when the guide turns off his torch.", marks:4, time:'5 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (4 marks)\nAward 1 mark each for any four:\n- Darkness is total — nothing can be seen\n- Writer cannot see own hand in front of face\n- Guide explains people panic\n- Brain cannot process complete darkness\n- Writer begins to see shapes that are not there\n- Brain creates visual information when deprived\nDo NOT accept direct copying.` },
+          { label:'Q3', title:"What are the writer's thoughts and feelings about the cave?", full:"Read the whole of Text A.\n\nWhat are the writer's thoughts and feelings about the cave system and the experience of exploring it?\n\nUse evidence from the text to support your answer.", marks:5, time:'8 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (5 marks)\nBand 3 (4-5): Clear and detailed. Well-chosen evidence. Some inference.\nBand 2 (2-3): Some understanding. Some evidence.\nBand 1 (1): Simple comment. Limited evidence.\nKey points:\n- Initial disorientation/unease\n- Curiosity and wonder at rock formations\n- Awe at scale and age\n- Admiration for experienced explorers\n- Self-awareness — "I am not one of those people"\n- Intellectual engagement\n- Guide's final comment creates mystery` },
+          { label:'Q4', title:'How does the writer use language and structure to interest the reader?', full:'Read the whole of Text A.\n\nHow does the writer use language and structure to interest and engage the reader?\n\nSupport your answer with detailed reference to the text.', marks:12, time:'15 mins', ao:'AO2', hasExtract:true, extractTarget:'A', markScheme:`AO2 (12 marks)\nBand 5 (11-12): Perceptive analysis of language AND structure. Detailed references. Accurate terminology.\nBand 4 (9-10): Thorough analysis. Good references and terminology.\nBand 3 (6-8): Clear explanation. Some references and terminology.\nBand 2 (3-5): Some comment. Some references. Limited terminology.\nBand 1 (1-2): Simple comment. Minimal reference.\nLanguage:\n- Second person "you" — places reader in experience\n- Dialogue with Dan — authenticity\n- Precise scientific detail — authority\n- Simile ("chamber the size of a cathedral")\n- Short sentence impact ("My hand. Six inches from my eyes.")\nStructure:\n- Opens in medias res\n- Moves from darkness to wonder\n- Ends on open question — creates mystery` },
+          { label:'Q5', title:'Compare how both writers present their experiences of exploration', full:'Read both Text A and Text B.\n\nBoth writers describe experiences of exploring underground caves.\n\nCompare how the writers present their thoughts, feelings and experiences.\n\nYou should consider:\n• the similarities and differences between the texts\n• how each writer uses language and structure\n• the contexts in which the texts were written.', marks:22, time:'25 mins', ao:'AO2', hasExtract:true, extractTarget:'both', markScheme:`AO2 (22 marks)\nBand 5 (19-22): Perceptive comparison. Analyses language in both. Similarities AND differences. Context. Judicious references.\nBand 4 (15-18): Thorough comparison. Good analysis. Covers both similarities and differences.\nBand 3 (10-14): Clear comparison. Some language features in both.\nBand 2 (5-9): Some comparison. May focus on one text.\nBand 1 (1-4): Simple comment. May summarise.\nSimilarities:\n- Both experience disorientation underground\n- Both reflect on age/history of caves\n- Both use companions for contrast\n- Both end on mystery/significance\nDifferences:\n- Text A: modern journalistic vs Text B: Victorian formal scientific\n- Text A: tourist experience vs Text B: scientific expedition\n- Text A: personal/sensory vs Text B: intellectual/historical\nContext:\n- Text B 1858 — prehistory being revolutionised\n- Text A modern — caves now tourist destinations` },
+          { label:'Q6', title:'Transactional writing: travel article or speech about adventure', full:'Section B — Transactional Writing\n\nChoose ONE of the following:\n\nEither: A travel magazine is looking for articles about extraordinary places. Write a travel article about a place you find fascinating.\n\nOr: Write a speech encouraging students to push their boundaries and try something new.', marks:45, time:'45 mins', ao5:24, ao6:21, hasExtract:false, type:'transactional', markScheme:`Edexcel IGCSE Transactional Writing (45 marks)\nAO4 (24 marks): Communication and organisation\nAO5 (21 marks): Technical accuracy\nAO4 Band 5 (20-24): Compelling. Sophisticated control of form, tone and register.\nAO4 Band 4 (15-19): Consistent. Clear awareness of form and purpose.\nAO4 Band 3 (10-14): Some awareness. Generally organised.\nAO4 Band 2 (5-9): Limited awareness.\nAO4 Band 1 (1-4): Very limited.\nAO5 Band 5 (18-21): Extensive vocabulary. Varied sentences. Very few errors.\nAO5 Band 4 (13-17): Sophisticated vocabulary. Generally accurate.\nAO5 Band 3 (8-12): Some varied vocabulary. Some accuracy.\nAO5 Band 2 (4-7): Simple vocabulary. Frequent errors.\nAO5 Band 1 (1-3): Very simple. Many errors.` }
+        ]
+      },
+      {
+        id: 'edexcel-environment',
+        title: 'Paper 1 — "The Dying Reef"',
+        sub: 'Edexcel International GCSE · Non-Fiction & Transactional Writing',
+        icon: '🐠',
+        totalMarks: 90,
+        textA: `The coral was the colour of bone.
+
+I had been diving on the Great Barrier Reef for twenty years before I saw it like this — bleached white, silent, stripped of the extraordinary riot of colour and life that had made it, for two decades, the most beautiful place I had ever been. My dive buddy, a marine biologist named Dr Chen, moved alongside me through the ghostly formations, her camera recording what neither of us wanted to see.
+
+"It's not dead," she said, when we surfaced. "Not yet. There's still time."
+
+She said this, I noticed, without her usual conviction.
+
+Coral bleaching occurs when water temperatures rise by as little as one degree Celsius above the seasonal average. The coral, stressed by the heat, expels the algae that live in its tissues — the algae that give it its colour and provide up to ninety percent of its energy. Without them, the coral turns white. Without them, and without a rapid return to normal temperatures, the coral dies.
+
+The Great Barrier Reef has experienced five mass bleaching events since 1998. The most severe, in 2016 and 2017, killed approximately fifty percent of the reef's shallow water corals. The reef is not dying the way a single organism dies. It is dying the way a city dies — slowly, unevenly, neighbourhood by neighbourhood, with pockets of survival that make the overall picture simultaneously more hopeful and more heartbreaking.
+
+Dr Chen has been studying this reef for fifteen years. She remembers it before the bleaching — the parrotfish, the sea turtles, the walls of staghorn coral that rose like underwater cathedrals from the sandy floor.
+
+"People ask me if it's too late," she said. "I tell them it's not a question of too late. It's a question of how much we save."`,
+
+        textB: `From "The Naturalist on the Coral Reefs" by T.H. Whitmore, 1886
+
+There are few spectacles in the natural world that can prepare the observer for a first encounter with a living coral reef. I had read the accounts of previous travellers — had studied the drawings, examined the preserved specimens — and still, when I lowered myself into the warm waters off the Queensland coast, I was entirely unprepared for what I found.
+
+The colours were beyond any adequate description. I shall attempt one nevertheless. Imagine every shade of blue and green that the human eye can distinguish, and then imagine colours for which the eye has no name, hues that exist only in this underwater world and vanish the moment they are taken from it. Set against these the crimson and gold of the coral formations themselves — branching, bulbous, fan-shaped — and populate them with fish of such extravagant variety and decoration that they seem less like creatures of nature than the invention of some fantastical painter given unlimited access to a palette.
+
+I spent three hours in the water that first morning. I had intended to spend one. I emerged, finally, not because I had seen enough — I doubt I could ever have seen enough — but because my body, more prosaic in its demands than my imagination, required food and rest.
+
+In all my years of natural history, I have encountered nothing that so forcibly reminded me of the abundance of creation, nor anything that so powerfully suggested that the world, in its richness, exceeds our capacity to fully comprehend it.
+
+I returned to the reef every morning for six weeks. Each time, I found something new.`,
+
+        questions: [
+          { label:'Q1', title:'Select two words or phrases showing the reef has changed dramatically', full:'Read lines 1-8 of Text A again.\n\nSelect two words or phrases from these lines that show the reef has changed dramatically.', marks:2, time:'3 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (2 marks)\nAccept any two of:\n- "colour of bone"\n- "bleached white"\n- "silent"\n- "ghostly formations"\n- "neither of us wanted to see"\n- "without her usual conviction"\nDo NOT accept full sentences or paraphrase.` },
+          { label:'Q2', title:'Describe what coral bleaching is and what causes it', full:'Read lines 13-20 of Text A.\n\nDescribe in your own words what coral bleaching is and what causes it.', marks:4, time:'5 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (4 marks)\nAward 1 mark each for any four:\n- Bleaching happens when water temperature rises even slightly\n- The coral is stressed by the heat\n- The coral expels algae living inside it\n- The algae provide the coral's colour\n- The algae provide most of coral's energy\n- Without algae coral turns white\n- Without algae returning quickly coral dies\nDo NOT accept direct copying.` },
+          { label:'Q3', title:"What are the writer's thoughts and feelings about the reef?", full:"Read the whole of Text A.\n\nWhat are the writer's thoughts and feelings about the reef and its future?\n\nUse evidence from the text to support your answer.", marks:5, time:'8 mins', ao:'AO1', hasExtract:true, extractTarget:'A', markScheme:`AO1 (5 marks)\nBand 3 (4-5): Clear and detailed. Well-chosen evidence.\nBand 2 (2-3): Some understanding. Some evidence.\nBand 1 (1): Simple comment.\nKey points:\n- Grief and loss — beautiful for 20 years, now devastated\n- Reluctance to accept what they see\n- Scientific understanding mixed with emotional response\n- Qualified hope — "not dead yet" but without conviction\n- Dr Chen as emotional proxy\n- City metaphor — complexity of loss\n- Cautious hope in final quote` },
+          { label:'Q4', title:'How does the writer use language and structure to interest the reader?', full:'Read the whole of Text A.\n\nHow does the writer use language and structure to interest and engage the reader?\n\nSupport your answer with detailed reference to the text.', marks:12, time:'15 mins', ao:'AO2', hasExtract:true, extractTarget:'A', markScheme:`AO2 (12 marks)\nBand 5 (11-12): Perceptive analysis of language AND structure.\nBand 4 (9-10): Thorough analysis.\nBand 3 (6-8): Clear explanation.\nBand 2 (3-5): Some comment.\nBand 1 (1-2): Simple comment.\nLanguage:\n- "colour of bone" — death imagery immediately\n- "riot of colour" — contrast with bleached state\n- Scientific data alongside emotional language\n- City metaphor for decline\n- Dr Chen's dialogue — human voice to statistics\n- Paradox — "more hopeful and more heartbreaking"\nStructure:\n- Opens with devastating image\n- Personal to scientific — zoom out\n- Returns to personal — Dr Chen's memories\n- Closes on Dr Chen's reframe — agency not despair` },
+          { label:'Q5', title:'Compare how both writers present the coral reef', full:'Read both Text A and Text B.\n\nBoth writers describe the Great Barrier Reef.\n\nCompare how the writers present the reef and their responses to it.\n\nYou should consider:\n• the similarities and differences between the texts\n• how each writer uses language and structure\n• the contexts in which the texts were written.', marks:22, time:'25 mins', ao:'AO2', hasExtract:true, extractTarget:'both', markScheme:`AO2 (22 marks)\nBand 5 (19-22): Perceptive comparison. Analyses both texts. Similarities AND differences. Context.\nBand 4 (15-18): Thorough comparison. Good analysis.\nBand 3 (10-14): Clear comparison. Some features in both.\nBand 2 (5-9): Some comparison.\nBand 1 (1-4): Simple comment.\nSimilarities:\n- Both writers overwhelmed by reef's power\n- Both use vivid descriptive language\n- Both have personal emotional responses\n- Both suggest reef exceeds human comprehension\nDifferences:\n- Text A: reef dying vs Text B: reef in magnificence\n- Text A: grief and loss vs Text B: pure wonder\n- Text A: modern journalistic vs Text B: Victorian formal\nContext:\n- Text B 1886 — reef pristine, climate change unknown\n- Text A modern — reef in crisis, scientific context` },
+          { label:'Q6', title:'Transactional writing: environmental task', full:"Section B — Transactional Writing\n\nChoose ONE of the following:\n\nEither: Write the text for a leaflet aimed at young people, persuading them to care about and take action to protect the world's oceans.\n\nOr: Write a speech arguing for or against: \"Protecting the environment should be every government's top priority.\"", marks:45, time:'45 mins', ao5:24, ao6:21, hasExtract:false, type:'transactional', markScheme:`Edexcel IGCSE Transactional Writing (45 marks)\nAO4 (24 marks) / AO5 (21 marks)\nAO4 Band 5 (20-24): Compelling. Sophisticated control.\nAO4 Band 4 (15-19): Consistent. Clear awareness.\nAO4 Band 3 (10-14): Some awareness.\nAO4 Band 2 (5-9): Limited awareness.\nAO4 Band 1 (1-4): Very limited.\nAO5 Band 5 (18-21): Extensive vocabulary. Very few errors.\nAO5 Band 4 (13-17): Sophisticated. Generally accurate.\nAO5 Band 3 (8-12): Some varied vocabulary.\nAO5 Band 2 (4-7): Simple. Frequent errors.\nAO5 Band 1 (1-3): Very simple. Many errors.` }
+        ]
+      }
+    ];
+
+    // ── AUTH ─────────────────────────────────────────────────────
 
     async function init() {
       const { data: { session } } = await supabaseClient.auth.getSession();
@@ -1591,13 +754,9 @@ For letter writing reward:
     }
 
     async function loadProfile() {
-      const { data, error } = await supabaseClient
-        .from('profiles').select('*').eq('user_id', currentUser.id).single();
+      const { data, error } = await supabaseClient.from('profiles').select('*').eq('user_id', currentUser.id).single();
       if (error || !data) {
-        const { data: newProfile } = await supabaseClient
-          .from('profiles')
-          .insert({ user_id: currentUser.id, markings_used: 0, is_premium: false })
-          .select().single();
+        const { data: newProfile } = await supabaseClient.from('profiles').insert({ user_id: currentUser.id, markings_used: 0, is_premium: false }).select().single();
         userProfile = newProfile || { markings_used: 0, is_premium: false };
       } else {
         userProfile = data;
@@ -1637,43 +796,72 @@ For letter writing reward:
         });
         const data = await response.json();
         if (data.url) { window.location.href = data.url; }
-        else { alert('Something went wrong. Please try again.'); btn.textContent = 'Upgrade to Premium — £4.99/month'; btn.disabled = false; }
+        else { alert('Something went wrong.'); btn.textContent = 'Upgrade to Premium — £4.99/month'; btn.disabled = false; }
       } catch (error) {
-        alert('Something went wrong. Please try again.');
+        alert('Something went wrong.');
         btn.textContent = 'Upgrade to Premium — £4.99/month';
         btn.disabled = false;
       }
     }
 
-    // ── PAPER GRID ──────────────────────────────────────────────
-let currentBoard = 'aqa';
-   function buildPaperGrid(filter = 'all') {
-  const grid = document.getElementById('paper-grid');
-  grid.innerHTML = '';
+    // ── BOARD & FILTER ───────────────────────────────────────────
 
-  const sourcePapers = currentBoard === 'edexcel' ? EDEXCEL_PAPERS : PAPERS;
+    function setBoard(board) {
+      if (board === 'cambridge') {
+        alert('Cambridge IGCSE coming soon! Check back shortly.');
+        return;
+      }
+      currentBoard = board;
+      document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`board-${board}`).classList.add('active');
+      currentFilter = 'all';
+      setFilter('all');
+    }
 
-  const filtered = filter === 'all' ? sourcePapers :
-    sourcePapers.filter(p => filter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
-  filtered.forEach(paper => {
-    const btn = document.createElement('button');
-    btn.className = 'paper-btn';
-    btn.innerHTML = `
-      <div class="paper-icon">${paper.icon}</div>
-      <div class="paper-content">
-        <div class="paper-meta">AQA English Language · ${paper.questions.length} questions</div>
-        <div class="paper-title">${paper.title}</div>
-        <div class="paper-desc">${paper.sub}</div>
-        <div class="paper-stats">
-          <span class="paper-stat">${paper.totalMarks} marks total</span>
-          <span class="paper-stat">~90 mins</span>
-        </div>
-      </div>
-      <div style="color:#ddd;font-size:20px">›</div>`;
-    btn.onclick = () => selectPaper(paper);
-    grid.appendChild(btn);
-  });
-}
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+      const tabEl = document.getElementById(`tab-${filter}`);
+      if (tabEl) tabEl.classList.add('active');
+      document.getElementById('paper1-info').style.display = filter === 'paper1' ? 'block' : 'none';
+      document.getElementById('paper2-info').style.display = filter === 'paper2' ? 'block' : 'none';
+      buildPaperGrid();
+    }
+
+    // ── PAPER GRID ───────────────────────────────────────────────
+
+    function buildPaperGrid() {
+      const grid = document.getElementById('paper-grid');
+      grid.innerHTML = '';
+      const sourcePapers = currentBoard === 'edexcel' ? EDEXCEL_PAPERS : AQA_PAPERS;
+      const filtered = currentFilter === 'all' ? sourcePapers :
+        sourcePapers.filter(p => currentFilter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<p style="color:#aaa;font-size:14px;text-align:center;padding:20px">No papers available for this filter yet.</p>';
+        return;
+      }
+
+      filtered.forEach(paper => {
+        const btn = document.createElement('button');
+        btn.className = 'paper-btn';
+        btn.innerHTML = `
+          <div class="paper-icon">${paper.icon}</div>
+          <div class="paper-content">
+            <div class="paper-meta">${currentBoard.toUpperCase()} English Language · ${paper.questions.length} questions</div>
+            <div class="paper-title">${paper.title}</div>
+            <div class="paper-desc">${paper.sub}</div>
+            <div class="paper-stats">
+              <span class="paper-stat">${paper.totalMarks} marks total</span>
+              <span class="paper-stat">~90 mins</span>
+            </div>
+          </div>
+          <div style="color:#ddd;font-size:20px">›</div>`;
+        btn.onclick = () => selectPaper(paper);
+        grid.appendChild(btn);
+      });
+    }
+
     function selectPaper(paper) {
       currentPaper = paper;
       currentQIndex = 0;
@@ -1697,7 +885,7 @@ let currentBoard = 'aqa';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // ── PROGRESS TRACK ──────────────────────────────────────────
+    // ── PROGRESS TRACK ───────────────────────────────────────────
 
     function buildProgressTrack() {
       const track = document.getElementById('progress-track');
@@ -1722,41 +910,39 @@ let currentBoard = 'aqa';
       });
     }
 
-    // ── LOAD QUESTION ───────────────────────────────────────────
+    // ── LOAD QUESTION ─────────────────────────────────────────────
 
     function loadQuestion(index) {
       currentQIndex = index;
       const q = currentPaper.questions[index];
-      const total = currentPaper.questions.length;
 
-     // Extract
+      // Extract
       if (q.hasExtract) {
         document.getElementById('extract-card').style.display = 'block';
+        extractVisible = true;
+        document.querySelector('.extract-toggle').textContent = 'Hide';
+        document.getElementById('extract-body').style.display = 'block';
 
-        // Handle Edexcel two-text format
         if (currentPaper.textA) {
           const target = q.extractTarget || 'A';
           if (target === 'both') {
             document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text A</strong>\n\n` +
-              currentPaper.textA +
-              `\n\n<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text B</strong>\n\n` +
-              currentPaper.textB;
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
+              currentPaper.textA.replace(/\n/g, '<br>') +
+              `<br><br><strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin:16px 0 12px">Text B</strong>` +
+              currentPaper.textB.replace(/\n/g, '<br>');
           } else if (target === 'B') {
             document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text B</strong>\n\n` +
-              currentPaper.textB;
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text B</strong>` +
+              currentPaper.textB.replace(/\n/g, '<br>');
           } else {
             document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text A</strong>\n\n` +
-              currentPaper.textA;
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
+              currentPaper.textA.replace(/\n/g, '<br>');
           }
         } else {
           document.getElementById('extract-text').innerText = currentPaper.extract;
         }
-        extractVisible = true;
-        document.querySelector('.extract-toggle').textContent = 'Hide';
-        document.getElementById('extract-body').style.display = 'block';
       } else {
         document.getElementById('extract-card').style.display = 'none';
       }
@@ -1770,18 +956,15 @@ let currentBoard = 'aqa';
       if (q.ao5) marksHtml += `<span class="badge">AO5: ${q.ao5} · AO6: ${q.ao6}</span>`;
       document.getElementById('q-marks').innerHTML = marksHtml;
 
-      // Word tip
       document.getElementById('word-tip').textContent =
         q.marks <= 4 ? 'Keep answers concise and precise' :
         q.marks <= 8 ? 'Aim for 150–200 words' :
         q.marks <= 20 ? 'Aim for 300–400 words' :
         'Aim for 450–600 words for full marks';
 
-      // Answer
       document.getElementById('answer').value = '';
       document.getElementById('word-count').textContent = '0 words';
 
-      // Show/hide paywall vs submit
       const used = userProfile?.markings_used || 0;
       const isPremium = userProfile?.is_premium;
       if (!isPremium && used >= FREE_LIMIT) {
@@ -1792,14 +975,9 @@ let currentBoard = 'aqa';
         document.getElementById('paywall').style.display = 'none';
       }
 
-      // Navigation
-      const navDiv = document.getElementById('q-nav');
-      navDiv.style.display = 'none';
-
-      // Feedback
+      document.getElementById('q-nav').style.display = 'none';
       document.getElementById('feedback').style.display = 'none';
       document.getElementById('final-score-card').style.display = 'none';
-
       updateProgressTrack();
     }
 
@@ -1815,21 +993,16 @@ let currentBoard = 'aqa';
       document.getElementById('word-count').textContent = `${count} word${count !== 1 ? 's' : ''}`;
     }
 
-    function prevQuestion() {
-      if (currentQIndex > 0) loadQuestion(currentQIndex - 1);
-    }
-
+    function prevQuestion() { if (currentQIndex > 0) loadQuestion(currentQIndex - 1); }
     function nextQuestion() {
       const next = currentQIndex + 1;
       if (next < currentPaper.questions.length) {
         loadQuestion(next);
         document.getElementById('question-card').scrollIntoView({ behavior: 'smooth' });
-      } else {
-        showFinalScore();
-      }
+      } else { showFinalScore(); }
     }
 
-    // ── SUBMIT ──────────────────────────────────────────────────
+    // ── SUBMIT ───────────────────────────────────────────────────
 
     async function submitAnswer() {
       const answer = document.getElementById('answer').value;
@@ -1843,11 +1016,7 @@ let currentBoard = 'aqa';
       btn.disabled = true;
       btn.textContent = 'Marking...';
       document.getElementById('feedback').style.display = 'block';
-      document.getElementById('feedback-content').innerHTML = `
-        <div class="loading-state">
-          <div class="loading-spinner"></div>
-          <div>Marking your work — this takes about 10 seconds...</div>
-        </div>`;
+      document.getElementById('feedback-content').innerHTML = `<div class="loading-state"><div class="loading-spinner"></div><div>Marking your work — this takes about 10 seconds...</div></div>`;
       document.getElementById('feedback').scrollIntoView({ behavior: 'smooth' });
 
       const q = currentPaper.questions[currentQIndex];
@@ -1880,11 +1049,7 @@ let currentBoard = 'aqa';
           if (line.startsWith('SCORE:')) {
             const score = line.replace('SCORE:', '').trim();
             const parts = score.split('(');
-            html += `<div class="feedback-top">
-              <div class="score-badge">${parts[0].trim()}</div>
-              <div class="score-sub"><strong>${parts[1] ? parts[1].replace(')', '') : ''}</strong><br>AQA English Language · ${q.label}</div>
-            </div>`;
-            // Extract numeric score
+            html += `<div class="feedback-top"><div class="score-badge">${parts[0].trim()}</div><div class="score-sub"><strong>${parts[1] ? parts[1].replace(')', '') : ''}</strong><br>${currentBoard.toUpperCase()} English Language · ${q.label}</div></div>`;
             const match = parts[0].match(/(\d+)/);
             if (match) scoreValue = parseInt(match[1]);
           } else if (line.startsWith('WHAT YOU DID WELL')) {
@@ -1903,7 +1068,6 @@ let currentBoard = 'aqa';
         if (currentSection) html += '</div>';
         document.getElementById('feedback-content').innerHTML = html;
 
-        // Save score
         if (scoreValue !== null) {
           questionScores[currentQIndex] = { score: scoreValue, max: q.marks, label: q.label };
           const scoreEl = document.getElementById(`ps-${currentQIndex}`);
@@ -1911,14 +1075,12 @@ let currentBoard = 'aqa';
           updateProgressTrack();
         }
 
-        // Show navigation
         const isLast = currentQIndex === currentPaper.questions.length - 1;
         const navDiv = document.getElementById('q-nav');
         navDiv.style.display = 'flex';
         document.getElementById('prev-btn').style.display = currentQIndex > 0 ? 'block' : 'none';
         document.getElementById('next-btn').textContent = isLast ? '🏁 See final score' : 'Next question →';
 
-        // Increment usage
         if (!isPremium) {
           const newCount = used + 1;
           await supabaseClient.from('profiles').update({ markings_used: newCount }).eq('user_id', currentUser.id);
@@ -1934,51 +1096,22 @@ let currentBoard = 'aqa';
       btn.textContent = '✦ Submit for AI marking';
     }
 
-    // ── FINAL SCORE ─────────────────────────────────────────────
+    // ── FINAL SCORE ──────────────────────────────────────────────
 
     function showFinalScore() {
       const scores = Object.values(questionScores);
       const total = scores.reduce((sum, s) => sum + s.score, 0);
       const maxTotal = scores.reduce((sum, s) => sum + s.max, 0);
-
       document.getElementById('final-number').textContent = `${total}/${maxTotal}`;
-
       let rowsHtml = '';
       Object.values(questionScores).forEach(s => {
-        rowsHtml += `<div class="final-q-row">
-          <span class="final-q-name">${s.label}</span>
-          <span class="final-q-score">${s.score}/${s.max}</span>
-        </div>`;
+        rowsHtml += `<div class="final-q-row"><span class="final-q-name">${s.label}</span><span class="final-q-score">${s.score}/${s.max}</span></div>`;
       });
       document.getElementById('final-q-scores').innerHTML = rowsHtml;
       document.getElementById('final-score-card').style.display = 'block';
       document.getElementById('final-score-card').scrollIntoView({ behavior: 'smooth' });
     }
 
-   
-
-   function setBoard(board) {
-      if (board === 'cambridge') {
-        alert('Cambridge IGCSE coming soon! Check back shortly.');
-        return;
-      }
-
-      currentBoard = board;
-      document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
-      document.getElementById(`board-${board}`).classList.add('active');
-      setFilter('all');
-    }
-
-     function setFilter(filter = 'all') {
-      document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      const tabEl = document.getElementById(`tab-${filter}`);
-      if (tabEl) tabEl.classList.add('active');
-      document.getElementById('paper1-info').style.display = filter === 'paper1' ? 'block' : 'none';
-      document.getElementById('paper2-info').style.display = filter === 'paper2' ? 'block' : 'none';
-      buildPaperGrid(filter);
-    }
-    }
-   buildPaperGrid();
     init();
   </script>
 
