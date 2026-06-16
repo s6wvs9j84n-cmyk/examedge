@@ -331,7 +331,22 @@
     .final-q-score { color: #6c5ce7; font-weight: 700; }
     .restart-btn { background: linear-gradient(135deg, #6c5ce7, #8b7cf6); color: white; border: none; padding: 14px 28px; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: 700; }
 
-    /* Filter tabs */
+   /* Exam board buttons */
+    .board-btn {
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1.5px solid #e0e0f0;
+      background: white;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s;
+      min-width: 120px;
+    }
+    .board-btn:hover { border-color: #6c5ce7; transform: translateY(-1px); }
+    .board-btn.active { border-color: #6c5ce7; background: #f0eeff; }
+    .board-btn-name { font-size: 15px; font-weight: 800; color: #1a1a2e; }
+    .board-btn.active .board-btn-name { color: #6c5ce7; }
+    .board-btn-sub { font-size: 11px; color: #aaa; margin-top: 2px; } /* Filter tabs */
     .filter-tab {
       padding: 8px 16px;
       border-radius: 20px;
@@ -383,6 +398,25 @@
   </div>
 
   <div class="main">
+
+    <!-- Exam board selector -->
+    <div style="margin-bottom:24px">
+      <div style="font-size:13px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px">Select your exam board</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="board-btn active" id="board-aqa" onclick="setBoard('aqa')">
+          <div class="board-btn-name">AQA</div>
+          <div class="board-btn-sub">GCSE · UK</div>
+        </button>
+        <button class="board-btn" id="board-edexcel" onclick="setBoard('edexcel')">
+          <div class="board-btn-name">Edexcel</div>
+          <div class="board-btn-sub">International GCSE</div>
+        </button>
+        <button class="board-btn" id="board-cambridge" onclick="setBoard('cambridge')">
+          <div class="board-btn-name">Cambridge</div>
+          <div class="board-btn-sub">IGCSE · Coming soon</div>
+        </button>
+      </div>
+    </div>
 
     <!-- Subject bar -->
     <div class="subject-bar">
@@ -1617,9 +1651,10 @@ For letter writing reward:
   const grid = document.getElementById('paper-grid');
   grid.innerHTML = '';
 
-  const filtered = filter === 'all' ? PAPERS :
-    PAPERS.filter(p => filter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
+  const sourcePapers = currentBoard === 'edexcel' ? EDEXCEL_PAPERS : PAPERS;
 
+  const filtered = filter === 'all' ? sourcePapers :
+    sourcePapers.filter(p => filter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
   filtered.forEach(paper => {
     const btn = document.createElement('button');
     btn.className = 'paper-btn';
@@ -1694,10 +1729,31 @@ For letter writing reward:
       const q = currentPaper.questions[index];
       const total = currentPaper.questions.length;
 
-      // Extract
+     // Extract
       if (q.hasExtract) {
         document.getElementById('extract-card').style.display = 'block';
-        document.getElementById('extract-text').innerText = currentPaper.extract;
+
+        // Handle Edexcel two-text format
+        if (currentPaper.textA) {
+          const target = q.extractTarget || 'A';
+          if (target === 'both') {
+            document.getElementById('extract-text').innerHTML =
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text A</strong>\n\n` +
+              currentPaper.textA +
+              `\n\n<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text B</strong>\n\n` +
+              currentPaper.textB;
+          } else if (target === 'B') {
+            document.getElementById('extract-text').innerHTML =
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text B</strong>\n\n` +
+              currentPaper.textB;
+          } else {
+            document.getElementById('extract-text').innerHTML =
+              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px">Text A</strong>\n\n` +
+              currentPaper.textA;
+          }
+        } else {
+          document.getElementById('extract-text').innerText = currentPaper.extract;
+        }
         extractVisible = true;
         document.querySelector('.extract-toggle').textContent = 'Hide';
         document.getElementById('extract-body').style.display = 'block';
@@ -1899,12 +1955,29 @@ For letter writing reward:
       document.getElementById('final-score-card').scrollIntoView({ behavior: 'smooth' });
     }
 
-    function setFilter(filter) {
+    let currentBoard = 'aqa';
+
+    function setBoard(board) {
+      currentBoard = board;
+      document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`board-${board}`).classList.add('active');
+
+      if (board === 'cambridge') {
+        alert('Cambridge IGCSE coming soon! Check back shortly.');
+        document.getElementById('board-aqa').classList.add('active');
+        document.getElementById('board-cambridge').classList.remove('active');
+        currentBoard = 'aqa';
+        return;
+      }
+
+     function setFilter(filter = 'all') {
       document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(`tab-${filter}`).classList.add('active');
+      const tabEl = document.getElementById(`tab-${filter}`);
+      if (tabEl) tabEl.classList.add('active');
       document.getElementById('paper1-info').style.display = filter === 'paper1' ? 'block' : 'none';
       document.getElementById('paper2-info').style.display = filter === 'paper2' ? 'block' : 'none';
       buildPaperGrid(filter);
+    }
     }
     init();
   </script>
