@@ -277,7 +277,7 @@
         </button>
         <button class="board-btn" id="board-cambridge" onclick="setBoard('cambridge')">
           <div class="board-btn-name">Cambridge</div>
-          <div class="board-btn-sub">IGCSE · Coming soon</div>
+          <div class="board-btn-sub">IGCSE · First Language</div>
         </button>
       </div>
     </div>
@@ -987,7 +987,632 @@ AO5 Band 1 (1-3): Simple vocabulary. Frequent errors.`
         ]
       }
     ];
+// ── CAMBRIDGE PAPERS ─────────────────────────────────────────
 
+    const CAMBRIDGE_PAPERS = [
+      {
+        id: 'cambridge-paper1-desert',
+        title: 'Paper 1 — "The Salt Desert"',
+        sub: 'Cambridge IGCSE First Language English · Reading',
+        icon: '🏜️',
+        totalMarks: 80,
+        text1: `I had been warned that the Rann of Kutch would be unlike anything I had seen before. I had not been warned that it would be unlike anything I could have imagined.
+
+The salt desert of western India stretches for nearly thirty thousand square kilometres — a vast, flat expanse of crystallised white that extends to every horizon without interruption. In the dry season, when I visited, the ground is hard and brilliant, reflecting the sun with an intensity that makes the air above it shimmer and distort. Objects in the distance appear to float. The horizon itself seems unreliable, shifting slightly each time you look directly at it, as though the landscape is not quite committed to its own geography.
+
+I arrived at dawn, which I had been told was the best time, before the heat became serious. My guide, a wiry man named Harish who had been crossing this terrain since childhood, walked slightly ahead of me with the unhurried confidence of someone who has never needed to hurry. He carried water for both of us in a clay pot wrapped in wet cloth — a method, he explained, that kept it cooler than any modern insulation.
+
+"Most visitors want to take photographs," Harish said, after we had walked for perhaps twenty minutes in silence. "They point their cameras at the white and then they look at the screen and they are disappointed. The white doesn't photograph."
+
+He was right, I realised later. Every photograph I took looked like a mistake — overexposed, featureless, the kind of image that a camera produces when pointed at a blank wall. The Rann defeated photography because photography requires contrast, and the Rann had eliminated contrast almost entirely. It was a landscape that existed only in the experience of being there.
+
+At some point Harish stopped walking and crouched down. He pressed one hand flat against the surface and held it there for a moment.
+
+"Salt," he said, unnecessarily. Then: "My grandfather's grandfather crossed this when it was underwater. The sea was here. You are standing on the bottom of a sea that disappeared."
+
+I stood very still and tried to feel the weight of that.`,
+
+        text2: `The following is an extract from a travel blog written by a student who visited the same region.
+
+OK so I know I said I'd write about the food but honestly the thing that's stayed with me from the whole trip is the salt flats and I need to talk about it first.
+
+We got up at 4am (yes, FOUR IN THE MORNING) to get there before sunrise and I was absolutely not happy about it but our guide Priya said it was non-negotiable so there we were, bleary-eyed, bumping along a dirt road in the dark in a jeep that I'm fairly certain predated independence.
+
+And then we got out and it was — I don't really have words for this, which is annoying because I'm supposed to be writing a travel blog. It was white. I mean obviously I knew it was going to be white, salt flats, white, fine. But it was WHITE. Like aggressively, overwhelmingly, almost violently white. The kind of white that makes you feel like your eyes are being cleaned.
+
+Priya told us some stuff about the geology and the history and I was trying to listen but honestly I kept getting distracted by the fact that I could see for what felt like forever in every direction and there was just nothing there. No trees. No hills. No anything. Just flat white ground and blue sky and the two of them meeting at a line so straight it looked computer-generated.
+
+I took about forty photos. They're all terrible. The white just comes out as a kind of grey nothing on a phone camera. So I gave up and just stood there and looked at it, which I think is probably the right response.
+
+Would I get up at 4am again to see it? Yes. Immediately. No question.`,
+
+        text3: `The following is an extract from a scientific article about salt deserts.
+
+Salt flats, known scientifically as playas or salt pans, are flat expanses of ground covered with salt and other minerals. They form in arid or semi-arid regions where water collects temporarily — usually after seasonal rainfall — and then evaporates, leaving behind the dissolved minerals it carried.
+
+The Rann of Kutch, located on the border between India and Pakistan, is one of the world's largest seasonal salt marshes. During the monsoon season, it floods to a depth of half a metre or more; in the dry season, it becomes the hard, white expanse familiar to visitors. This cycle has repeated for thousands of years, and the salt crust that results can be several metres deep in places.
+
+The extreme environment of salt flats supports very little conventional life. The high salinity of the soil makes it impossible for most plants to grow, and the lack of vegetation means there is little food for most animals. However, certain highly specialised organisms thrive in these conditions. Halophytic plants — those adapted to high-salt environments — can be found at the margins. Flamingos, which filter-feed on the brine shrimp and algae that survive in the saline water, gather at the Rann in large numbers during the brief wet season.
+
+The reflective surface of salt flats has practical applications beyond tourism. The high albedo — the proportion of sunlight reflected rather than absorbed — means that salt flats can be used to generate solar energy with particular efficiency. Several large-scale solar installations have been built on salt flat terrain in recent years, taking advantage of both the reflectivity and the absence of competing land uses.
+
+Climate scientists have noted that salt flat ecosystems are particularly vulnerable to changes in rainfall patterns. Alterations in the timing or quantity of monsoon rains could significantly affect the Rann's annual flood cycle, with consequences for the wildlife that depends on it.`,
+
+        questions: [
+          {
+            label: 'Q1a-e',
+            title: 'Short answer comprehension — Text 1',
+            full: 'Read Text 1 carefully and answer the following questions in your own words as far as possible.\n\na) What does the writer mean when they say the horizon seemed "unreliable"? (2 marks)\n\nb) Why did the writer arrive at dawn? (1 mark)\n\nc) How did Harish keep the water cool? (1 mark)\n\nd) Why were the writer\'s photographs disappointing? Explain using your own words. (3 marks)\n\ne) What did Harish\'s comment about the sea make the writer feel? Use evidence from the text. (3 marks)',
+            marks: 10,
+            time: '20 mins',
+            ao: 'R1/R2',
+            hasExtract: true,
+            extractTarget: 'text1',
+            markScheme: `Cambridge IGCSE Short Answer Comprehension (10 marks)
+IMPORTANT: Penalise lifting — reward own words throughout.
+
+Q1a (2 marks): Award up to 2 marks for explaining that the horizon appeared to move/shift/change position each time the writer looked at it, suggesting the landscape was unstable or untrustworthy. Do NOT award for simply quoting "unreliable" back.
+
+Q1b (1 mark): Award 1 mark for: to arrive before the heat became intense/serious/too hot. Do NOT award for "because it was the best time" without elaboration.
+
+Q1c (1 mark): Award 1 mark for: he carried it in a clay pot wrapped in wet/damp cloth. Accept paraphrase.
+
+Q1d (3 marks): Award up to 3 marks for explaining:
+- The photographs looked overexposed/too bright/washed out (1)
+- The images appeared featureless/blank/empty (1)
+- Photography needs contrast/difference between light and dark areas, which the Rann lacked (1)
+Do NOT award for lifted phrases. Reward clear explanation in own words.
+
+Q1e (3 marks): Award up to 3 marks for:
+- The writer felt awe/wonder/the weight of history (1)
+- Evidence: "stood very still" suggests they were affected/moved (1)
+- The idea that they were standing where a sea once existed made them reflect on deep time/history (1)
+Do NOT award for simply quoting the text.`
+          },
+          {
+            label: 'Q1f',
+            title: 'Summary — Text 1',
+            full: 'Read Text 1 again.\n\nSummary task: Using your own words as far as possible, write a summary of what the writer finds surprising or unexpected about the Rann of Kutch.\n\nYour summary should be about 120 words. You will lose marks if you copy from the text.\n\n(15 marks — 10 for reading, 5 for writing)',
+            marks: 15,
+            time: '20 mins',
+            ao: 'R1/R2/W',
+            hasExtract: true,
+            extractTarget: 'text1',
+            markScheme: `Cambridge IGCSE Summary (15 marks: 10 reading + 5 writing)
+
+READING (10 marks) — award for relevant points expressed in own words:
+Content points to reward (award up to 10, 1 mark each):
+1. The landscape was beyond what they had imagined/more extreme than expected
+2. The ground reflects the sun so intensely that the air shimmers/distorts
+3. Distant objects appear to float/the landscape creates optical illusions
+4. The horizon appears to shift/move unexpectedly
+5. The guide Harish uses a traditional cooling method (clay pot/wet cloth) rather than modern equipment
+6. The silence between them lasted a long time before Harish spoke
+7. The photographs were all disappointing/failed to capture the landscape
+8. Photography requires contrast which the Rann entirely lacked
+9. The landscape could only be experienced in person, not recorded
+10. The ground was once the bottom of a sea — a surprising historical fact
+
+WRITING (5 marks):
+5: Fluent, concise, well-organised. Own words throughout. Appropriate length.
+4: Mostly fluent. Largely own words. Some lifting but minor.
+3: Some organisation. Mix of own words and lifting.
+2: Limited organisation. Significant lifting.
+1: Little attempt at own words. Mostly lifted.
+
+PENALISE: Heavy lifting from text. Answers significantly over/under 120 words.`
+          },
+          {
+            label: 'Q2a-c',
+            title: 'Short answer comprehension — Text 2',
+            full: 'Read Text 2 carefully and answer the following questions in your own words as far as possible.\n\na) Why was the writer "not happy" about getting up at 4am? (1 mark)\n\nb) How does the writer convey that the jeep was very old? (2 marks)\n\nc) What does the writer mean by saying the white was "aggressive" and "violent"? Explain in your own words. (2 marks)',
+            marks: 5,
+            time: '10 mins',
+            ao: 'R1/R2',
+            hasExtract: true,
+            extractTarget: 'text2',
+            markScheme: `Cambridge IGCSE Short Answer Comprehension (5 marks)
+IMPORTANT: Penalise lifting throughout.
+
+Q2a (1 mark): Award 1 mark for: they were tired/sleepy/it was very early in the morning. Accept any reasonable inference about discomfort.
+
+Q2b (2 marks): Award up to 2 marks for:
+- The writer says it "predated independence" — suggesting it was made before Indian independence (1947), implying extreme age (1)
+- The implication that such an old vehicle would be unreliable/uncomfortable (1)
+Award for explanation, not just quoting "predated independence".
+
+Q2c (2 marks): Award up to 2 marks for explaining:
+- The whiteness was so extreme/intense it felt overwhelming/almost painful (1)
+- It was surprising/shocking in its brightness — more than they had expected (1)
+Do NOT award for simply restating the words "aggressive" or "violent".`
+          },
+          {
+            label: 'Q2d',
+            title: 'Language analysis — Text 2',
+            full: 'Read Text 2 again.\n\nHow does the writer use language to convey their experience of visiting the salt flats?\n\nYou should comment on:\n• specific words and phrases\n• the effects these create\n• what they suggest about the writer\'s feelings and experience\n\nWrite about 300–400 words. (15 marks)',
+            marks: 15,
+            time: '25 mins',
+            ao: 'R3/R4',
+            hasExtract: true,
+            extractTarget: 'text2',
+            markScheme: `Cambridge IGCSE Language Analysis (15 marks)
+This question rewards analysis of language effects — NOT just identification of devices.
+
+Band 5 (13-15): Perceptive, detailed analysis. Explores connotation and effect precisely. Selects judicious quotations. Explains what language SUGGESTS about feelings/experience. Uses own words to discuss effects.
+
+Band 4 (10-12): Thorough analysis. Explains effects of language choices. Good quotation selection. Some exploration of connotation.
+
+Band 3 (7-9): Clear comments on language. Identifies features and offers some explanation of effect. Relevant quotations.
+
+Band 2 (4-6): Some comment on language. Identifies features but effect not always explained. Some quotation.
+
+Band 1 (1-3): Simple comment. May identify features without explaining effect.
+
+Key language features to reward analysis of:
+- "FOUR IN THE MORNING" — capitalisation conveys exasperation/emphasis, informal register creates humour
+- "absolutely not happy" — understatement/litotes creates irony and self-deprecating humour
+- "predated independence" — euphemistic, humorous way of saying the jeep was ancient
+- "aggressively, overwhelmingly, almost violently white" — tricolon of adverbs escalates intensity; violent connotations suggest the whiteness is an assault on the senses
+- "eyes are being cleaned" — unusual metaphor suggests purification, a sense of the landscape having an almost physical effect
+- "computer-generated" — modern reference point suggests the landscape seems artificial/unreal
+- Repetition of "white" — emphasises that nothing else exists in this landscape
+- Informal register throughout — rhetorical questions, dashes, parentheses — creates conversational authenticity
+- Final three sentences — short, declarative, builds to emphatic "No question" — conveys conviction
+
+CRITICAL: Reward analysis of EFFECT and CONNOTATION. Penalise responses that only list features without explaining what they suggest.`
+          },
+          {
+            label: 'Q3',
+            title: 'Directed writing — Journal entry',
+            full: 'Read all three texts again.\n\nYou have visited the Rann of Kutch. Write a journal entry describing your experience and reflecting on what it meant to you.\n\nIn your journal entry you should:\n• describe what you saw and experienced\n• use information and ideas from all three texts\n• reflect on what the experience made you think or feel\n• write in an appropriate journal style\n\nWrite about 350–450 words.\n(25 marks — 15 for reading, 10 for writing)',
+            marks: 25,
+            time: '35 mins',
+            ao: 'R/W',
+            hasExtract: true,
+            extractTarget: 'all',
+            markScheme: `Cambridge IGCSE Directed Writing (25 marks: 15 reading + 10 writing)
+
+READING (15 marks) — how well the student uses and integrates all three texts:
+
+Band 5 (13-15): Perceptive use of all three texts. Selects and integrates material effectively. Evaluates and interprets — does not just list facts. Material woven naturally into journal voice.
+
+Band 4 (10-12): Thorough use of texts. Uses material from all three. Mostly integrates rather than lists. Appropriate selection.
+
+Band 3 (7-9): Clear use of texts. Uses material from at least two texts. Some integration. Relevant selection.
+
+Band 2 (4-6): Some use of texts. May use only one or two. Limited integration. Some relevant material.
+
+Band 1 (1-3): Minimal use of texts. May largely ignore source material.
+
+Content points available from texts (reward integration of):
+From Text 1: scale of the Rann; optical illusions; the guide's method; photography failing; the sea that disappeared
+From Text 2: the early start; the overwhelming whiteness; failed photographs; the decision to just look
+From Text 3: scientific explanation of formation; halophytic plants; flamingos; solar energy use; climate vulnerability
+
+WRITING (10 marks):
+
+Band 5 (9-10): Compelling journal voice. Sophisticated vocabulary. Varied sentences. Convincing first-person reflection. Very few errors.
+Band 4 (7-8): Consistent journal voice. Good vocabulary. Generally accurate. Effective reflection.
+Band 3 (5-6): Clear journal voice. Some varied vocabulary. Mostly accurate. Some reflection.
+Band 2 (3-4): Some attempt at journal form. Limited vocabulary. Some errors. Limited reflection.
+Band 1 (1-2): Minimal journal features. Simple vocabulary. Frequent errors.
+
+IMPORTANT: Reward students who use their OWN words to convey information from the texts. Penalise heavy lifting. The journal should feel like a personal response, not a summary.`
+          }
+        ]
+      },
+
+      {
+        id: 'cambridge-paper1-music',
+        title: 'Paper 1 — "The Last Orchestra"',
+        sub: 'Cambridge IGCSE First Language English · Reading',
+        icon: '🎻',
+        totalMarks: 80,
+        text1: `The rehearsal had been going badly for an hour before the conductor stopped it.
+
+She lowered her baton — a gesture so small it was almost imperceptible — and the sound died, not all at once but in sections, like lights going out in a building. The violins first, then the woodwind, then the cellos, until only the double bass player in the back row continued for two more beats, apparently unaware, before silence finally settled over the hall.
+
+"From the beginning of the third movement," the conductor said. Her voice was quiet but the acoustics of the concert hall carried it to every corner. "And this time, please — listen to each other."
+
+She was seventy-three years old and had been conducting orchestras for forty-five years, and she had learned that the instruction "listen to each other" was the most important thing she ever said. It contained everything. An orchestra that listened to itself played differently from one that did not — not louder or faster or more technically precise, but differently in some quality she had never been able to name, a quality that audiences felt without understanding why they felt it.
+
+The musicians lifted their instruments. She raised the baton.
+
+What happened next was the thing she lived for — that moment when eighty people, most of whom had come to this profession through years of solitary practice, stopped being eighty individuals and became something else. It happened in the first bar: a quality of attention that changed the air in the room, that made her feel, as she always did at such moments, that she was not conducting so much as listening to something that already existed and was simply choosing to make itself heard.
+
+Afterwards, in the dressing room, a young violinist asked her how she knew when it was right.
+
+"You feel it before you hear it," she said. "You feel it in your chest."`,
+
+        text2: `The following is an extract from a letter written by a fifteen-year-old student to a local newspaper.
+
+Dear Editor,
+
+I am writing in response to last week's article about the closure of our school's music department. I am one of forty students who will be directly affected, and I want to explain what this means — not in terms of grades or exam results, but in terms of what music actually does.
+
+I started learning the cello when I was seven. I was not particularly good at it. For the first two years, my mother put cotton wool in her ears during my practice sessions, and I'm fairly certain the neighbours considered moving house. But something happened in my third year that I have never been able to fully explain. I stopped thinking about the notes and started hearing them. The cello stopped being something I was doing and became something that was happening, with me somehow inside it.
+
+I know this sounds strange. But I've spoken to other musicians — including some in our school orchestra — and they all describe something similar. A moment when the gap between yourself and the music closes.
+
+Our school's music department has given forty students access to that experience. It has given us somewhere to go at lunchtimes, a community of people who understand what it means to spend years getting something slightly wrong before getting it slightly less wrong. It has given some of us, I think, a reason to come to school on days when we might not otherwise have come.
+
+The budget for the department is £18,000 per year. That is £450 per student. I would ask the decision-makers to consider what else £450 buys, and whether it buys anything as lasting as this.
+
+Yours sincerely,
+A student`,
+
+        text3: `The following is adapted from a research summary on the benefits of music education.
+
+Research conducted over the past two decades has consistently found that participation in music education is associated with a range of cognitive and social benefits that extend well beyond musical ability itself.
+
+Studies have shown that children who receive regular music instruction demonstrate measurably improved performance in literacy and numeracy compared to those who do not, even when other variables are controlled for. The mechanisms are not fully understood, but researchers believe that music training — which requires simultaneous attention to rhythm, pitch, timing, and expression — may strengthen the neural pathways involved in language processing and mathematical reasoning.
+
+Social benefits have also been documented. Participation in ensemble music-making — orchestras, choirs, bands — has been shown to improve cooperative behaviour, the ability to take turns, and sensitivity to others' emotional states. Some researchers have suggested that ensemble music-making is one of the few activities that requires participants to be simultaneously highly focused on their own performance and highly attuned to those around them.
+
+There is also evidence of benefits for students who struggle in other academic areas. Music education has been shown to improve engagement and attendance in students who are otherwise disengaged from school, possibly because it offers a form of achievement and belonging that is different in character from academic success.
+
+Despite this evidence, music education continues to be reduced or eliminated in schools facing budget pressures, often on the grounds that it is a non-essential subject. Researchers in this field argue that the evidence suggests otherwise — that music education may in fact be one of the most efficient investments a school can make in its students' overall development.`,
+
+        questions: [
+          {
+            label: 'Q1a-e',
+            title: 'Short answer comprehension — Text 1',
+            full: 'Read Text 1 carefully and answer the following questions in your own words as far as possible.\n\na) How does the writer show that the conductor\'s gesture was very small? (1 mark)\n\nb) Why does the sound die "in sections" rather than all at once? (2 marks)\n\nc) What does the conductor mean by "listen to each other"? Explain in your own words. (2 marks)\n\nd) How does the writer convey what happens when the orchestra plays well together? Use evidence from the text. (3 marks)\n\ne) What does the conductor mean when she says "You feel it before you hear it"? (2 marks)',
+            marks: 10,
+            time: '20 mins',
+            ao: 'R1/R2',
+            hasExtract: true,
+            extractTarget: 'text1',
+            markScheme: `Cambridge IGCSE Short Answer Comprehension (10 marks)
+IMPORTANT: Penalise lifting — reward own words throughout.
+
+Q1a (1 mark): Award 1 mark for: the writer describes it as "almost imperceptible" — meaning it was barely noticeable/nearly invisible. Do NOT award for simply quoting "almost imperceptible".
+
+Q1b (2 marks): Award up to 2 marks for explaining:
+- Different sections of the orchestra stop at different times (1)
+- Because they are separate groups/instruments who each react at slightly different moments (1)
+Accept: the orchestra is made of different groups who don't all respond simultaneously.
+
+Q1c (2 marks): Award up to 2 marks for explaining:
+- She wants the musicians to pay attention to what the others around them are playing (1)
+- So that they adjust and respond to each other rather than just focusing on their own part (1)
+Do NOT award for simply restating "listen to each other".
+
+Q1d (3 marks): Award up to 3 marks for:
+- The musicians become unified/a single entity rather than individuals (1)
+- Evidence: "stopped being eighty individuals and became something else" (1)
+- The conductor feels she is not in control but rather listening to something that already exists (1)
+
+Q1e (2 marks): Award up to 2 marks for:
+- The conductor means she senses/perceives the quality of the music physically (1)
+- Before it becomes clear to the ear/before she consciously registers it as sound (1)`
+          },
+          {
+            label: 'Q1f',
+            title: 'Summary — Text 1',
+            full: 'Read Text 1 again.\n\nSummary task: Using your own words as far as possible, write a summary of what the conductor believes about music and what it means to conduct an orchestra well.\n\nYour summary should be about 120 words. You will lose marks if you copy from the text.\n\n(15 marks — 10 for reading, 5 for writing)',
+            marks: 15,
+            time: '20 mins',
+            ao: 'R1/R2/W',
+            hasExtract: true,
+            extractTarget: 'text1',
+            markScheme: `Cambridge IGCSE Summary (15 marks: 10 reading + 5 writing)
+
+READING (10 marks) — content points expressed in own words:
+1. The most important instruction is for musicians to listen to each other
+2. An orchestra that listens plays differently — not technically better but in an indefinable way
+3. Audiences respond to this quality even without understanding why
+4. Good conducting is about enabling musicians to stop being individuals and unite
+5. This moment of unity happens quickly — in the first bar
+6. It changes the atmosphere/air in the room
+7. The conductor feels she is listening rather than directing at such moments
+8. It feels as if the music already exists and is choosing to be heard
+9. The conductor has never been able to name this quality
+10. She feels the rightness of it physically, before she hears it
+
+WRITING (5 marks):
+5: Fluent, concise, well-organised. Own words throughout.
+4: Mostly fluent. Largely own words.
+3: Some organisation. Mix of own words and lifting.
+2: Limited organisation. Significant lifting.
+1: Little attempt at own words.`
+          },
+          {
+            label: 'Q2a-c',
+            title: 'Short answer comprehension — Text 2',
+            full: 'Read Text 2 carefully and answer the following questions in your own words as far as possible.\n\na) How does the writer show that they were not a naturally gifted musician at first? (2 marks)\n\nb) What does the writer mean by "the gap between yourself and the music closes"? (2 marks)\n\nc) Give two reasons why the music department has been important to students other than musical ability. (2 marks)',
+            marks: 6,
+            time: '10 mins',
+            ao: 'R1/R2',
+            hasExtract: true,
+            extractTarget: 'text2',
+            markScheme: `Cambridge IGCSE Short Answer Comprehension (6 marks)
+IMPORTANT: Penalise lifting throughout.
+
+Q2a (2 marks): Award up to 2 marks for:
+- Their mother had to block her ears during practice (1)
+- The neighbours were so disturbed they thought about leaving (1)
+Award for own-words explanation, not just quoting.
+
+Q2b (2 marks): Award up to 2 marks for explaining:
+- The writer stopped being consciously aware of playing/stopped thinking about technique (1)
+- The music felt natural/automatic, as though they were part of it rather than producing it (1)
+
+Q2c (2 marks): Award 1 mark each for any two of:
+- It provides a place to be/community at lunchtimes
+- It gives students a group of people who share their experience
+- It gives some students a reason to attend school
+- It provides a sense of belonging/achievement different from academic work`
+          },
+          {
+            label: 'Q2d',
+            title: 'Language analysis — Text 2',
+            full: 'Read Text 2 again.\n\nHow does the writer use language to persuade the reader that music education is valuable?\n\nYou should comment on:\n• specific words and phrases\n• the effects these create\n• how the language supports the writer\'s argument\n\nWrite about 300–400 words. (15 marks)',
+            marks: 15,
+            time: '25 mins',
+            ao: 'R3/R4',
+            hasExtract: true,
+            extractTarget: 'text2',
+            markScheme: `Cambridge IGCSE Language Analysis (15 marks)
+Reward analysis of persuasive language effects — NOT just identification of devices.
+
+Band 5 (13-15): Perceptive analysis of how language choices persuade. Explores connotation and rhetorical effect. Judicious quotations with precise commentary. Explains what language DOES to the reader.
+
+Band 4 (10-12): Thorough analysis. Explains persuasive effects. Good quotation selection. Some exploration of connotation.
+
+Band 3 (7-9): Clear comments. Identifies persuasive features with some explanation of effect.
+
+Band 2 (4-6): Some comment on persuasive language. Identifies features but effect not always explained.
+
+Band 1 (1-3): Simple comment. May identify features without explaining effect.
+
+Key language features to reward:
+- "I am writing in response to" — formal letter register immediately establishes credibility
+- "not in terms of grades or exam results, but" — pre-empts counterargument, shifts debate to human terms
+- Anecdote about mother's cotton wool — self-deprecating humour builds likeable, credible voice; shows honesty
+- "I stopped thinking about the notes and started hearing them" — precise distinction conveys genuine insight
+- "the gap between yourself and the music closes" — abstract but vivid; universalises personal experience
+- "getting something slightly wrong before getting it slightly less wrong" — understated, honest; builds trust
+- "a reason to come to school on days when we might not otherwise have come" — carefully phrased; implies without stating students at risk of disengagement
+- Final paragraph — statistics (£18,000, £450) followed by rhetorical question; uses numbers to make abstract feel concrete, then challenges reader directly
+- "as lasting as this" — ends on value claim; emotive without being sentimental`
+          },
+          {
+            label: 'Q3',
+            title: 'Directed writing — Magazine article',
+            full: 'Read all three texts again.\n\nYour school magazine is running a feature called "Why music matters". Write an article for the magazine in which you:\n• discuss the value of music and music education using ideas from all three texts\n• give your own views on why young people should engage with music\n\nWrite about 350–450 words. Use your own words as far as possible.\n(25 marks — 15 for reading, 10 for writing)',
+            marks: 25,
+            time: '35 mins',
+            ao: 'R/W',
+            hasExtract: true,
+            extractTarget: 'all',
+            markScheme: `Cambridge IGCSE Directed Writing (25 marks: 15 reading + 10 writing)
+
+READING (15 marks):
+Band 5 (13-15): Perceptive use of all three texts. Evaluates and interprets rather than lists. Material integrated naturally into article voice. Own words throughout.
+Band 4 (10-12): Thorough use of texts. Uses material from all three. Mostly integrates.
+Band 3 (7-9): Clear use of texts. Uses at least two texts. Some integration.
+Band 2 (4-6): Some use of texts. May use only one. Limited integration.
+Band 1 (1-3): Minimal use of texts.
+
+Content points from texts:
+Text 1: listening as the core skill; individual to collective transformation; feeling music before hearing it
+Text 2: the moment of connection; community and belonging; £450 per student argument; students' own words
+Text 3: cognitive benefits (literacy, numeracy); social benefits (cooperation, empathy); engagement/attendance benefits; cost-effectiveness argument
+
+WRITING (10 marks):
+Band 5 (9-10): Compelling article voice. Sophisticated vocabulary. Varied sentences. Appropriate register for school magazine. Very few errors.
+Band 4 (7-8): Consistent article voice. Good vocabulary. Generally accurate.
+Band 3 (5-6): Clear article voice. Some varied vocabulary. Mostly accurate.
+Band 2 (3-4): Some article features. Limited vocabulary. Some errors.
+Band 1 (1-2): Minimal article features. Simple vocabulary. Frequent errors.
+
+Reward: headline, engaging opening, paragraphing, appropriate tone for young audience, own voice alongside text material.`
+          }
+        ]
+      },
+
+      {
+        id: 'cambridge-paper2-adventure',
+        title: 'Paper 2 — "The Crossing"',
+        sub: 'Cambridge IGCSE First Language English · Directed Writing & Composition',
+        icon: '⛵',
+        totalMarks: 80,
+        textA: `The morning they were to leave, the sea was the colour of pewter.
+
+Isla had been watching it for an hour from the harbour wall, trying to read it the way her father had taught her — not just the surface, but the deeper patterns, the way the swell moved beneath the chop, the direction the clouds were travelling in relation to the wind. Her father was the best sailor she had ever known, and he had told her that the sea was always telling you something; the skill was in learning its language.
+
+"It's manageable," said her father, coming to stand beside her. He was looking at the same water but seeing something different — she could tell by the way his eyes moved across it, quick and assessing in a way hers weren't yet.
+
+"How can you tell?" she asked.
+
+"The swell is long," he said. "Long swell means deep water, means the storm is far away. Short, choppy swell — that's when you worry."
+
+They were crossing to the island twelve miles offshore, a journey of perhaps three hours in the boat they had borrowed from his friend. Isla had made the crossing twice before, both times in calm weather, and both times she had found it unremarkable — a transit between two places rather than an experience in itself. Her father had promised her that today would be different.
+
+He was right. Twenty minutes out from the harbour, with the coast behind them and the island still a grey smudge on the horizon, the sea became itself. The long swell her father had described lifted them in slow, enormous movements — each wave perhaps two metres high but so gradual in its rise and fall that it felt less like movement and more like breathing. The boat moved with it rather than against it.
+
+Isla stopped being afraid. She had not realised until that moment that she had been afraid.`,
+
+        textB: `The following is an extract from a memoir about learning to sail.
+
+The first rule my instructor gave me was this: the sea doesn't care about you.
+
+She said it without cruelty — matter-of-factly, the way you might explain that fire is hot or that ice is cold. It was simply a property of the thing, and it was important to understand it before you got into a boat.
+
+"Most accidents happen," she said, "because someone forgot that rule. They started to feel comfortable. They started to think the sea was on their side."
+
+I thought about this a lot during my first summer of sailing. I was seventeen and I had grown up inland, in a city where the most dangerous thing in my immediate environment was probably the traffic on the ring road. The sea was new to me in a way it isn't to people who grow up near it — it had no associations, no familiarity, no history. It was simply enormous and indifferent and I found it, in those first weeks, genuinely frightening.
+
+But the fear changed shape as the weeks went on. It became less like panic and more like respect. I started to understand what my instructor meant — not that the sea was hostile, but that it was neutral, and that neutral was in some ways more demanding than hostile. A hostile enemy you can prepare for. Neutral indifference requires something else: constant attention, constant reading, constant adjustment.
+
+By the end of that summer I had not become a confident sailor. I had become, I think, a careful one. And my instructor told me that careful was better.`,
+
+        questions: [
+          {
+            label: 'Q1',
+            title: 'Directed writing — Magazine article about the sea',
+            full: 'Section A — Directed Writing\n\nRead Text A and Text B carefully.\n\nBoth texts are about people\'s experiences of the sea and what it teaches them.\n\nWrite a magazine article for young people called "What the sea teaches you" in which you:\n• evaluate the views and experiences described in both texts\n• give your own views on what challenging experiences teach young people\n\nWrite about 250–350 words. Use your own words as far as possible.\n(40 marks — 15 for reading, 25 for writing)',
+            marks: 40,
+            time: '45 mins',
+            ao: 'R/W',
+            hasExtract: true,
+            extractTarget: 'both',
+            markScheme: `Cambridge IGCSE Directed Writing (40 marks: 15 reading + 25 writing)
+
+READING (15 marks) — R1-R5:
+Band 5 (13-15): Perceptive evaluation of both texts. Selects and interprets material — goes beyond surface. Integrates text material into own argument naturally. Evaluates rather than summarises.
+Band 4 (10-12): Thorough use of both texts. Evaluates views. Good integration. Mostly own words.
+Band 3 (7-9): Clear use of texts. Uses both texts. Some evaluation. Some own words.
+Band 2 (4-6): Some use of texts. May use only one. More summary than evaluation.
+Band 1 (1-3): Minimal use of texts.
+
+Content points available:
+Text A: reading the sea as a skill; long vs short swell distinction; sea "becomes itself"; Isla's fear transforming; father's experience vs Isla's inexperience
+Text B: "the sea doesn't care about you"; fear changing to respect; neutral more demanding than hostile; becoming careful not confident
+
+WRITING (25 marks) — W1-W5:
+Band 5 (21-25): Compelling, convincing article. Sophisticated vocabulary and varied sentences. Consistent register for young audience. Engaging, original voice. Very few errors. Well-structured with clear development.
+Band 4 (16-20): Consistent, controlled writing. Good vocabulary. Appropriate register. Clear structure. Generally accurate.
+Band 3 (10-15): Clear writing. Some varied vocabulary. Mostly appropriate register. Some structure. Mostly accurate.
+Band 2 (5-9): Some awareness of article form. Limited vocabulary. Some errors. Basic structure.
+Band 1 (1-4): Very limited. Minimal article features. Frequent errors.
+
+Reward: engaging headline, appropriate tone for young readers, balanced evaluation of both texts, own voice and views, well-organised paragraphs.`
+          },
+          {
+            label: 'Q2-5',
+            title: 'Composition — Choose one writing task',
+            full: 'Section B — Composition\n\nWrite about 350–450 words on ONE of the following. Choose either a descriptive or narrative task.\n\nDESCRIPTIVE:\nQ2: Write a description suggested by the word "journey".\n\nQ3: Write a description of a harbour or port, real or imagined.\n\nNARRATIVE:\nQ4: Write a story called "The Crossing".\n\nQ5: Write a story that includes the sentence: "It was only then that I understood what he had been trying to tell me."\n\n(40 marks — 16 for content and structure, 24 for style and accuracy)',
+            marks: 40,
+            time: '45 mins',
+            ao5: 16,
+            ao6: 24,
+            hasExtract: false,
+            type: 'creative',
+            markScheme: `Cambridge IGCSE Composition (40 marks)
+Content and Structure — W1/W2 (16 marks):
+Band 5 (14-16): Compelling content. For descriptive: vivid, developed imagery, convincing overall picture. For narrative: engaging plot, convincing characterisation, effective climax, credible detail. Structure purposeful and effective throughout.
+Band 4 (11-13): Thorough content. Clear descriptive/narrative purpose. Good development. Mostly effective structure.
+Band 3 (7-10): Clear content. Some developed imagery (descriptive) or plot development (narrative). Some structural awareness.
+Band 2 (4-6): Some content. Limited development. Basic structure.
+Band 1 (1-3): Very limited content. Minimal structure.
+
+Style and Accuracy — W3/W4/W5 (24 marks):
+Band 5 (21-24): Extensive and ambitious vocabulary used for effect. Varied and sophisticated sentence structures. Very few errors in spelling, punctuation and grammar. Style is distinctive and appropriate throughout.
+Band 4 (16-20): Increasingly sophisticated vocabulary. Varied sentences. Generally accurate. Style appropriate and mostly consistent.
+Band 3 (10-15): Some varied vocabulary. Some sentence variety. Mostly accurate with some errors. Some stylistic awareness.
+Band 2 (5-9): Simple vocabulary. Limited sentence variety. Several errors. Basic style.
+Band 1 (1-4): Very simple vocabulary. Little sentence variety. Many errors.
+
+For DESCRIPTIVE writing reward:
+- Sensory detail (sight, sound, smell, touch)
+- Figurative language used for effect
+- Developed, sustained imagery
+- A convincing overall impression
+
+For NARRATIVE writing reward:
+- Engaging opening that hooks reader
+- Convincing characters with distinct voices
+- Plot with tension and resolution
+- Specific, convincing detail
+- Effective ending`
+          }
+        ]
+      },
+
+      {
+        id: 'cambridge-paper2-memory',
+        title: 'Paper 2 — "What Remains"',
+        sub: 'Cambridge IGCSE First Language English · Directed Writing & Composition',
+        icon: '🧳',
+        totalMarks: 80,
+        textA: `My grandmother kept everything.
+
+This was not, in her view, hoarding. It was memory. Every object in her house had a story attached to it, and to throw the object away would be to throw away the story — a form of forgetting she considered worse than most other sins.
+
+The house was small and the objects were many, and the result was a particular kind of density that I associate to this day with her presence — a feeling of layered time, of the past accumulating in physical form. On the mantelpiece: a photograph of a man I didn't recognise, a china dog with a chipped ear, three foreign coins, a small brass bell that had belonged to a church that no longer existed. On the windowsill: seed packets, an empty jam jar, a stone with a hole through the middle that she had found on a beach in 1963.
+
+I was eight when I first asked her about the stone. She picked it up and turned it in her hands in the way she always did with objects — slowly, with complete attention — and told me it was a hag stone, a stone with a natural hole, and that if you looked through the hole you could see things as they really were rather than how they appeared.
+
+I asked her what she could see when she looked through it.
+
+"The same things," she said. "But differently."
+
+I was eight, and I did not understand what she meant. I understand it now, though I would find it difficult to explain. The things she kept were not valuable and not beautiful. They were simply the evidence of a life — proof that certain moments had occurred, that certain people had existed. Without the objects, the moments would still have happened, but they would have become the kind of memory that is really just the memory of remembering, growing thinner and less certain with each recollection.
+
+With the objects, they stayed solid.`,
+
+        textB: `The following is an extract from an article about minimalism and the movement to own fewer possessions.
+
+The minimalist movement has grown significantly in the past decade, driven partly by a reaction against consumerism and partly by the practical appeal of simplicity. Its core principle is straightforward: own only what you need, what you use, or what genuinely brings you joy. Everything else is clutter — physical and psychological — that weighs on the mind and complicates life.
+
+Proponents argue that the benefits extend beyond the merely practical. A decluttered space, they claim, produces a decluttered mind. Without the constant visual noise of excess possessions, it becomes easier to think clearly, to focus, to experience the present moment rather than being pulled in multiple directions by multiple objects, each trailing its own associations and obligations.
+
+Critics of minimalism argue that this account misunderstands the relationship between objects and identity. Objects are not merely things — they are carriers of meaning, memory, and connection. To discard an object is not simply to create more space; it is to make a decision about what matters, about whose history counts, about which relationships deserve to persist in material form.
+
+The debate often reduces, in the end, to a question about what possessions are for. If they are for use, then minimalism's logic is powerful — keep what functions, discard what doesn't. But if they are for remembering, for connecting, for anchoring the self in a particular history, then the calculation changes entirely.
+
+Perhaps the honest answer is that most of us need both: a degree of simplicity that allows us to breathe, and a degree of accumulation that allows us to remember who we are.`,
+
+        questions: [
+          {
+            label: 'Q1',
+            title: 'Directed writing — Article about objects and memory',
+            full: 'Section A — Directed Writing\n\nRead Text A and Text B carefully.\n\nBoth texts are about the relationship between objects and memory.\n\nWrite a magazine article called "What do we keep, and why?" in which you:\n• evaluate the views and ideas presented in both texts\n• give your own views on whether it is important to keep objects from the past\n\nWrite about 250–350 words. Use your own words as far as possible.\n(40 marks — 15 for reading, 25 for writing)',
+            marks: 40,
+            time: '45 mins',
+            ao: 'R/W',
+            hasExtract: true,
+            extractTarget: 'both',
+            markScheme: `Cambridge IGCSE Directed Writing (40 marks: 15 reading + 25 writing)
+
+READING (15 marks):
+Band 5 (13-15): Perceptive evaluation of both texts. Interprets and analyses rather than summarises. Integrates material naturally. Own words throughout. Evaluates different positions critically.
+Band 4 (10-12): Thorough use of both texts. Evaluates views. Good integration.
+Band 3 (7-9): Clear use of both texts. Some evaluation. Some own words.
+Band 2 (4-6): Some use of texts. May use only one. More summary than evaluation.
+Band 1 (1-3): Minimal use of texts.
+
+Content points:
+Text A: grandmother's objects as memory; layered time; hag stone as metaphor for seeing differently; objects keeping memories solid; without objects memory becomes "memory of remembering"
+Text B: minimalism's core principle; decluttered space = decluttered mind; critics say objects carry identity/meaning; question of what possessions are for; "both" conclusion
+
+WRITING (25 marks):
+Band 5 (21-25): Compelling, convincing. Sophisticated vocabulary. Consistent appropriate register. Engaging voice. Very few errors.
+Band 4 (16-20): Consistent, controlled. Good vocabulary. Appropriate register. Generally accurate.
+Band 3 (10-15): Clear writing. Some varied vocabulary. Mostly accurate.
+Band 2 (5-9): Some awareness of form. Limited vocabulary. Some errors.
+Band 1 (1-4): Very limited. Frequent errors.`
+          },
+          {
+            label: 'Q2-5',
+            title: 'Composition — Choose one writing task',
+            full: 'Section B — Composition\n\nWrite about 350–450 words on ONE of the following.\n\nDESCRIPTIVE:\nQ2: Write a description suggested by the words "a room full of things".\n\nQ3: Write a description of a place that has special meaning to you or a character you create.\n\nNARRATIVE:\nQ4: Write a story called "What Remains".\n\nQ5: Write a story that includes the sentence: "She picked it up and turned it in her hands, and everything came back."',
+            marks: 40,
+            time: '45 mins',
+            ao5: 16,
+            ao6: 24,
+            hasExtract: false,
+            type: 'creative',
+            markScheme: `Cambridge IGCSE Composition (40 marks)
+Content and Structure — W1/W2 (16 marks):
+Band 5 (14-16): Compelling. Vivid imagery (descriptive) or engaging plot/character (narrative). Purposeful structure throughout.
+Band 4 (11-13): Thorough. Clear purpose. Good development. Mostly effective structure.
+Band 3 (7-10): Clear. Some development. Some structural awareness.
+Band 2 (4-6): Some content. Limited development. Basic structure.
+Band 1 (1-3): Very limited. Minimal structure.
+
+Style and Accuracy — W3/W4/W5 (24 marks):
+Band 5 (21-24): Ambitious vocabulary. Varied sophisticated sentences. Very few errors. Distinctive style.
+Band 4 (16-20): Sophisticated vocabulary. Varied sentences. Generally accurate.
+Band 3 (10-15): Some varied vocabulary. Some sentence variety. Mostly accurate.
+Band 2 (5-9): Simple vocabulary. Limited variety. Several errors.
+Band 1 (1-4): Very simple. Many errors.`
+          }
+        ]
+      }
+    ];
     // ── AUTH ─────────────────────────────────────────────────────
 
     async function init() {
@@ -1052,23 +1677,25 @@ AO5 Band 1 (1-3): Simple vocabulary. Frequent errors.`
 
     // ── BOARD & FILTER ───────────────────────────────────────────
 
-    function setBoard(board) {
-  if (board === 'cambridge') {
-    alert('Cambridge IGCSE coming soon! Check back shortly.');
-    return;
-  }
-  currentBoard = board;
-  document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(`board-${board}`).classList.add('active');
+   function setBoard(board) {
+      currentBoard = board;
+      document.querySelectorAll('.board-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`board-${board}`).classList.add('active');
 
-  // Update filter tab labels based on board
-  if (board === 'edexcel') {
-    document.getElementById('tab-paper1').textContent = '📰 Paper 1 — Non-Fiction & Transactional Writing';
-    document.getElementById('tab-paper2').textContent = '📖 Paper 2 — Fiction & Imaginative Writing';
-  } else {
-    document.getElementById('tab-paper1').textContent = '📚 Paper 1 — Fiction & Creative Writing';
-    document.getElementById('tab-paper2').textContent = '📰 Paper 2 — Non-Fiction & Transactional Writing';
-  }
+      if (board === 'edexcel') {
+        document.getElementById('tab-paper1').textContent = '📰 Paper 1 — Non-Fiction & Transactional Writing';
+        document.getElementById('tab-paper2').textContent = '📖 Paper 2 — Fiction & Imaginative Writing';
+      } else if (board === 'cambridge') {
+        document.getElementById('tab-paper1').textContent = '📖 Paper 1 — Reading';
+        document.getElementById('tab-paper2').textContent = '✍️ Paper 2 — Directed Writing & Composition';
+      } else {
+        document.getElementById('tab-paper1').textContent = '📚 Paper 1 — Fiction & Creative Writing';
+        document.getElementById('tab-paper2').textContent = '📰 Paper 2 — Non-Fiction & Transactional Writing';
+      }
+
+      currentFilter = 'all';
+      setFilter('all');
+    }
 
   currentFilter = 'all';
   setFilter('all');
@@ -1090,7 +1717,8 @@ AO5 Band 1 (1-3): Simple vocabulary. Frequent errors.`
     function buildPaperGrid() {
       const grid = document.getElementById('paper-grid');
       grid.innerHTML = '';
-      const sourcePapers = currentBoard === 'edexcel' ? EDEXCEL_PAPERS : AQA_PAPERS;
+      const sourcePapers = currentBoard === 'edexcel' ? EDEXCEL_PAPERS :
+        currentBoard === 'cambridge' ? CAMBRIDGE_PAPERS : AQA_PAPERS;
       const filtered = currentFilter === 'all' ? sourcePapers :
         sourcePapers.filter(p => currentFilter === 'paper1' ? p.id.includes('paper1') : p.id.includes('paper2'));
 
@@ -1180,29 +1808,50 @@ AO5 Band 1 (1-3): Simple vocabulary. Frequent errors.`
         document.querySelector('.extract-toggle').textContent = 'Hide';
         document.getElementById('extract-body').style.display = 'block';
 
-        if (currentPaper.textA) {
-          const target = q.extractTarget || 'A';
-          if (target === 'both') {
-            document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
-              currentPaper.textA.replace(/\n/g, '<br>') +
-              `<br><br><strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin:16px 0 12px">Text B</strong>` +
-              currentPaper.textB.replace(/\n/g, '<br>');
-          } else if (target === 'B') {
-            document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text B</strong>` +
-              currentPaper.textB.replace(/\n/g, '<br>');
+        if (currentPaper.text1 || currentPaper.textA) {
+          const target = q.extractTarget || 'text1';
+
+          if (currentPaper.text1) {
+            // Cambridge Paper 1 format — up to 3 texts
+            if (target === 'all') {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text 1</strong>` +
+                currentPaper.text1.replace(/\n/g, '<br>') +
+                `<br><br><strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin:16px 0 12px">Text 2</strong>` +
+                currentPaper.text2.replace(/\n/g, '<br>') +
+                (currentPaper.text3 ? `<br><br><strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin:16px 0 12px">Text 3</strong>` + currentPaper.text3.replace(/\n/g, '<br>') : '');
+            } else if (target === 'text2') {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text 2</strong>` +
+                currentPaper.text2.replace(/\n/g, '<br>');
+            } else if (target === 'text3') {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text 3</strong>` +
+                currentPaper.text3.replace(/\n/g, '<br>');
+            } else {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text 1</strong>` +
+                currentPaper.text1.replace(/\n/g, '<br>');
+            }
           } else {
-            document.getElementById('extract-text').innerHTML =
-              `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
-              currentPaper.textA.replace(/\n/g, '<br>');
+            // Edexcel format — Text A and Text B
+            const target2 = q.extractTarget || 'A';
+            if (target2 === 'both') {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
+                currentPaper.textA.replace(/\n/g, '<br>') +
+                `<br><br><strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin:16px 0 12px">Text B</strong>` +
+                currentPaper.textB.replace(/\n/g, '<br>');
+            } else if (target2 === 'B') {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text B</strong>` +
+                currentPaper.textB.replace(/\n/g, '<br>');
+            } else {
+              document.getElementById('extract-text').innerHTML =
+                `<strong style="color:#6c5ce7;font-size:13px;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:12px">Text A</strong>` +
+                currentPaper.textA.replace(/\n/g, '<br>');
+            }
           }
-        } else {
-          document.getElementById('extract-text').innerText = currentPaper.extract;
-        }
-      } else {
-        document.getElementById('extract-card').style.display = 'none';
-      }
 
       // Question
       document.getElementById('q-label').textContent = q.label;
