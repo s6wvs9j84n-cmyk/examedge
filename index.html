@@ -264,6 +264,36 @@
     <div id="paper-selector">
       <div class="card">
         <div class="card-title">Choose a past paper</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;background:#f8f6ff;border:1px solid #e0d8ff;border-radius:10px;padding:14px 18px">
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:700;color:#1a1a2e">⏱ Exam timer</div>
+            <div style="font-size:13px;color:#888;margin-top:2px">Simulate real exam conditions with a countdown timer</div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <div style="position:relative">
+              <input type="checkbox" id="timer-toggle-checkbox" style="opacity:0;position:absolute;width:0;height:0" onchange="updateTimerToggle()">
+              <div id="toggle-track" style="width:44px;height:24px;background:#ddd;border-radius:12px;transition:background 0.2s;cursor:pointer" onclick="document.getElementById('timer-toggle-checkbox').click();updateTimerToggle()">
+                <div id="toggle-thumb" style="width:20px;height:20px;background:white;border-radius:50%;margin:2px;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2)"></div>
+              </div>
+            </div>
+            <span id="timer-toggle-label" style="font-size:13px;font-weight:600;color:#888">Off</span>
+          </label>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;background:#f8f6ff;border:1px solid #e0d8ff;border-radius:10px;padding:14px 18px">
+          <div style="flex:1">
+            <div style="font-size:14px;font-weight:700;color:#1a1a2e">⏱ Exam timer</div>
+            <div style="font-size:13px;color:#888;margin-top:2px">Simulate real exam conditions with a countdown timer</div>
+          </div>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+            <div style="position:relative">
+              <input type="checkbox" id="timer-toggle-checkbox" style="opacity:0;position:absolute;width:0;height:0" onchange="timerEnabled = this.checked">
+              <div id="toggle-track" style="width:44px;height:24px;background:#ddd;border-radius:12px;transition:background 0.2s;cursor:pointer" onclick="document.getElementById('timer-toggle-checkbox').click()">
+                <div id="toggle-thumb" style="width:20px;height:20px;background:white;border-radius:50%;margin:2px;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2)"></div>
+              </div>
+            </div>
+            <span id="timer-toggle-label" style="font-size:13px;font-weight:600;color:#888">Off</span>
+          </label>
+        </div>
         <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
           <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">All papers</button>
           <button class="filter-tab" id="tab-paper1" onclick="setFilter('paper1')">📚 Paper 1 — Fiction &amp; Creative Writing</button>
@@ -284,7 +314,14 @@
           </div>
           <button class="back-btn" onclick="backToPapers()">← All papers</button>
         </div>
-        <div class="progress-track" id="progress-track"></div>
+       <div class="progress-track" id="progress-track"></div>
+        <div class="timer-bar" id="timer-bar" style="display:none">
+          <div>
+            <div class="timer-label">⏱ Time remaining</div>
+            <div class="timer-display" id="timer-display">1:45:00</div>
+          </div>
+          <button class="timer-toggle" onclick="toggleTimer()">Pause</button>
+        </div>
       </div>
 
       <div class="extract-card" id="extract-card" style="display:none">
@@ -1319,6 +1356,7 @@ function selectPaper(paper) {
   currentPaper = paper;
   currentQIndex = 0;
   questionScores = {};
+  startTimer(paper.totalMarks);
   document.getElementById('paper-selector').style.display = 'none';
   document.getElementById('paper-view').style.display = 'block';
   document.getElementById('paper-title').textContent = paper.title;
@@ -1329,6 +1367,7 @@ function selectPaper(paper) {
 }
 
 function backToPapers() {
+  stopTimer();
   currentPaper = null;
   currentQIndex = 0;
   questionScores = {};
@@ -1567,7 +1606,78 @@ async function submitAnswer() {
   btn.disabled = false;
   btn.textContent = '✦ Submit for AI marking';
 }
+// ── TIMER ─────────────────────────────────────────────────────────────────────
 
+var timerInterval = null;
+var timerSeconds = 0;
+var timerRunning = false;
+var timerPaused = false;
+var timerEnabled = false;
+
+function updateTimerToggle() {
+  timerEnabled = document.getElementById('timer-toggle-checkbox').checked;
+  document.getElementById('toggle-track').style.background = timerEnabled ? '#6c5ce7' : '#ddd';
+  document.getElementById('toggle-thumb').style.transform = timerEnabled ? 'translateX(20px)' : 'translateX(0)';
+  document.getElementById('timer-toggle-label').textContent = timerEnabled ? 'On' : 'Off';
+  document.getElementById('timer-toggle-label').style.color = timerEnabled ? '#6c5ce7' : '#888';
+}
+
+function startTimer(totalMarks) {
+  clearInterval(timerInterval);
+  if (!timerEnabled) {
+    document.getElementById('timer-bar').style.display = 'none';
+    return;
+  }
+  if (totalMarks === 60) {
+    timerSeconds = 90 * 60;
+  } else if (totalMarks === 80) {
+    timerSeconds = 105 * 60;
+  } else {
+    timerSeconds = 90 * 60;
+  }
+  timerRunning = true;
+  timerPaused = false;
+  document.getElementById('timer-bar').style.display = 'flex';
+  updateTimerDisplay();
+  timerInterval = setInterval(function() {
+    if (!timerPaused) {
+      timerSeconds--;
+      updateTimerDisplay();
+      if (timerSeconds <= 0) {
+        clearInterval(timerInterval);
+        timerRunning = false;
+        document.getElementById('timer-display').textContent = '0:00:00';
+        alert('Time is up! In a real exam you would need to stop writing now.');
+      }
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  var h = Math.floor(timerSeconds / 3600);
+  var m = Math.floor((timerSeconds % 3600) / 60);
+  var s = timerSeconds % 60;
+  var display = h + ':' + (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+  var el = document.getElementById('timer-display');
+  el.textContent = display;
+  el.className = 'timer-display';
+  if (timerSeconds <= 5 * 60) {
+    el.classList.add('danger');
+  } else if (timerSeconds <= 20 * 60) {
+    el.classList.add('warning');
+  }
+}
+
+function toggleTimer() {
+  timerPaused = !timerPaused;
+  document.querySelector('.timer-toggle').textContent = timerPaused ? 'Resume' : 'Pause';
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  timerRunning = false;
+  document.getElementById('timer-bar').style.display = 'none';
+}
 // ── FINAL SCORE ───────────────────────────────────────────────────────────────
 
 async function showFinalScore() {
