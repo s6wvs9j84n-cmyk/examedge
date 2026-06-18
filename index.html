@@ -207,6 +207,7 @@
     </a>
     <div class="nav-right">
       <span class="nav-badge">GCSE · AI Marking</span>
+      <a href="dashboard.html" style="font-size:13px;color:#6c5ce7;font-weight:600;text-decoration:none">📊 My Progress</a>
       <span class="nav-user" id="user-email"></span>
       <button class="nav-btn outline" onclick="handleLogout()">Sign out</button>
     </div>
@@ -1569,7 +1570,7 @@ async function submitAnswer() {
 
 // ── FINAL SCORE ───────────────────────────────────────────────────────────────
 
-function showFinalScore() {
+async function showFinalScore() {
   var scores = Object.values(questionScores);
   var total = scores.reduce(function(sum, s) { return sum + s.score; }, 0);
   var maxTotal = scores.reduce(function(sum, s) { return sum + s.max; }, 0);
@@ -1579,6 +1580,23 @@ function showFinalScore() {
     rowsHtml += '<div class="final-q-row"><span class="final-q-name">' + s.label + '</span><span class="final-q-score">' + s.score + '/' + s.max + '</span></div>';
   });
   document.getElementById('final-q-scores').innerHTML = rowsHtml;
+
+  // Save attempt to Supabase
+  if (currentUser && total > 0) {
+    try {
+      await supabaseClient.from('attempts').insert({
+        user_id: currentUser.id,
+        paper_id: currentPaper.id,
+        paper_title: currentPaper.title,
+        exam_board: currentBoard,
+        total_score: total,
+        max_score: maxTotal
+      });
+    } catch (e) {
+      console.log('Could not save attempt:', e);
+    }
+  }
+
   document.getElementById('final-score-card').style.display = 'block';
   document.getElementById('final-score-card').scrollIntoView({ behavior: 'smooth' });
 }
