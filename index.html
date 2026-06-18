@@ -269,15 +269,14 @@
             <div style="font-size:14px;font-weight:700;color:#1a1a2e">⏱ Exam timer</div>
             <div style="font-size:13px;color:#888;margin-top:2px">Simulate real exam conditions with a countdown timer</div>
           </div>
-          <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
-            <div style="position:relative">
-              <input type="checkbox" id="timer-toggle-checkbox" style="opacity:0;position:absolute;width:0;height:0" onchange="updateTimerToggle()">
-              <div id="toggle-track" style="width:44px;height:24px;background:#ddd;border-radius:12px;transition:background 0.2s;cursor:pointer" onclick="document.getElementById('timer-toggle-checkbox').click()">
-                <div id="toggle-thumb" style="width:20px;height:20px;background:white;border-radius:50%;margin:2px;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2)"></div>
-              </div>
-            </div>
-            <span id="timer-toggle-label" style="font-size:13px;font-weight:600;color:#888">Off</span>
-          </label>
+          <div style="display:flex;align-items:center;gap:8px;cursor:pointer" onclick="updateTimerToggle()">
+  <div style="position:relative">
+    <div id="toggle-track" style="width:44px;height:24px;background:#ddd;border-radius:12px;transition:background 0.2s;cursor:pointer">
+      <div id="toggle-thumb" style="width:20px;height:20px;background:white;border-radius:50%;margin:2px;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.2)"></div>
+    </div>
+  </div>
+  <span id="timer-toggle-label" style="font-size:13px;font-weight:600;color:#888">Off</span>
+</div>
         </div>
         <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
           <button class="filter-tab active" id="tab-all" onclick="setFilter('all')">All papers</button>
@@ -1600,7 +1599,7 @@ var timerPaused = false;
 var timerEnabled = false;
 
 function updateTimerToggle() {
-  timerEnabled = document.getElementById('timer-toggle-checkbox').checked;
+  timerEnabled = !timerEnabled;
   document.getElementById('toggle-track').style.background = timerEnabled ? '#6c5ce7' : '#ddd';
   document.getElementById('toggle-thumb').style.transform = timerEnabled ? 'translateX(20px)' : 'translateX(0)';
   document.getElementById('timer-toggle-label').textContent = timerEnabled ? 'On' : 'Off';
