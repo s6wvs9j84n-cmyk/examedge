@@ -72,6 +72,21 @@
     .usage-dot.used { background: #a29bfe; }
     .main { max-width: 820px; margin: 0 auto; padding: 36px 20px 60px; }
     .board-section { margin-bottom: 24px; }
+    .reviews-section { padding: 40px 32px; background: white; border-bottom: 1px solid #ebebf5; }
+.reviews-inner { max-width: 1100px; margin: 0 auto; }
+.reviews-label { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; text-align: center; }
+.reviews-heading { font-size: 22px; font-weight: 800; color: #1a1a2e; text-align: center; margin-bottom: 28px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.review-card { background: #fafafa; border: 1.5px solid #ebebf5; border-radius: 14px; padding: 22px; }
+.review-stars { color: #f5a623; font-size: 14px; margin-bottom: 10px; letter-spacing: 2px; }
+.review-quote { font-size: 14px; color: #333; line-height: 1.6; margin-bottom: 16px; }
+.review-footer { display: flex; align-items: center; justify-content: space-between; }
+.review-author { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+.review-meta { font-size: 12px; color: #999; margin-top: 1px; }
+.review-tag { background: #f0eeff; color: #6c5ce7; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
+@media (max-width: 800px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
     .board-section-label { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .board-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .board-btn {
@@ -232,6 +247,54 @@
     </div>
   </div>
 
+  <div class="reviews-section">
+    <div class="reviews-inner">
+      <div class="reviews-label">What students are saying</div>
+      <div class="reviews-heading">Real results from real revision</div>
+      <div class="reviews-grid">
+
+        <!-- REVIEW 1 — edit the text, name, and exam board below -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-quote">"The feedback felt like an actual examiner had marked it. I went from guessing what AOs meant to actually hitting them."</div>
+          <div class="review-footer">
+            <div>
+              <div class="review-author">Amira K.</div>
+              <div class="review-meta">Year 11 · AQA</div>
+            </div>
+            <div class="review-tag">Grade 5 → 8</div>
+          </div>
+        </div>
+
+        <!-- REVIEW 2 — edit the text, name, and exam board below -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-quote">"Doing full past papers under timed conditions made the real exam feel like just another practice session."</div>
+          <div class="review-footer">
+            <div>
+              <div class="review-author">Daniel O.</div>
+              <div class="review-meta">Year 10 · Edexcel</div>
+            </div>
+            <div class="review-tag">Used weekly</div>
+          </div>
+        </div>
+
+        <!-- REVIEW 3 — edit the text, name, and exam board below -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-quote">"I could finally see exactly which marks I was losing on the writing questions instead of just a number."</div>
+          <div class="review-footer">
+            <div>
+              <div class="review-author">Layla H.</div>
+              <div class="review-meta">Year 11 · Cambridge IGCSE</div>
+            </div>
+            <div class="review-tag">Grade 6 → 9</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <div class="main">
     <div class="board-section">
       <div class="board-section-label">Select your exam board</div>
