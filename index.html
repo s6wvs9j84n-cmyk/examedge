@@ -87,6 +87,40 @@
 @media (max-width: 800px) {
   .reviews-grid { grid-template-columns: 1fr; }
 }
+.review-cta-btn {
+  background: white; border: 1.5px solid #6c5ce7; color: #6c5ce7;
+  font-size: 14px; font-weight: 700; padding: 12px 26px; border-radius: 10px;
+  cursor: pointer; transition: all 0.15s;
+}
+.review-cta-btn:hover { background: #6c5ce7; color: white; }
+.review-modal-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(20,18,40,0.55);
+  align-items: center; justify-content: center; z-index: 1000; padding: 20px;
+}
+.review-modal-overlay.open { display: flex; }
+.review-modal {
+  background: white; border-radius: 16px; padding: 28px; width: 100%; max-width: 420px;
+  max-height: 90vh; overflow-y: auto; box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+.review-modal-title { font-size: 18px; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
+.review-modal-sub { font-size: 13px; color: #888; margin-bottom: 18px; line-height: 1.5; }
+.review-form-label { display: block; font-size: 12px; font-weight: 700; color: #555; margin: 14px 0 6px; }
+.review-form-input {
+  width: 100%; border: 1.5px solid #ebebf5; border-radius: 8px; padding: 10px 12px;
+  font-size: 14px; font-family: inherit; box-sizing: border-box; resize: vertical;
+}
+.review-form-input:focus { outline: none; border-color: #6c5ce7; }
+.review-star-picker { font-size: 26px; letter-spacing: 4px; color: #ddd; cursor: pointer; }
+.review-star-picker span { transition: color 0.1s; }
+.review-star-picker span.filled { color: #f5a623; }
+.review-form-error { color: #e74c3c; font-size: 12px; margin-top: 10px; min-height: 16px; }
+.review-modal-actions { display: flex; gap: 10px; margin-top: 16px; }
+.review-modal-cancel, .review-modal-submit {
+  flex: 1; padding: 11px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; border: none;
+}
+.review-modal-cancel { background: #f3f3f7; color: #555; }
+.review-modal-submit { background: #6c5ce7; color: white; }
+.review-modal-submit:disabled { opacity: 0.6; cursor: default; }
     .board-section-label { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .board-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .board-btn {
@@ -251,7 +285,7 @@
     <div class="reviews-inner">
       <div class="reviews-label">What students are saying</div>
       <div class="reviews-heading">Real results from real revision</div>
-      <div class="reviews-grid">
+      <div class="reviews-grid" id="reviews-grid">
 
         <!-- REVIEW 1 — edit the text, name, and exam board below -->
         <div class="review-card">
@@ -292,6 +326,53 @@
           </div>
         </div>
 
+      </div>
+      <div style="text-align:center;margin-top:28px">
+        <button class="review-cta-btn" onclick="openReviewModal()">✦ Leave a review</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leave a review modal -->
+  <div id="review-modal-overlay" class="review-modal-overlay" onclick="if(event.target===this) closeReviewModal()">
+    <div class="review-modal">
+      <div class="review-modal-title">Leave a review</div>
+      <div class="review-modal-sub">Tell other students what you thought — we'll review it before it goes live.</div>
+
+      <div id="review-form-fields">
+        <label class="review-form-label">Your name</label>
+        <input type="text" id="review-name" class="review-form-input" placeholder="e.g. Sara M.">
+
+        <label class="review-form-label">Year group</label>
+        <input type="text" id="review-year" class="review-form-input" placeholder="e.g. Year 11">
+
+        <label class="review-form-label">Exam board</label>
+        <select id="review-board" class="review-form-input">
+          <option value="AQA">AQA</option>
+          <option value="Edexcel">Edexcel</option>
+          <option value="Cambridge IGCSE">Cambridge IGCSE</option>
+        </select>
+
+        <label class="review-form-label">Rating</label>
+        <div id="review-star-picker" class="review-star-picker">
+          <span data-star="1">★</span><span data-star="2">★</span><span data-star="3">★</span><span data-star="4">★</span><span data-star="5">★</span>
+        </div>
+
+        <label class="review-form-label">Your review</label>
+        <textarea id="review-quote-input" class="review-form-input" rows="4" placeholder="What was your experience using ExamEdge?"></textarea>
+
+        <div id="review-form-error" class="review-form-error"></div>
+
+        <div class="review-modal-actions">
+          <button class="review-modal-cancel" onclick="closeReviewModal()">Cancel</button>
+          <button class="review-modal-submit" id="review-submit-btn" onclick="submitReview()">Submit review</button>
+        </div>
+      </div>
+
+      <div id="review-form-success" style="display:none;text-align:center;padding:20px 0">
+        <div style="font-size:36px;margin-bottom:10px">✦</div>
+        <div style="font-weight:700;color:#1a1a2e;margin-bottom:6px">Thanks for the review!</div>
+        <div style="font-size:13px;color:#888">We'll take a look and publish it soon.</div>
       </div>
     </div>
   </div>
@@ -441,6 +522,112 @@ const SUPABASE_URL = 'https://zxnicwzzlpfekzqwtrxt.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_y4RFImXWiWEZZ6HpXST9_w_LRvjOras';
 const { createClient } = supabase;
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// — REVIEWS —
+let selectedRating = 5;
+
+function openReviewModal() {
+  document.getElementById('review-modal-overlay').classList.add('open');
+  document.getElementById('review-form-fields').style.display = 'block';
+  document.getElementById('review-form-success').style.display = 'none';
+  document.getElementById('review-form-error').textContent = '';
+  document.getElementById('review-name').value = '';
+  document.getElementById('review-year').value = '';
+  document.getElementById('review-quote-input').value = '';
+  selectedRating = 5;
+  paintStars();
+}
+
+function closeReviewModal() {
+  document.getElementById('review-modal-overlay').classList.remove('open');
+}
+
+function paintStars() {
+  document.querySelectorAll('#review-star-picker span').forEach(s => {
+    s.classList.toggle('filled', parseInt(s.dataset.star) <= selectedRating);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('#review-star-picker span').forEach(s => {
+    s.addEventListener('click', () => {
+      selectedRating = parseInt(s.dataset.star);
+      paintStars();
+    });
+  });
+  loadApprovedReviews();
+});
+
+async function submitReview() {
+  const name = document.getElementById('review-name').value.trim();
+  const year = document.getElementById('review-year').value.trim();
+  const board = document.getElementById('review-board').value;
+  const quote = document.getElementById('review-quote-input').value.trim();
+  const errorEl = document.getElementById('review-form-error');
+
+  if (!name || !quote) {
+    errorEl.textContent = 'Please add your name and a short review.';
+    return;
+  }
+
+  const btn = document.getElementById('review-submit-btn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  try {
+    const { error } = await supabaseClient.from('reviews').insert({
+      author_name: name,
+      year_group: year || null,
+      exam_board: board,
+      quote: quote,
+      rating: selectedRating,
+      approved: false
+    });
+    if (error) throw error;
+
+    document.getElementById('review-form-fields').style.display = 'none';
+    document.getElementById('review-form-success').style.display = 'block';
+  } catch (e) {
+    errorEl.textContent = 'Something went wrong — please try again.';
+    console.log('Review submit error:', e);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Submit review';
+  }
+}
+
+async function loadApprovedReviews() {
+  try {
+    const { data, error } = await supabaseClient
+      .from('reviews')
+      .select('*')
+      .eq('approved', true)
+      .order('created_at', { ascending: false })
+      .limit(6);
+    if (error || !data || data.length === 0) return;
+
+    const grid = document.getElementById('reviews-grid');
+    data.forEach(r => {
+      const stars = '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating);
+      const metaParts = [r.year_group, r.exam_board].filter(Boolean).join(' · ');
+      const card = document.createElement('div');
+      card.className = 'review-card';
+      card.innerHTML = `
+        <div class="review-stars">${stars}</div>
+        <div class="review-quote">"${r.quote.replace(/</g,'&lt;')}"</div>
+        <div class="review-footer">
+          <div>
+            <div class="review-author">${r.author_name.replace(/</g,'&lt;')}</div>
+            <div class="review-meta">${metaParts.replace(/</g,'&lt;')}</div>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+  } catch (e) {
+    console.log('Could not load reviews:', e);
+  }
+}
+
 
 const FREE_LIMIT = 3;
 let currentUser = null;
