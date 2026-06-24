@@ -1491,7 +1491,7 @@ function updateUsageDisplay() {
     return;
   }
   // Show early access popup for non-premium users after a short delay
-  const deadline = new Date('2026-07-15T23:59:59');
+  const deadline = new Date('2026-08-31T23:59:59');
   if (new Date() < deadline) {
     setTimeout(showEarlyPopup, 2000);
   }
@@ -1956,7 +1956,7 @@ async function showFinalScore() {
 init();
 
 // — EARLY ACCESS POPUP —
-const EARLY_ACCESS_DEADLINE = new Date('2026-07-15T23:59:59');
+const EARLY_ACCESS_DEADLINE = new Date('2026-08-31T23:59:59');
 
 function showEarlyPopup() {
   if (localStorage.getItem('earlyPopupDismissed')) return;
