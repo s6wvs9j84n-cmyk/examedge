@@ -121,6 +121,21 @@
 .review-modal-cancel { background: #f3f3f7; color: #555; }
 .review-modal-submit { background: #6c5ce7; color: white; }
 .review-modal-submit:disabled { opacity: 0.6; cursor: default; }
+.early-popup-overlay { display:none; position:fixed; inset:0; background:rgba(20,18,40,0.6); align-items:center; justify-content:center; z-index:2000; padding:20px; }
+.early-popup-overlay.open { display:flex; }
+.early-popup { background:white; border-radius:20px; padding:32px; width:100%; max-width:400px; text-align:center; box-shadow:0 16px 50px rgba(0,0,0,0.3); position:relative; }
+.early-popup-badge { background:#fff3e0; color:#e67e22; font-size:11px; font-weight:800; padding:5px 12px; border-radius:20px; display:inline-block; margin-bottom:14px; letter-spacing:1px; text-transform:uppercase; }
+.early-popup-title { font-size:22px; font-weight:800; color:#1a1a2e; margin-bottom:8px; line-height:1.3; }
+.early-popup-sub { font-size:14px; color:#666; margin-bottom:20px; line-height:1.5; }
+.early-popup-price { margin-bottom:20px; }
+.early-popup-price .old { font-size:15px; color:#bbb; text-decoration:line-through; margin-right:8px; }
+.early-popup-price .new { font-size:32px; font-weight:800; color:#6c5ce7; }
+.early-popup-price .per { font-size:14px; color:#888; }
+.early-popup-timer { background:#f8f6ff; border-radius:10px; padding:10px 14px; margin-bottom:20px; font-size:12px; color:#888; }
+.early-popup-timer span { font-weight:800; color:#e74c3c; font-size:14px; }
+.early-popup-cta { background:linear-gradient(135deg,#6c5ce7,#8b7cf6); color:white; border:none; width:100%; padding:14px; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; margin-bottom:10px; }
+.early-popup-skip { background:none; border:none; color:#aaa; font-size:13px; cursor:pointer; padding:4px; }
+.early-popup-skip:hover { color:#666; }
     .board-section-label { font-size: 13px; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
     .board-btns { display: flex; gap: 10px; flex-wrap: wrap; }
     .board-btn {
@@ -489,7 +504,7 @@
               <div class="price-feature"><span>✓</span><span>Progress tracking</span></div>
             </div>
           </div>
-          <button class="upgrade-btn" onclick="handleUpgrade()">Upgrade to Premium — £4.99/month</button>
+          <button class="upgrade-btn" onclick="handleUpgrade()">Upgrade to Premium — £3.99/month</button>
         </div>
         <div class="q-nav" id="q-nav" style="display:none">
           <button class="q-nav-btn" id="prev-btn" onclick="prevQuestion()">← Previous</button>
@@ -1475,6 +1490,11 @@ function updateUsageDisplay() {
     document.getElementById('usage-bar').innerHTML = '<div class="usage-text">⭐ <strong>Premium</strong> — Unlimited markings</div>';
     return;
   }
+  // Show early access popup for non-premium users after a short delay
+  const deadline = new Date('2026-07-15T23:59:59');
+  if (new Date() < deadline) {
+    setTimeout(showEarlyPopup, 2000);
+  }
   document.getElementById('usage-count').textContent = Math.min(used, FREE_LIMIT);
   for (let i = 1; i <= 3; i++) {
     const dot = document.getElementById('dot-' + i);
@@ -1487,24 +1507,12 @@ async function handleLogout() {
   window.location.href = 'auth.html';
 }
 
-async function handleUpgrade() {
-  const btn = document.querySelector('.upgrade-btn');
-  btn.textContent = 'Loading...';
-  btn.disabled = true;
-  try {
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: currentUser.id, email: currentUser.email })
-    });
-    const data = await response.json();
-    if (data.url) { window.location.href = data.url; }
-    else { alert('Something went wrong.'); btn.textContent = 'Upgrade to Premium — £4.99/month'; btn.disabled = false; }
-  } catch (error) {
-    alert('Something went wrong.');
-    btn.textContent = 'Upgrade to Premium — £4.99/month';
-    btn.disabled = false;
-  }
+function handleUpgrade() {
+  window.location.href = 'https://examedge.lemonsqueezy.com/checkout/buy/6b93f0f4-c42b-455e-8432-f46a880436eb';
+}
+
+function handleEarlyAccess() {
+  window.location.href = 'https://examedge.lemonsqueezy.com/checkout/buy/6b93f0f4-c42b-455e-8432-f46a880436eb?discount=E3MJCX0A';
 }
 
 // ── BOARD & FILTER ────────────────────────────────────────────────────────────
@@ -1946,6 +1954,57 @@ async function showFinalScore() {
 }
 
 init();
+
+// — EARLY ACCESS POPUP —
+const EARLY_ACCESS_DEADLINE = new Date('2026-07-15T23:59:59');
+
+function showEarlyPopup() {
+  if (localStorage.getItem('earlyPopupDismissed')) return;
+  document.getElementById('early-popup-overlay').classList.add('open');
+  startPopupCountdown();
+}
+
+function dismissEarlyPopup() {
+  localStorage.setItem('earlyPopupDismissed', '1');
+  document.getElementById('early-popup-overlay').classList.remove('open');
+}
+
+function startPopupCountdown() {
+  function update() {
+    const now = new Date();
+    const diff = EARLY_ACCESS_DEADLINE - now;
+    if (diff <= 0) {
+      document.getElementById('popup-countdown').textContent = 'Offer expired';
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('popup-countdown').textContent =
+      `${days}d ${hrs}h ${mins}m ${secs}s`;
+  }
+  update();
+  setInterval(update, 1000);
+}
 </script>
+
+<!-- Early Access Popup -->
+<div id="early-popup-overlay" class="early-popup-overlay" onclick="if(event.target===this) dismissEarlyPopup()">
+  <div class="early-popup">
+    <div class="early-popup-badge">🎉 Limited Early Access Offer</div>
+    <div class="early-popup-title">Get ExamEdge Premium for almost free</div>
+    <div class="early-popup-sub">Lock in our early access price before we add more subjects and raise the price.</div>
+    <div class="early-popup-price">
+      <span class="old">£3.99/mo</span>
+      <span class="new">£0.99</span>
+      <span class="per">/month for 6 months</span>
+    </div>
+    <div class="early-popup-timer">⏰ Offer ends in <span id="popup-countdown">...</span></div>
+    <button class="early-popup-cta" onclick="handleEarlyAccess()">Claim Early Access — £0.99/mo</button>
+    <button class="early-popup-skip" onclick="dismissEarlyPopup()">No thanks, I'll pay full price later</button>
+  </div>
+</div>
+
 </body>
 </html>
